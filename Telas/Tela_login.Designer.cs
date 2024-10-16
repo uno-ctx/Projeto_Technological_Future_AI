@@ -35,8 +35,6 @@
             this.tb_username = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tb_password = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btn_login = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -56,6 +54,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_SignUp = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.tb_password = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -72,6 +72,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             // 
             // lbl_fechar
             // 
@@ -122,24 +123,6 @@
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "PASSWORD:";
-            // 
-            // tb_password
-            // 
-            this.tb_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.tb_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_password.ForeColor = System.Drawing.Color.LightGray;
-            this.tb_password.Location = new System.Drawing.Point(116, 244);
-            this.tb_password.Name = "tb_password";
-            this.tb_password.Size = new System.Drawing.Size(165, 13);
-            this.tb_password.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.LightGray;
-            this.panel2.Location = new System.Drawing.Point(116, 258);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(165, 1);
-            this.panel2.TabIndex = 4;
             // 
             // pictureBox3
             // 
@@ -197,6 +180,7 @@
             this.label3.Size = new System.Drawing.Size(193, 21);
             this.label3.TabIndex = 2;
             this.label3.Text = "Technological Future AI";
+            this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label3_MouseDown);
             // 
             // panel3
             // 
@@ -431,6 +415,24 @@
             this.checkBox3.Text = "Tradução";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
+            // tb_password
+            // 
+            this.tb_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.tb_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_password.ForeColor = System.Drawing.Color.LightGray;
+            this.tb_password.Location = new System.Drawing.Point(116, 244);
+            this.tb_password.Name = "tb_password";
+            this.tb_password.Size = new System.Drawing.Size(165, 13);
+            this.tb_password.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.LightGray;
+            this.panel2.Location = new System.Drawing.Point(116, 258);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(165, 1);
+            this.panel2.TabIndex = 4;
+            // 
             // Tela_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,6 +458,8 @@
             this.Name = "Tela_login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela_login";
+            this.Load += new System.EventHandler(this.Tela_login_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_login_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -475,8 +479,6 @@
         private System.Windows.Forms.TextBox tb_username;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_password;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private Bunifu.Framework.UI.BunifuThinButton2 btn_login;
@@ -496,5 +498,7 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label lbl_LogIn;
         private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.TextBox tb_password;
+        private System.Windows.Forms.Panel panel2;
     }
 }

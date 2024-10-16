@@ -115,5 +115,11 @@
       <Version>1.0.119</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="img\seta-para-baixo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\setas-para-cima.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

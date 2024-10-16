@@ -32,10 +32,14 @@ namespace Technological_Future_AI
             panel3.Width += 3;
             if (panel3.Width >= 499)
             {
-                Telas.Tela_login tl = new Telas.Tela_login();
-                tl.Show();
+                // Abre o Tela_login e fecha o Tela_apresentacao
                 timer1.Stop();
-                this.Hide();
+                this.Hide(); // Isso para evitar que Tela_apresentacao permaneça visível
+
+                // Certifica que Tela_login só é exibida uma vez
+                Telas.Tela_login telaLogin = new Telas.Tela_login();
+                telaLogin.ShowDialog(); // Isso garante que só fecha o form anterior ao abrir este
+                this.Close(); // Encerra a Tela_apresentacao
             }
         }
 
@@ -64,7 +68,7 @@ namespace Technological_Future_AI
             {
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-                this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_apresentacao_MouseDown);
+                //this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_apresentacao_MouseDown);
             }
         }
 
@@ -74,7 +78,7 @@ namespace Technological_Future_AI
             {
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-                this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_apresentacao_MouseDown);
+                //this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_apresentacao_MouseDown);
             }
         }
 
@@ -84,7 +88,7 @@ namespace Technological_Future_AI
             {
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-                this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_apresentacao_MouseDown);
+                //this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_apresentacao_MouseDown);
             }
         }
 
@@ -94,7 +98,7 @@ namespace Technological_Future_AI
             {
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-                this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_apresentacao_MouseDown);
+                //this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_apresentacao_MouseDown);
             }
         }
 
@@ -104,7 +108,7 @@ namespace Technological_Future_AI
             {
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-                this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_apresentacao_MouseDown);
+               // this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_apresentacao_MouseDown);
             }
         }
     }
