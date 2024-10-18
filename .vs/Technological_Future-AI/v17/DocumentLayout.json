@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\telas\\tela_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|solutionrelative:telas\\tela_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|d:\\projeto_contas_2024\\projeto_technological_future-ai\\telas\\tela_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|solutionrelative:telas\\tela_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\telas\\tela_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|d:\\projeto_contas_2024\\projeto_technological_future-ai\\telas\\tela_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|solutionrelative:telas\\tela_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|d:\\projeto_contas_2024\\projeto_technological_future-ai\\telas\\tela_menu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|solutionrelative:telas\\tela_menu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\telas\\tela_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|solutionrelative:telas\\tela_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\telas\\tela_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7087B820-2B9A-4872-AF43-712168AA393F}|Technological_Future-AI.csproj|solutionrelative:telas\\tela_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,79 +38,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Tela_menu.Designer.cs",
-              "DocumentMoniker": "D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\Telas\\Tela_menu.Designer.cs",
-              "RelativeDocumentMoniker": "Telas\\Tela_menu.Designer.cs",
-              "ToolTip": "D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\Telas\\Tela_menu.Designer.cs",
-              "RelativeToolTip": "Telas\\Tela_menu.Designer.cs",
-              "ViewState": "AgIAAL4BAAAAAAAAAAArwPIBAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T03:19:20.361Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Tela_menu.cs [Design]",
-              "DocumentMoniker": "D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\Telas\\Tela_menu.cs",
-              "RelativeDocumentMoniker": "Telas\\Tela_menu.cs",
-              "ToolTip": "D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\Telas\\Tela_menu.cs [Design]",
-              "RelativeToolTip": "Telas\\Tela_menu.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T00:29:10.805Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T21:17:41.317Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T21:17:41.317Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Tela_menu.cs",
-              "DocumentMoniker": "D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\Telas\\Tela_menu.cs",
-              "RelativeDocumentMoniker": "Telas\\Tela_menu.cs",
-              "ToolTip": "D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\Telas\\Tela_menu.cs",
-              "RelativeToolTip": "Telas\\Tela_menu.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACgAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T23:12:07.815Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Tela_login.cs",
               "DocumentMoniker": "D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\Telas\\Tela_login.cs",
               "RelativeDocumentMoniker": "Telas\\Tela_login.cs",
               "ToolTip": "D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\Telas\\Tela_login.cs",
               "RelativeToolTip": "Telas\\Tela_login.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAmwGoAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-11T20:36:37.899Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Tela_login.cs [Design]",
               "DocumentMoniker": "D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\Telas\\Tela_login.cs",
               "RelativeDocumentMoniker": "Telas\\Tela_login.cs",
               "ToolTip": "D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\Telas\\Tela_login.cs [Design]",
               "RelativeToolTip": "Telas\\Tela_login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T19:56:32.198Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-11T19:56:32.198Z"
             }
           ]
         }

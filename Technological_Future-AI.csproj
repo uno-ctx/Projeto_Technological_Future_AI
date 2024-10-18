@@ -111,6 +111,9 @@
     <None Include="img\Ligado.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Guna.UI2.WinForms">
+      <Version>2.0.4.6</Version>
+    </PackageReference>
     <PackageReference Include="System.Data.SQLite">
       <Version>1.0.119</Version>
     </PackageReference>

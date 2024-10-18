@@ -18,9 +18,7 @@ namespace Technological_Future_AI.Telas
         private bool isCollapsed;
         public Tela_menu()
         {
-
             InitializeComponent();
-
         }
 
         public const int WM_NCLBUTTONDOWN = 0XA1;
@@ -39,22 +37,8 @@ namespace Technological_Future_AI.Telas
                 panelSlide.Width = btn.Width;
                 panelSlide.Height = btn.Left;
                 panelSlide.Visible = true;
-
             }
         }
-
-        /*private void movepanel(Control btn)
-        {
-            if (panelSlide != null)
-            {
-                //MessageBox.Show("Movendo painel...");  // Apenas para testes
-                panelSlide.Width = btn.Width;
-                panelSlide.Left = btn.Left;
-                panelSlide.Visible = true;
-                panelSlide.Refresh();
-            }
-
-        }*/
 
         private void lbl_fechar_Click(object sender, EventArgs e)
         {
@@ -81,7 +65,7 @@ namespace Technological_Future_AI.Telas
             if (isCollapsed)
             {
                 button7.Image = Resources.setas_para_cima;
-                corpo1.Height += 10;
+                corpo1.Height += 8;
                 if (corpo1.Size == corpo1.MaximumSize)
                 {
                     timer1.Stop();
@@ -91,7 +75,7 @@ namespace Technological_Future_AI.Telas
             else
             {
                 button7.Image = Resources.seta_para_baixo;
-                corpo1.Height -= 10;
+                corpo1.Height -= 8;
                 if (corpo1.Size == corpo1.MinimumSize)
                 {
                     timer1.Stop();
@@ -105,7 +89,7 @@ namespace Technological_Future_AI.Telas
             if (isCollapsed)
             {
                 button37.Image = Resources.setas_para_cima;
-                corpo2.Height += 10;
+                corpo2.Height += 8;
                 if (corpo2.Size == corpo2.MaximumSize)
                 {
                     timer2.Stop();
@@ -115,7 +99,7 @@ namespace Technological_Future_AI.Telas
             else
             {
                 button37.Image = Resources.seta_para_baixo;
-                corpo2.Height -= 10;
+                corpo2.Height -= 8;
                 if (corpo2.Size == corpo2.MinimumSize)
                 {
                     timer2.Stop();
@@ -129,7 +113,7 @@ namespace Technological_Future_AI.Telas
             if (isCollapsed)
             {
                 button45.Image = Resources.setas_para_cima;
-                corpo3.Height += 10;
+                corpo3.Height += 8;
                 if (corpo3.Size == corpo3.MaximumSize)
                 {
                     timer3.Stop();
@@ -139,7 +123,7 @@ namespace Technological_Future_AI.Telas
             else
             {
                 button45.Image = Resources.seta_para_baixo;
-                corpo3.Height -= 10;
+                corpo3.Height -= 8;
                 if (corpo3.Size == corpo3.MinimumSize)
                 {
                     timer3.Stop();
@@ -153,7 +137,7 @@ namespace Technological_Future_AI.Telas
             if (isCollapsed)
             {
                 button21.Image = Resources.setas_para_cima;
-                corpo4.Height += 10;
+                corpo4.Height += 8;
                 if (corpo4.Size == corpo4.MaximumSize)
                 {
                     timer4.Stop();
@@ -163,7 +147,7 @@ namespace Technological_Future_AI.Telas
             else
             {
                 button21.Image = Resources.seta_para_baixo;
-                corpo4.Height -= 10;
+                corpo4.Height -= 8;
                 if (corpo4.Size == corpo4.MinimumSize)
                 {
                     timer4.Stop();
@@ -177,7 +161,7 @@ namespace Technological_Future_AI.Telas
             if (isCollapsed)
             {
                 button29.Image = Resources.setas_para_cima;
-                corpo5.Height += 10;
+                corpo5.Height += 8;
                 if (corpo5.Size == corpo5.MaximumSize)
                 {
                     timer5.Stop();
@@ -187,7 +171,7 @@ namespace Technological_Future_AI.Telas
             else
             {
                 button29.Image = Resources.seta_para_baixo;
-                corpo5.Height -= 10;
+                corpo5.Height -= 8;
                 if (corpo5.Size == corpo5.MinimumSize)
                 {
                     timer5.Stop();
@@ -212,7 +196,7 @@ namespace Technological_Future_AI.Telas
         {
             movepanel(button45);
             timer3.Start();
-         }
+        }
 
         private void button21_Click(object sender, EventArgs e)
         {
@@ -225,7 +209,6 @@ namespace Technological_Future_AI.Telas
             movepanel(button29);
             timer5.Start();
         }
-
 
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
@@ -252,6 +235,13 @@ namespace Technological_Future_AI.Telas
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void Ativar_SQL_Server_Click(object sender, EventArgs e)
+        {
+            string CaminhoBatchSQLServer = @"D:\Projeto_Contas_2024\Projeto_Technological_Future-AI\Bat\Ligar serviços SQL Server.bat";
+
+            System.Diagnostics.Process.Start(CaminhoBatchSQLServer);
         }
     }
 }

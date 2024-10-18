@@ -28,6 +28,20 @@
           "buildTransitive/EntityFramework.targets": {}
         }
       },
+      "Guna.UI2.WinForms/2.0.4.6": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Design",
+          "System.Management",
+          "System.Web"
+        ],
+        "compile": {
+          "lib/net48/Guna.UI2.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Guna.UI2.dll": {}
+        }
+      },
       "Stub.System.Data.SQLite.Core.NetFramework/1.0.119": {
         "type": "package",
         "compile": {
@@ -105,6 +119,20 @@
         "build": {
           "buildTransitive/EntityFramework.props": {},
           "buildTransitive/EntityFramework.targets": {}
+        }
+      },
+      "Guna.UI2.WinForms/2.0.4.6": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Design",
+          "System.Management",
+          "System.Web"
+        ],
+        "compile": {
+          "lib/net48/Guna.UI2.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Guna.UI2.dll": {}
         }
       },
       "Stub.System.Data.SQLite.Core.NetFramework/1.0.119": {
@@ -186,6 +214,20 @@
           "buildTransitive/EntityFramework.targets": {}
         }
       },
+      "Guna.UI2.WinForms/2.0.4.6": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Design",
+          "System.Management",
+          "System.Web"
+        ],
+        "compile": {
+          "lib/net48/Guna.UI2.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Guna.UI2.dll": {}
+        }
+      },
       "Stub.System.Data.SQLite.Core.NetFramework/1.0.119": {
         "type": "package",
         "compile": {
@@ -265,6 +307,20 @@
           "buildTransitive/EntityFramework.targets": {}
         }
       },
+      "Guna.UI2.WinForms/2.0.4.6": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Design",
+          "System.Management",
+          "System.Web"
+        ],
+        "compile": {
+          "lib/net48/Guna.UI2.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Guna.UI2.dll": {}
+        }
+      },
       "Stub.System.Data.SQLite.Core.NetFramework/1.0.119": {
         "type": "package",
         "compile": {
@@ -342,6 +398,20 @@
         "build": {
           "buildTransitive/EntityFramework.props": {},
           "buildTransitive/EntityFramework.targets": {}
+        }
+      },
+      "Guna.UI2.WinForms/2.0.4.6": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Design",
+          "System.Management",
+          "System.Web"
+        ],
+        "compile": {
+          "lib/net48/Guna.UI2.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Guna.UI2.dll": {}
         }
       },
       "Stub.System.Data.SQLite.Core.NetFramework/1.0.119": {
@@ -453,6 +523,28 @@
         "tools/netcoreapp3.0/any/ef6.dll",
         "tools/netcoreapp3.0/any/ef6.pdb",
         "tools/netcoreapp3.0/any/ef6.runtimeconfig.json"
+      ]
+    },
+    "Guna.UI2.WinForms/2.0.4.6": {
+      "sha512": "NYzSJp7e47Cz3NgGCHvzadash8ycmxxUnpLg4Rr/MSYG9WDw0HOoTI4SkbDW+HbACrf6tsWYCuzWkgvjuM/O6w==",
+      "type": "package",
+      "path": "guna.ui2.winforms/2.0.4.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "guna.ui2.winforms.2.0.4.6.nupkg.sha512",
+        "guna.ui2.winforms.nuspec",
+        "icon.png",
+        "lib/net40/Guna.UI2.dll",
+        "lib/net45/Guna.UI2.dll",
+        "lib/net461/Guna.UI2.dll",
+        "lib/net472/Guna.UI2.dll",
+        "lib/net48/Guna.UI2.dll",
+        "lib/net6.0-windows7.0/Guna.UI2.dll",
+        "lib/net7.0-windows7.0/Guna.UI2.dll",
+        "lib/netcoreapp3.1/Guna.UI2.dll"
       ]
     },
     "Stub.System.Data.SQLite.Core.NetFramework/1.0.119": {
@@ -589,6 +681,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.8": [
+      "Guna.UI2.WinForms >= 2.0.4.6",
       "System.Data.SQLite >= 1.0.119"
     ]
   },
@@ -628,6 +721,10 @@
     "frameworks": {
       "net48": {
         "dependencies": {
+          "Guna.UI2.WinForms": {
+            "target": "Package",
+            "version": "[2.0.4.6, )"
+          },
           "System.Data.SQLite": {
             "target": "Package",
             "version": "[1.0.119, )"

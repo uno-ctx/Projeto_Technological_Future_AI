@@ -33,7 +33,7 @@
             this.lbl_fechar = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_username = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_linha_username = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -41,21 +41,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.Check_Terms = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.bunifuMaterialTextbox2 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.BMT_Last_Name = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.bunifuMaterialTextbox5 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuMaterialTextbox4 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuMaterialTextbox3 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.BMT_Re_Enter_Password = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.BMT_Password = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.BMT_Email = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lbl_LogIn = new System.Windows.Forms.Label();
-            this.bunifuMaterialTextbox1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.BMT_First_Name = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_SignUp = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.tb_password = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnl_linha_password = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -85,6 +85,8 @@
             this.lbl_fechar.TabIndex = 1;
             this.lbl_fechar.Text = "X";
             this.lbl_fechar.Click += new System.EventHandler(this.lbl_fechar_Click);
+            this.lbl_fechar.MouseEnter += new System.EventHandler(this.lbl_fechar_MouseEnter);
+            this.lbl_fechar.MouseLeave += new System.EventHandler(this.lbl_fechar_MouseLeave);
             // 
             // label2
             // 
@@ -101,18 +103,20 @@
             this.tb_username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.tb_username.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_username.ForeColor = System.Drawing.Color.LightGray;
-            this.tb_username.Location = new System.Drawing.Point(116, 212);
+            this.tb_username.Location = new System.Drawing.Point(116, 210);
             this.tb_username.Name = "tb_username";
             this.tb_username.Size = new System.Drawing.Size(165, 13);
-            this.tb_username.TabIndex = 3;
+            this.tb_username.TabIndex = 0;
+            this.tb_username.MouseEnter += new System.EventHandler(this.tb_username_MouseEnter);
+            this.tb_username.MouseLeave += new System.EventHandler(this.tb_username_MouseLeave);
             // 
-            // panel1
+            // pnl_linha_username
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
-            this.panel1.Location = new System.Drawing.Point(116, 226);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(165, 1);
-            this.panel1.TabIndex = 4;
+            this.pnl_linha_username.BackColor = System.Drawing.Color.LightGray;
+            this.pnl_linha_username.Location = new System.Drawing.Point(116, 224);
+            this.pnl_linha_username.Name = "pnl_linha_username";
+            this.pnl_linha_username.Size = new System.Drawing.Size(165, 2);
+            this.pnl_linha_username.TabIndex = 4;
             // 
             // label1
             // 
@@ -166,7 +170,7 @@
             this.btn_login.Margin = new System.Windows.Forms.Padding(5);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(181, 41);
-            this.btn_login.TabIndex = 5;
+            this.btn_login.TabIndex = 2;
             this.btn_login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
@@ -185,18 +189,18 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.checkBox2);
-            this.panel3.Controls.Add(this.checkBox1);
+            this.panel3.Controls.Add(this.Check_Terms);
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.bunifuMaterialTextbox2);
+            this.panel3.Controls.Add(this.BMT_Last_Name);
             this.panel3.Controls.Add(this.bunifuThinButton21);
-            this.panel3.Controls.Add(this.bunifuMaterialTextbox5);
-            this.panel3.Controls.Add(this.bunifuMaterialTextbox4);
-            this.panel3.Controls.Add(this.bunifuMaterialTextbox3);
+            this.panel3.Controls.Add(this.BMT_Re_Enter_Password);
+            this.panel3.Controls.Add(this.BMT_Password);
+            this.panel3.Controls.Add(this.BMT_Email);
             this.panel3.Controls.Add(this.lbl_LogIn);
-            this.panel3.Controls.Add(this.bunifuMaterialTextbox1);
+            this.panel3.Controls.Add(this.BMT_First_Name);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(0, 28);
+            this.panel3.Location = new System.Drawing.Point(199, 347);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(300, 395);
             this.panel3.TabIndex = 6;
@@ -204,26 +208,34 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
+            this.checkBox2.FlatAppearance.BorderSize = 0;
+            this.checkBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.ForeColor = System.Drawing.Color.LightGray;
             this.checkBox2.Location = new System.Drawing.Point(6, 367);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(97, 24);
-            this.checkBox2.TabIndex = 7;
+            this.checkBox2.Size = new System.Drawing.Size(94, 24);
+            this.checkBox2.TabIndex = 8;
             this.checkBox2.Text = "Tradução";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.MouseEnter += new System.EventHandler(this.checkBox2_MouseEnter);
+            this.checkBox2.MouseLeave += new System.EventHandler(this.checkBox2_MouseLeave);
             // 
-            // checkBox1
+            // Check_Terms
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.LightGray;
-            this.checkBox1.Location = new System.Drawing.Point(15, 226);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(272, 24);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "I Accept the Terms and Condition";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.Check_Terms.AutoSize = true;
+            this.Check_Terms.FlatAppearance.BorderSize = 0;
+            this.Check_Terms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Check_Terms.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Check_Terms.ForeColor = System.Drawing.Color.LightGray;
+            this.Check_Terms.Location = new System.Drawing.Point(15, 226);
+            this.Check_Terms.Name = "Check_Terms";
+            this.Check_Terms.Size = new System.Drawing.Size(269, 24);
+            this.Check_Terms.TabIndex = 5;
+            this.Check_Terms.Text = "I Accept the Terms and Condition";
+            this.Check_Terms.UseVisualStyleBackColor = true;
+            this.Check_Terms.MouseEnter += new System.EventHandler(this.Check_Terms_MouseEnter);
+            this.Check_Terms.MouseLeave += new System.EventHandler(this.Check_Terms_MouseLeave);
             // 
             // panel4
             // 
@@ -233,25 +245,25 @@
             this.panel4.Size = new System.Drawing.Size(255, 1);
             this.panel4.TabIndex = 6;
             // 
-            // bunifuMaterialTextbox2
+            // BMT_Last_Name
             // 
-            this.bunifuMaterialTextbox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMaterialTextbox2.ForeColor = System.Drawing.Color.LightGray;
-            this.bunifuMaterialTextbox2.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox2.HintText = "";
-            this.bunifuMaterialTextbox2.isPassword = false;
-            this.bunifuMaterialTextbox2.LineFocusedColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox2.LineIdleColor = System.Drawing.Color.LightGray;
-            this.bunifuMaterialTextbox2.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox2.LineThickness = 2;
-            this.bunifuMaterialTextbox2.Location = new System.Drawing.Point(155, 68);
-            this.bunifuMaterialTextbox2.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMaterialTextbox2.Name = "bunifuMaterialTextbox2";
-            this.bunifuMaterialTextbox2.Size = new System.Drawing.Size(130, 21);
-            this.bunifuMaterialTextbox2.TabIndex = 0;
-            this.bunifuMaterialTextbox2.Text = "Last Name";
-            this.bunifuMaterialTextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BMT_Last_Name.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.BMT_Last_Name.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.BMT_Last_Name.ForeColor = System.Drawing.Color.LightGray;
+            this.BMT_Last_Name.HintForeColor = System.Drawing.Color.Empty;
+            this.BMT_Last_Name.HintText = "";
+            this.BMT_Last_Name.isPassword = false;
+            this.BMT_Last_Name.LineFocusedColor = System.Drawing.Color.Lime;
+            this.BMT_Last_Name.LineIdleColor = System.Drawing.Color.LightGray;
+            this.BMT_Last_Name.LineMouseHoverColor = System.Drawing.Color.Lime;
+            this.BMT_Last_Name.LineThickness = 2;
+            this.BMT_Last_Name.Location = new System.Drawing.Point(155, 68);
+            this.BMT_Last_Name.Margin = new System.Windows.Forms.Padding(4);
+            this.BMT_Last_Name.Name = "BMT_Last_Name";
+            this.BMT_Last_Name.Size = new System.Drawing.Size(130, 21);
+            this.BMT_Last_Name.TabIndex = 1;
+            this.BMT_Last_Name.Text = "Last Name";
+            this.BMT_Last_Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // bunifuThinButton21
             // 
@@ -271,72 +283,72 @@
             this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(60, 259);
+            this.bunifuThinButton21.Location = new System.Drawing.Point(60, 264);
             this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuThinButton21.Name = "bunifuThinButton21";
             this.bunifuThinButton21.Size = new System.Drawing.Size(181, 41);
-            this.bunifuThinButton21.TabIndex = 5;
+            this.bunifuThinButton21.TabIndex = 6;
             this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bunifuMaterialTextbox5
+            // BMT_Re_Enter_Password
             // 
-            this.bunifuMaterialTextbox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox5.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMaterialTextbox5.ForeColor = System.Drawing.Color.LightGray;
-            this.bunifuMaterialTextbox5.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox5.HintText = "";
-            this.bunifuMaterialTextbox5.isPassword = false;
-            this.bunifuMaterialTextbox5.LineFocusedColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox5.LineIdleColor = System.Drawing.Color.LightGray;
-            this.bunifuMaterialTextbox5.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox5.LineThickness = 2;
-            this.bunifuMaterialTextbox5.Location = new System.Drawing.Point(15, 185);
-            this.bunifuMaterialTextbox5.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMaterialTextbox5.Name = "bunifuMaterialTextbox5";
-            this.bunifuMaterialTextbox5.Size = new System.Drawing.Size(270, 21);
-            this.bunifuMaterialTextbox5.TabIndex = 0;
-            this.bunifuMaterialTextbox5.Text = "Re_Enter_Password";
-            this.bunifuMaterialTextbox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BMT_Re_Enter_Password.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.BMT_Re_Enter_Password.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.BMT_Re_Enter_Password.ForeColor = System.Drawing.Color.LightGray;
+            this.BMT_Re_Enter_Password.HintForeColor = System.Drawing.Color.Empty;
+            this.BMT_Re_Enter_Password.HintText = "";
+            this.BMT_Re_Enter_Password.isPassword = false;
+            this.BMT_Re_Enter_Password.LineFocusedColor = System.Drawing.Color.Lime;
+            this.BMT_Re_Enter_Password.LineIdleColor = System.Drawing.Color.LightGray;
+            this.BMT_Re_Enter_Password.LineMouseHoverColor = System.Drawing.Color.Lime;
+            this.BMT_Re_Enter_Password.LineThickness = 2;
+            this.BMT_Re_Enter_Password.Location = new System.Drawing.Point(15, 185);
+            this.BMT_Re_Enter_Password.Margin = new System.Windows.Forms.Padding(4);
+            this.BMT_Re_Enter_Password.Name = "BMT_Re_Enter_Password";
+            this.BMT_Re_Enter_Password.Size = new System.Drawing.Size(270, 21);
+            this.BMT_Re_Enter_Password.TabIndex = 4;
+            this.BMT_Re_Enter_Password.Text = "Re_Enter_Password";
+            this.BMT_Re_Enter_Password.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // bunifuMaterialTextbox4
+            // BMT_Password
             // 
-            this.bunifuMaterialTextbox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMaterialTextbox4.ForeColor = System.Drawing.Color.LightGray;
-            this.bunifuMaterialTextbox4.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox4.HintText = "";
-            this.bunifuMaterialTextbox4.isPassword = false;
-            this.bunifuMaterialTextbox4.LineFocusedColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox4.LineIdleColor = System.Drawing.Color.LightGray;
-            this.bunifuMaterialTextbox4.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox4.LineThickness = 2;
-            this.bunifuMaterialTextbox4.Location = new System.Drawing.Point(15, 146);
-            this.bunifuMaterialTextbox4.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMaterialTextbox4.Name = "bunifuMaterialTextbox4";
-            this.bunifuMaterialTextbox4.Size = new System.Drawing.Size(270, 21);
-            this.bunifuMaterialTextbox4.TabIndex = 0;
-            this.bunifuMaterialTextbox4.Text = "Password";
-            this.bunifuMaterialTextbox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BMT_Password.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.BMT_Password.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.BMT_Password.ForeColor = System.Drawing.Color.LightGray;
+            this.BMT_Password.HintForeColor = System.Drawing.Color.Empty;
+            this.BMT_Password.HintText = "";
+            this.BMT_Password.isPassword = false;
+            this.BMT_Password.LineFocusedColor = System.Drawing.Color.Lime;
+            this.BMT_Password.LineIdleColor = System.Drawing.Color.LightGray;
+            this.BMT_Password.LineMouseHoverColor = System.Drawing.Color.Lime;
+            this.BMT_Password.LineThickness = 2;
+            this.BMT_Password.Location = new System.Drawing.Point(15, 146);
+            this.BMT_Password.Margin = new System.Windows.Forms.Padding(4);
+            this.BMT_Password.Name = "BMT_Password";
+            this.BMT_Password.Size = new System.Drawing.Size(270, 21);
+            this.BMT_Password.TabIndex = 3;
+            this.BMT_Password.Text = "Password";
+            this.BMT_Password.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // bunifuMaterialTextbox3
+            // BMT_Email
             // 
-            this.bunifuMaterialTextbox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMaterialTextbox3.ForeColor = System.Drawing.Color.LightGray;
-            this.bunifuMaterialTextbox3.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox3.HintText = "";
-            this.bunifuMaterialTextbox3.isPassword = false;
-            this.bunifuMaterialTextbox3.LineFocusedColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox3.LineIdleColor = System.Drawing.Color.LightGray;
-            this.bunifuMaterialTextbox3.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox3.LineThickness = 2;
-            this.bunifuMaterialTextbox3.Location = new System.Drawing.Point(15, 107);
-            this.bunifuMaterialTextbox3.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMaterialTextbox3.Name = "bunifuMaterialTextbox3";
-            this.bunifuMaterialTextbox3.Size = new System.Drawing.Size(270, 21);
-            this.bunifuMaterialTextbox3.TabIndex = 0;
-            this.bunifuMaterialTextbox3.Text = "E-mail";
-            this.bunifuMaterialTextbox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BMT_Email.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.BMT_Email.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.BMT_Email.ForeColor = System.Drawing.Color.LightGray;
+            this.BMT_Email.HintForeColor = System.Drawing.Color.Empty;
+            this.BMT_Email.HintText = "";
+            this.BMT_Email.isPassword = false;
+            this.BMT_Email.LineFocusedColor = System.Drawing.Color.Lime;
+            this.BMT_Email.LineIdleColor = System.Drawing.Color.LightGray;
+            this.BMT_Email.LineMouseHoverColor = System.Drawing.Color.Lime;
+            this.BMT_Email.LineThickness = 2;
+            this.BMT_Email.Location = new System.Drawing.Point(15, 107);
+            this.BMT_Email.Margin = new System.Windows.Forms.Padding(4);
+            this.BMT_Email.Name = "BMT_Email";
+            this.BMT_Email.Size = new System.Drawing.Size(270, 21);
+            this.BMT_Email.TabIndex = 2;
+            this.BMT_Email.Text = "E-mail";
+            this.BMT_Email.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // lbl_LogIn
             // 
@@ -346,29 +358,31 @@
             this.lbl_LogIn.Location = new System.Drawing.Point(118, 317);
             this.lbl_LogIn.Name = "lbl_LogIn";
             this.lbl_LogIn.Size = new System.Drawing.Size(52, 21);
-            this.lbl_LogIn.TabIndex = 2;
+            this.lbl_LogIn.TabIndex = 7;
             this.lbl_LogIn.Text = "LogIn";
             this.lbl_LogIn.Click += new System.EventHandler(this.lbl_LogIn_Click);
+            this.lbl_LogIn.MouseEnter += new System.EventHandler(this.lbl_LogIn_MouseEnter);
+            this.lbl_LogIn.MouseLeave += new System.EventHandler(this.lbl_LogIn_MouseLeave);
             // 
-            // bunifuMaterialTextbox1
+            // BMT_First_Name
             // 
-            this.bunifuMaterialTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMaterialTextbox1.ForeColor = System.Drawing.Color.LightGray;
-            this.bunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox1.HintText = "";
-            this.bunifuMaterialTextbox1.isPassword = false;
-            this.bunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.LightGray;
-            this.bunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.bunifuMaterialTextbox1.LineThickness = 2;
-            this.bunifuMaterialTextbox1.Location = new System.Drawing.Point(15, 68);
-            this.bunifuMaterialTextbox1.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMaterialTextbox1.Name = "bunifuMaterialTextbox1";
-            this.bunifuMaterialTextbox1.Size = new System.Drawing.Size(130, 21);
-            this.bunifuMaterialTextbox1.TabIndex = 0;
-            this.bunifuMaterialTextbox1.Text = "First Name";
-            this.bunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BMT_First_Name.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.BMT_First_Name.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.BMT_First_Name.ForeColor = System.Drawing.Color.LightGray;
+            this.BMT_First_Name.HintForeColor = System.Drawing.Color.Empty;
+            this.BMT_First_Name.HintText = "";
+            this.BMT_First_Name.isPassword = false;
+            this.BMT_First_Name.LineFocusedColor = System.Drawing.Color.Lime;
+            this.BMT_First_Name.LineIdleColor = System.Drawing.Color.LightGray;
+            this.BMT_First_Name.LineMouseHoverColor = System.Drawing.Color.Lime;
+            this.BMT_First_Name.LineThickness = 2;
+            this.BMT_First_Name.Location = new System.Drawing.Point(15, 68);
+            this.BMT_First_Name.Margin = new System.Windows.Forms.Padding(4);
+            this.BMT_First_Name.Name = "BMT_First_Name";
+            this.BMT_First_Name.Size = new System.Drawing.Size(130, 21);
+            this.BMT_First_Name.TabIndex = 0;
+            this.BMT_First_Name.Text = "First Name";
+            this.BMT_First_Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // pictureBox2
             // 
@@ -399,39 +413,46 @@
             this.lbl_SignUp.Location = new System.Drawing.Point(112, 347);
             this.lbl_SignUp.Name = "lbl_SignUp";
             this.lbl_SignUp.Size = new System.Drawing.Size(64, 21);
-            this.lbl_SignUp.TabIndex = 2;
+            this.lbl_SignUp.TabIndex = 3;
             this.lbl_SignUp.Text = "SignUp";
             this.lbl_SignUp.Click += new System.EventHandler(this.lbl_SignUp_Click);
+            this.lbl_SignUp.MouseEnter += new System.EventHandler(this.lbl_SignUp_MouseEnter);
+            this.lbl_SignUp.MouseLeave += new System.EventHandler(this.lbl_SignUp_MouseLeave);
             // 
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
+            this.checkBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox3.ForeColor = System.Drawing.Color.LightGray;
             this.checkBox3.Location = new System.Drawing.Point(10, 395);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(97, 24);
-            this.checkBox3.TabIndex = 7;
+            this.checkBox3.Size = new System.Drawing.Size(94, 24);
+            this.checkBox3.TabIndex = 4;
             this.checkBox3.Text = "Tradução";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.MouseEnter += new System.EventHandler(this.checkBox3_MouseEnter);
+            this.checkBox3.MouseLeave += new System.EventHandler(this.checkBox3_MouseLeave);
             // 
             // tb_password
             // 
             this.tb_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.tb_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_password.ForeColor = System.Drawing.Color.LightGray;
-            this.tb_password.Location = new System.Drawing.Point(116, 244);
+            this.tb_password.Location = new System.Drawing.Point(116, 242);
             this.tb_password.Name = "tb_password";
             this.tb_password.Size = new System.Drawing.Size(165, 13);
-            this.tb_password.TabIndex = 3;
+            this.tb_password.TabIndex = 1;
+            this.tb_password.MouseEnter += new System.EventHandler(this.tb_password_MouseEnter);
+            this.tb_password.MouseLeave += new System.EventHandler(this.tb_password_MouseLeave);
             // 
-            // panel2
+            // pnl_linha_password
             // 
-            this.panel2.BackColor = System.Drawing.Color.LightGray;
-            this.panel2.Location = new System.Drawing.Point(116, 258);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(165, 1);
-            this.panel2.TabIndex = 4;
+            this.pnl_linha_password.BackColor = System.Drawing.Color.LightGray;
+            this.pnl_linha_password.Location = new System.Drawing.Point(116, 256);
+            this.pnl_linha_password.Name = "pnl_linha_password";
+            this.pnl_linha_password.Size = new System.Drawing.Size(165, 2);
+            this.pnl_linha_password.TabIndex = 4;
             // 
             // Tela_login
             // 
@@ -442,8 +463,8 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.btn_login);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnl_linha_password);
+            this.Controls.Add(this.pnl_linha_username);
             this.Controls.Add(this.tb_password);
             this.Controls.Add(this.tb_username);
             this.Controls.Add(this.label1);
@@ -458,6 +479,7 @@
             this.Name = "Tela_login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela_login";
+            this.Activated += new System.EventHandler(this.Tela_login_Activated);
             this.Load += new System.EventHandler(this.Tela_login_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_login_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -477,28 +499,28 @@
         private System.Windows.Forms.Label lbl_fechar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_username;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnl_linha_username;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private Bunifu.Framework.UI.BunifuThinButton2 btn_login;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel3;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox2;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox BMT_Last_Name;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox5;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox4;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox3;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox1;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox BMT_Re_Enter_Password;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox BMT_Password;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox BMT_Email;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox BMT_First_Name;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox Check_Terms;
         private System.Windows.Forms.Label lbl_SignUp;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label lbl_LogIn;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.TextBox tb_password;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnl_linha_password;
     }
 }

@@ -32,6 +32,11 @@ namespace Technological_Future_AI.Telas
 
         private void Tela_login_Load(object sender, EventArgs e)
         {
+            tb_username.Focus();            
+        }       
+
+        private void Tela_login_Activated(object sender, EventArgs e)
+        {
             tb_username.Focus();
         }
 
@@ -48,6 +53,7 @@ namespace Technological_Future_AI.Telas
         private void lbl_SignUp_Click(object sender, EventArgs e)
         {
             panel3.Visible = true;
+            BMT_First_Name.Focus();
         }
 
         private void lbl_LogIn_Click(object sender, EventArgs e)
@@ -63,7 +69,7 @@ namespace Technological_Future_AI.Telas
             if (string.IsNullOrEmpty(username) && string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Campo username e password estão vazios, por favor tente novamente!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                tb_username.Focus();
+                tb_username.Focus();                
                 return;
             }
 
@@ -71,7 +77,6 @@ namespace Technological_Future_AI.Telas
             {
                 MessageBox.Show("Campo username está vazio, por favor tente novamente!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 tb_username.Focus();
-                tb_username.ForeColor = Color.Lime;
                 return;
             }
             if (string.IsNullOrEmpty(password))
@@ -89,6 +94,7 @@ namespace Technological_Future_AI.Telas
                 tm.lbl_acesso.Text = dt.Rows[0].ItemArray[6].ToString();
                 tm.lbl_usuarios.Text = dt.Rows[0].Field<string>("T_Code_Name");
                 tm.pct_On_Off.Image = Properties.Resources.Ligado;
+                tm.lbl_cargo.Text = dt.Rows[0].Field<string>("T_Desc_Nivel_Usuarios");
                 Globais.nivel = int.Parse(dt.Rows[0].Field<Int64>("N_Nivel_Usuarios").ToString());
                 Globais.logado = true;
 
@@ -107,8 +113,7 @@ namespace Technological_Future_AI.Telas
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
-                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-                //this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_login_MouseDown);
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);                
             }
         }
 
@@ -117,8 +122,7 @@ namespace Technological_Future_AI.Telas
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
-                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-                //this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_login_MouseDown);
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);                
             }
         }
 
@@ -127,9 +131,88 @@ namespace Technological_Future_AI.Telas
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
-                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-                //this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_login_MouseDown);
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);                
             }
         }
+
+        private void lbl_fechar_MouseEnter(object sender, EventArgs e)
+        {
+            lbl_fechar.ForeColor = Color.Red;   
+        }
+
+        private void lbl_fechar_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_fechar.ForeColor = Color.LightGray;
+        }
+
+        private void Check_Terms_MouseEnter(object sender, EventArgs e)
+        {
+            Check_Terms.ForeColor = Color.Lime;
+        }
+
+        private void Check_Terms_MouseLeave(object sender, EventArgs e)
+        {
+            Check_Terms.ForeColor = Color.LightGray;
+        }
+
+        private void checkBox2_MouseEnter(object sender, EventArgs e)
+        {
+            checkBox2.ForeColor = Color.Lime;
+        }
+
+        private void checkBox2_MouseLeave(object sender, EventArgs e)
+        {
+            checkBox2.ForeColor = Color.LightGray;
+        }
+
+        private void lbl_LogIn_MouseEnter(object sender, EventArgs e)
+        {
+            lbl_LogIn.ForeColor = Color.Lime;
+        }
+
+        private void lbl_LogIn_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_LogIn.ForeColor = Color.LightGray;
+        }
+
+        private void lbl_SignUp_MouseEnter(object sender, EventArgs e)
+        {
+            lbl_SignUp.ForeColor = Color.Lime;
+        }
+
+        private void lbl_SignUp_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_SignUp.ForeColor = Color.LightGray;
+        }
+
+        private void checkBox3_MouseEnter(object sender, EventArgs e)
+        {
+            checkBox3.ForeColor = Color.Lime;
+        }
+
+        private void checkBox3_MouseLeave(object sender, EventArgs e)
+        {
+            checkBox3.ForeColor = Color.LightGray;
+        }
+
+        private void tb_username_MouseEnter(object sender, EventArgs e)
+        {
+            pnl_linha_username.BackColor = Color.Lime;
+        }
+
+        private void tb_username_MouseLeave(object sender, EventArgs e)
+        {
+            pnl_linha_username.BackColor = Color.LightGray;
+        }
+        
+        private void tb_password_MouseEnter(object sender, EventArgs e)
+        {            
+            pnl_linha_password.BackColor = Color.Lime;
+        }
+
+        private void tb_password_MouseLeave(object sender, EventArgs e)
+        {
+            pnl_linha_password.BackColor = Color.LightGray;
+        }     
     }
 }
