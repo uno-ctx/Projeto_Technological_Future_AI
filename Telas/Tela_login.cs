@@ -13,6 +13,9 @@ using System.Security.Cryptography;
 using System.Data.SQLite;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Bunifu.Framework.UI;
+using Technological_Future_AI.Properties;
+using System.IO;
+using System.Drawing.Text;
 
 
 namespace Technological_Future_AI.Telas
@@ -27,14 +30,11 @@ namespace Technological_Future_AI.Telas
             pnl_linha_username.BackColor = Color.White;
             pnl_linha_password.BackColor = Color.White;
             this.KeyPreview = true;
-           // this.KeyDown += new KeyEventHandler();
-
         }
 
         public const int WM_NCLBUTTONDOWN = 0XA1;
         public const int HT_CAPTION = 0X2;
-
-        public object BCrypt { get; private set; }
+        private bool isCollapsed;
 
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
@@ -51,6 +51,34 @@ namespace Technological_Future_AI.Telas
         {
             tb_username.Focus();
 
+        }
+
+        private void check_traducao_CheckedChanged(object sender, EventArgs e)
+        {
+            if (check_traducao.Checked)
+            {
+                BMT_Full_Name.Text = "NOME COMPLETO";
+                BMT_Email.Text = "E-MAIL";
+                BMT_Password.Text = "SENHA";
+                BMT_Re_Enter_Password.Text = "DIGITE NOVAMENTE A SENHA";
+            }
+            else
+            {
+                BMT_Full_Name.Text = "Full Name";
+                BMT_Email.Text = "E-mail";
+                BMT_Password.Text = "Password";
+                BMT_Re_Enter_Password.Text = "Re-enter Password";
+            }
+        }
+
+        private void Tela_login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true; // Impede processamento adicional
+                e.SuppressKeyPress = true; // Evita som do "beep"
+                btn_login_Click(btn_login, EventArgs.Empty); // Executa o evento de clique diretamente
+            }
         }
 
         private void lbl_fechar_Click(object sender, EventArgs e)
@@ -100,125 +128,6 @@ namespace Technological_Future_AI.Telas
             }
         }
 
-        private void lbl_fechar_MouseEnter(object sender, EventArgs e)
-        {
-            lbl_fechar.ForeColor = Color.Red;
-        }
-
-        private void lbl_fechar_MouseLeave(object sender, EventArgs e)
-        {
-            lbl_fechar.ForeColor = Color.White;
-        }
-
-        private void Check_Terms_MouseEnter(object sender, EventArgs e)
-        {
-            Check_Terms.ForeColor = Color.Yellow;
-        }
-
-        private void Check_Terms_MouseLeave(object sender, EventArgs e)
-        {
-            Check_Terms.ForeColor = Color.White;
-        }
-
-        private void checkBox2_MouseEnter(object sender, EventArgs e)
-        {
-            check_traducao.ForeColor = Color.Yellow;
-        }
-
-        private void checkBox2_MouseLeave(object sender, EventArgs e)
-        {
-            check_traducao.ForeColor = Color.White;
-        }
-
-        private void lbl_LogIn_MouseEnter(object sender, EventArgs e)
-        {
-            lbl_LogIn.ForeColor = Color.DeepSkyBlue;
-        }
-
-        private void lbl_LogIn_MouseLeave(object sender, EventArgs e)
-        {
-            lbl_LogIn.ForeColor = Color.White;
-        }
-
-        private void lbl_SignUp_MouseEnter(object sender, EventArgs e)
-        {
-            lbl_SignUp.ForeColor = Color.DeepSkyBlue;
-        }
-
-        private void lbl_SignUp_MouseLeave(object sender, EventArgs e)
-        {
-            lbl_SignUp.ForeColor = Color.White;
-        }
-
-        private void checkBox3_MouseEnter(object sender, EventArgs e)
-        {
-            checkBox3.ForeColor = Color.DeepSkyBlue;
-        }
-
-        private void checkBox3_MouseLeave(object sender, EventArgs e)
-        {
-            checkBox3.ForeColor = Color.White;
-        }
-
-        private void tb_username_MouseEnter(object sender, EventArgs e)
-        {
-            tb_username.Focus();
-            pnl_linha_username.BackColor = Color.DeepSkyBlue;
-        }
-
-        private void tb_username_MouseLeave(object sender, EventArgs e)
-        {
-            pnl_linha_username.BackColor = Color.White;
-        }
-
-        private void tb_password_MouseEnter(object sender, EventArgs e)
-        {
-            tb_password.Focus();
-            pnl_linha_password.BackColor = Color.DeepSkyBlue;
-        }
-
-        private void tb_password_MouseLeave(object sender, EventArgs e)
-        {
-            pnl_linha_password.BackColor = Color.White;
-        }
-
-        private void tb_password_TextChanged(object sender, EventArgs e)
-        {
-            tb_password.Focus();
-            pnl_linha_password.BackColor = Color.DeepSkyBlue;
-        }
-
-        private void tb_username_TextChanged(object sender, EventArgs e)
-        {
-            tb_username.Focus();
-            pnl_linha_username.BackColor = Color.DeepSkyBlue;
-        }
-
-        private void tb_password_Click(object sender, EventArgs e)
-        {
-            tb_password.PasswordChar = '*';
-        }
-
-        private void pnl_linha_username_MouseEnter(object sender, EventArgs e)
-        {
-            pnl_linha_username.BackColor = Color.DeepSkyBlue;
-        }
-
-        private void pnl_linha_username_MouseLeave(object sender, EventArgs e)
-        {
-            pnl_linha_username.BackColor = Color.White;
-        }
-
-        private void pnl_linha_password_MouseEnter(object sender, EventArgs e)
-        {
-            pnl_linha_password.BackColor = Color.DeepSkyBlue;
-        }
-
-        private void pnl_linha_password_MouseLeave(object sender, EventArgs e)
-        {
-            pnl_linha_password.BackColor = Color.White;
-        }      
-
         private void btn_login_Click(object sender, EventArgs e)
         {
             string username = tb_username.Text;
@@ -245,7 +154,7 @@ namespace Technological_Future_AI.Telas
 
             DataTable dt = new DataTable();
             string sql = "SELECT * FROM TB_USUARIOS WHERE T_USERNAME = '" + username + "' AND T_SENHA_USUARIOS='" + password + "'";
-            dt = Classes.Banco.consulta(sql);
+            dt = Classes.Banco.Consulta(sql);
             if (dt.Rows.Count == 1)
             {
                 Telas.Tela_menu tm = new Telas.Tela_menu();
@@ -267,33 +176,97 @@ namespace Technological_Future_AI.Telas
                 tb_username.Clear();
             }
             SendKeys.Send("{ENTER}");
-        }        
+        }
 
-        private void btn_signup_Click(object sender, EventArgs e)
+        private void InitializePlaceholder(BunifuMaterialTextbox textBox, string placeholder)
         {
-            string username = tb_username.Text;
-            string password = tb_password.Text;
-            panel3.Visible = false;
-            string hashedPassword = Classes.Crypto.cryto_login.HashPassword(password);
+            textBox.Text = placeholder;
+            textBox.ForeColor = Color.Gray; // Define a cor do placeholder
+        }
 
-            string sql = "INSERT INTO TB_USUARIOS (T_USERNAME, T_SENHA_USUARIOS) VALUES (@username, @password)";
-            using (SQLiteConnection conn = new SQLiteConnection("Data Source=your_database.db;Version=3;"))
+        private void UpdatePlaceholder(BunifuMaterialTextbox textBox, string placeholder, bool isEntering)
+        {
+            if (isEntering)
             {
-                conn.Open();
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                if (textBox.Text == placeholder && textBox.ForeColor == Color.Gray)
                 {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", hashedPassword);
-                    cmd.ExecuteNonQuery();
+                    textBox.Text = "";
+                    textBox.ForeColor = Color.Black;
+
+                    if (textBox.Name == "BMT_Password" || textBox.Name == "BMT_Re_Enter_Password")
+                    {
+                        textBox.isPassword = true;
+                    }
+                }
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    textBox.Text = placeholder;
+                    textBox.ForeColor = Color.Gray;
+
+                    if (textBox.Name == "BMT_Password" || textBox.Name == "BMT_Re_Enter_Password")
+                    {
+                        textBox.isPassword = false;
+                    }
                 }
             }
         }
 
-        private void check_traducao_CheckedChanged(object sender, EventArgs e)
+        private void TextBox_Enter(object sender, EventArgs e)
         {
-            BMT_Full_Name.Text = "NOME COMPLETO";
-            BMT_Password.Text = "SENHA";
-            BMT_Re_Enter_Password.Text = "DIGITE NOVAMENTE A SENHA";
+            BunifuMaterialTextbox textBox = sender as BunifuMaterialTextbox;
+            UpdatePlaceholder(textBox, textBox.Tag.ToString(), true);
+        }
+
+        private void TextBox_Leave(object sender, EventArgs e)
+        {
+            BunifuMaterialTextbox textBox = sender as BunifuMaterialTextbox;
+            UpdatePlaceholder(textBox, textBox.Tag.ToString(), false);
+        }
+
+        private void btn_signup_Click(object sender, EventArgs e)
+        {
+            BMT_Full_Name.Tag = "FULL NAME";
+            BMT_Email.Tag = "E-MAIL";
+            BMT_Password.Tag = "PASSWORD";
+            BMT_Re_Enter_Password.Tag = "RE-ENTER PASSWORD";
+
+            string username = tb_username.Text.Trim();
+            string password = tb_password.Text.Trim();
+            panel3.Visible = false;
+
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Usuário e senha são obrigatórios!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string hashedPassword = Classes.Crypto.cryto_login.HashPassword(password);
+
+            string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\banco\Banco.db");
+            string connectionString = $"Data Source={dbPath};Version=3;";
+
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+                {
+                    conn.Open();
+                    string sql = "INSERT INTO TB_USUARIOS (T_USERNAME, T_SENHA_USUARIOS) VALUES (@username, @password)";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", hashedPassword);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Usuário cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao cadastrar usuário: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_login_KeyPress(object sender, KeyPressEventArgs e)
@@ -301,12 +274,27 @@ namespace Technological_Future_AI.Telas
 
         }
 
-        private void Tela_login_KeyDown(object sender, KeyEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (isCollapsed)
             {
-                //btn_login.PerformClick(); // Executa o clique do botão btn_Login
-                e.Handled = true; // Impede que o evento continue a ser processado
+                btn_position.Image = Resources.setas_para_cima;
+                corpo.Height += 8;
+                if (corpo.Size == corpo.MaximumSize)
+                {
+                    timer1.Stop();
+                    isCollapsed = false;
+                }
+                else
+                {
+                    btn_position.Image = Resources.seta_para_baixo;
+                    corpo.Height -= 8;
+                    if (corpo.Size == corpo.MinimumSize)
+                    {
+                        timer1.Stop();
+                        isCollapsed = true;
+                    }
+                }
             }
         }
     }

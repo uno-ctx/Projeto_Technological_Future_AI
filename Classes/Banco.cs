@@ -1,64 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.IO;
 
 namespace Technological_Future_AI.Classes
 {
     internal class Banco
     {
-        private static SQLiteConnection conexao;
+        private readonly string connectionString = $"Data Source={System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "your_database.db")};Version=3;";
 
+        // Método para criar e retornar a conexão com o banco de dados
         private static SQLiteConnection ConexaoBanco()
         {
-            conexao = new SQLiteConnection("Data Source = D:\\Projeto_Contas_2024\\Projeto_Technological_Future-AI\\banco\\Banco.db");
-            conexao.Open();
-            return conexao;
+            try
+            {
+                // Caminho dinâmico baseado no diretório da apli cação
+                string caminhoBanco = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\banco\Banco.db");
+
+                // Verifica se o arquivo do banco existe
+                if (!File.Exists(caminhoBanco))
+                {
+                    throw new FileNotFoundException($"O arquivo do banco de dados não foi encontrado no caminho: {caminhoBanco}");
+                }
+
+                // Retorna uma nova conexão
+                return new SQLiteConnection($"Data Source={caminhoBanco};Version=3;");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao conectar ao banco de dados. Caminho: {AppDomain.CurrentDomain.BaseDirectory}. Detalhes: {ex.Message}");
+            }
         }
+
+        // Método para obter todos os usuários da tabela TB_USUARIOS
         public static DataTable ObterTodosUsuarios()
         {
-            SQLiteDataAdapter da = null;
             DataTable dt = new DataTable();
-            try
+            using (var conexao = ConexaoBanco())
             {
-                using (var cmd = ConexaoBanco().CreateCommand())
+                try
                 {
-                    cmd.CommandText = "SELECT * FROM TB_USUARIOS";
-                    da = new SQLiteDataAdapter(cmd.CommandText, ConexaoBanco());
-                    da.Fill(dt);
-                    ConexaoBanco().Close();
-                    return dt;
+                    conexao.Open();
+                    using (var cmd = conexao.CreateCommand())
+                    {
+                        cmd.CommandText = "SELECT * FROM TB_USUARIOS";
+                        using (var da = new SQLiteDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Erro ao obter usuários: {ex.Message}");
                 }
             }
-            catch (Exception ex)
-            {
-                ConexaoBanco().Close();
-                throw ex;
-            }
+            return dt;
         }
-        public static DataTable consulta(string sql)
+
+        // Método genérico para realizar consultas
+        public static DataTable Consulta(string sql)
         {
-            SQLiteDataAdapter da = null;
             DataTable dt = new DataTable();
-            try
+            using (var conexao = ConexaoBanco())
             {
-                using (var cmd = ConexaoBanco().CreateCommand())
+                try
                 {
-                    cmd.CommandText = sql;
-                    da = new SQLiteDataAdapter(cmd.CommandText, ConexaoBanco());
-                    da.Fill(dt);
-                    ConexaoBanco().Close();
-                    return dt;
+                    conexao.Open();
+                    using (var cmd = conexao.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        using (var da = new SQLiteDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Erro ao executar consulta: {ex.Message}");
                 }
             }
-            catch (Exception ex)
-            {
-                ConexaoBanco().Close();
-                throw ex;
-            }
+            return dt;
         }
     }
 }
