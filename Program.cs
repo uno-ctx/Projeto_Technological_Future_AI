@@ -17,7 +17,7 @@ namespace Technological_Future_AI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Tela_menu());
+            Application.Run(new Tela_login());
         }
     }
 }

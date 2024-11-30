@@ -64,6 +64,7 @@ namespace Technological_Future_AI.Telas
         private bool allowMoveButton1 = false;
         private bool allowMoveButton2 = false;
         private bool allowMoveButton3 = false;
+        private bool allowMoveButton4 = false;
         private bool allowMoveButton5 = false;
         private bool allowMoveButton24 = false;
         private bool allowMoveButton34 = false;
@@ -228,7 +229,6 @@ namespace Technological_Future_AI.Telas
                 panelSlide8.Visible = false;
             }
         }
-
 
         private void panel_Click(object sender, EventArgs e)
         {
@@ -725,11 +725,8 @@ namespace Technological_Future_AI.Telas
 
             if (allowMoveButton1) return;
 
-            UpdateButtonStates(true); // Ativa apenas o button1            
-
-            Debug.WriteLine("Painéis de button1 ativados");
+            UpdateButtonStates(true); // Ativa apenas o button1
         }
-
 
         private void button2_MouseEnter(object sender, EventArgs e)
         {
@@ -746,8 +743,6 @@ namespace Technological_Future_AI.Telas
             if (allowMoveButton2) return;
 
             UpdateButtonStates(true); // Ativa apenas o button2
-
-            Debug.WriteLine("Painéis de button2 ativados");
         }
 
         private void button3_MouseEnter(object sender, EventArgs e)
@@ -765,21 +760,23 @@ namespace Technological_Future_AI.Telas
             if (allowMoveButton3) return;
 
             UpdateButtonStates(true); // Ativa apenas o button2
-
-            Debug.WriteLine("Painéis de button2 ativados");
         }
 
         private void button4_MouseEnter(object sender, EventArgs e)
         {
-            corpo1.Visible = false;
-            corpo2.Visible = false;
-            corpo3.Visible = false;
-
             movepanels(button4);
 
             button1.Image = Resources.seta_para_baixo;
             button2.Image = Resources.seta_para_baixo;
             button3.Image = Resources.seta_para_baixo;
+
+            corpo1.Visible = false;
+            corpo2.Visible = false;
+            corpo3.Visible = false;
+
+            if (allowMoveButton4) return;
+
+            UpdateButtonStates(true); // Ativa apenas o button2
         }
 
         private void button5_MouseEnter(object sender, EventArgs e)
@@ -788,8 +785,6 @@ namespace Technological_Future_AI.Telas
             if (allowMoveButton5) return;
 
             UpdateButtonStates(false, false, true); // Ativa apenas o button5
-
-            Debug.WriteLine("Painéis de button5 ativados");
         }
 
         private void button24_MouseEnter(object sender, EventArgs e)
@@ -852,8 +847,6 @@ namespace Technological_Future_AI.Telas
         {
             movepanels3(button14);
         }
-
-
 
         private void button23_MouseEnter(object sender, EventArgs e)
         {
@@ -986,8 +979,9 @@ namespace Technological_Future_AI.Telas
             movepanels5(button33);
 
             button1.Image = Resources.seta_para_baixo;
-            button3.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button4.Image = Resources.seta_para_baixo;
+
         }
 
 
@@ -1000,7 +994,7 @@ namespace Technological_Future_AI.Telas
             movepanels5(button32);
 
             button1.Image = Resources.seta_para_baixo;
-            button3.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button4.Image = Resources.seta_para_baixo;
         }
 
@@ -1013,7 +1007,7 @@ namespace Technological_Future_AI.Telas
             movepanels5(button31);
 
             button1.Image = Resources.seta_para_baixo;
-            button3.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button4.Image = Resources.seta_para_baixo;
         }
 
@@ -1026,7 +1020,7 @@ namespace Technological_Future_AI.Telas
             movepanels5(button30);
 
             button1.Image = Resources.seta_para_baixo;
-            button3.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button4.Image = Resources.seta_para_baixo;
         }
 
@@ -1039,7 +1033,7 @@ namespace Technological_Future_AI.Telas
             movepanels5(button29);
 
             button1.Image = Resources.seta_para_baixo;
-            button3.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button4.Image = Resources.seta_para_baixo;
         }
 
@@ -1052,7 +1046,7 @@ namespace Technological_Future_AI.Telas
             movepanels5(button28);
 
             button1.Image = Resources.seta_para_baixo;
-            button3.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button4.Image = Resources.seta_para_baixo;
         }
 
@@ -1065,7 +1059,7 @@ namespace Technological_Future_AI.Telas
             movepanels5(button27);
 
             button1.Image = Resources.seta_para_baixo;
-            button3.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button4.Image = Resources.seta_para_baixo;
         }
 
@@ -1078,7 +1072,7 @@ namespace Technological_Future_AI.Telas
             movepanels5(button26);
 
             button1.Image = Resources.seta_para_baixo;
-            button3.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button4.Image = Resources.seta_para_baixo;
         }
 
@@ -1091,7 +1085,7 @@ namespace Technological_Future_AI.Telas
             movepanels5(button25);
 
             button1.Image = Resources.seta_para_baixo;
-            button3.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button4.Image = Resources.seta_para_baixo;
         }
 
@@ -1104,8 +1098,8 @@ namespace Technological_Future_AI.Telas
             movepanels6(button73);
 
             button1.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button3.Image = Resources.seta_para_baixo;
-            button4.Image = Resources.seta_para_baixo;
         }
 
         private void button72_MouseEnter(object sender, EventArgs e)
@@ -1117,8 +1111,8 @@ namespace Technological_Future_AI.Telas
             movepanels6(button72);
 
             button1.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button3.Image = Resources.seta_para_baixo;
-            button4.Image = Resources.seta_para_baixo;
         }
 
         private void button71_MouseEnter(object sender, EventArgs e)
@@ -1130,8 +1124,8 @@ namespace Technological_Future_AI.Telas
             movepanels6(button71);
 
             button1.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button3.Image = Resources.seta_para_baixo;
-            button4.Image = Resources.seta_para_baixo;
         }
 
         private void button70_MouseEnter(object sender, EventArgs e)
@@ -1143,8 +1137,8 @@ namespace Technological_Future_AI.Telas
             movepanels6(button70);
 
             button1.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button3.Image = Resources.seta_para_baixo;
-            button4.Image = Resources.seta_para_baixo;
         }
 
         private void button69_MouseEnter(object sender, EventArgs e)
@@ -1156,8 +1150,8 @@ namespace Technological_Future_AI.Telas
             movepanels6(button69);
 
             button1.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button3.Image = Resources.seta_para_baixo;
-            button4.Image = Resources.seta_para_baixo;
         }
 
         private void button68_MouseEnter(object sender, EventArgs e)
@@ -1169,8 +1163,8 @@ namespace Technological_Future_AI.Telas
             movepanels6(button68);
 
             button1.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button3.Image = Resources.seta_para_baixo;
-            button4.Image = Resources.seta_para_baixo;
         }
 
         private void button67_MouseEnter(object sender, EventArgs e)
@@ -1182,8 +1176,8 @@ namespace Technological_Future_AI.Telas
             movepanels6(button67);
 
             button1.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button3.Image = Resources.seta_para_baixo;
-            button4.Image = Resources.seta_para_baixo;
         }
 
         private void button66_MouseEnter(object sender, EventArgs e)
@@ -1195,8 +1189,8 @@ namespace Technological_Future_AI.Telas
             movepanels6(button66);
 
             button1.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button3.Image = Resources.seta_para_baixo;
-            button4.Image = Resources.seta_para_baixo;
         }
 
         private void button65_MouseEnter(object sender, EventArgs e)
@@ -1208,8 +1202,8 @@ namespace Technological_Future_AI.Telas
             movepanels6(button65);
 
             button1.Image = Resources.seta_para_baixo;
+            button2.Image = Resources.seta_para_baixo;
             button3.Image = Resources.seta_para_baixo;
-            button4.Image = Resources.seta_para_baixo;
         }
 
         private void button34_MouseEnter(object sender, EventArgs e)
@@ -1233,3 +1227,4 @@ namespace Technological_Future_AI.Telas
         }
     }
 }
+
