@@ -1,22 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Technological_Future_AI.Classes;
-using System.Security.Cryptography;
 using System.Data.SQLite;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Bunifu.Framework.UI;
 using Technological_Future_AI.Properties;
-using System.IO;
-using System.Drawing.Text;
-
 
 namespace Technological_Future_AI.Telas
 {
@@ -30,6 +20,10 @@ namespace Technological_Future_AI.Telas
             pnl_linha_username.BackColor = Color.White;
             pnl_linha_password.BackColor = Color.White;
             this.KeyPreview = true;
+            BMT_Full_Name.Text = "FULL NAME";
+            BMT_Email.Text = "EMAIL";
+            BMT_Password.Text = "PASSWORD";
+            BMT_Re_Enter_Password.Text = "RE-ENTER PASSWORD";
         }
 
         public const int WM_NCLBUTTONDOWN = 0XA1;
@@ -42,15 +36,63 @@ namespace Technological_Future_AI.Telas
         [DllImport("user32.dll")]
         public static extern IntPtr SendMessage(IntPtr hwnd, int Msg, int wParam, int lParam);
 
+        private void ResetTextBoxStyles()
+        {
+            // Restaurar estilos de todos os controles
+            BMT_Full_Name.BorderColorFocused = Color.Empty;
+            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
+
+            BMT_Email.BorderColorFocused = Color.Empty;
+            BMT_Email.BorderColorMouseHover = Color.Empty;
+
+            BMT_Password.BorderColorFocused = Color.Empty;
+            BMT_Password.BorderColorMouseHover = Color.Empty;
+
+            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
+            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;
+        }
+
+        private void HandleFocusEnter(Bunifu.Framework.UI.BunifuMetroTextbox textBox, string defaultText)
+        {
+            // Limpar o texto apenas se for o padrão
+            if (textBox.Text == defaultText)
+            {
+                textBox.Text = string.Empty;
+                textBox.ForeColor = Color.White;
+            }
+
+            ResetTextBoxStyles();
+
+            // Alterar borda do controle focado
+            textBox.BorderColorFocused = Color.DeepSkyBlue;
+            textBox.BorderColorMouseHover = Color.DeepSkyBlue;
+        }
+
+        private void HandleFocusLeave(Bunifu.Framework.UI.BunifuMetroTextbox textBox, string defaultText)
+        {
+            // Restaurar texto padrão se estiver vazio
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = defaultText;
+                textBox.ForeColor = Color.Silver;
+            }
+        }
+
         private void Tela_login_Load(object sender, EventArgs e)
         {
             tb_username.Focus();
+            foreach (Control control in this.Controls)
+            {
+                if (control is Bunifu.Framework.UI.BunifuMetroTextbox textbox)
+                {
+                    textbox.Enter += TextBox_Enter;
+                }
+            }
         }
 
         private void Tela_login_Activated(object sender, EventArgs e)
         {
             tb_username.Focus();
-
         }
 
         private void check_traducao_CheckedChanged(object sender, EventArgs e)
@@ -94,6 +136,7 @@ namespace Technological_Future_AI.Telas
         private void lbl_SignUp_Click(object sender, EventArgs e)
         {
             panel3.Visible = true;
+            corpo.Visible = false;
         }
 
         private void lbl_LogIn_Click(object sender, EventArgs e)
@@ -178,12 +221,6 @@ namespace Technological_Future_AI.Telas
             SendKeys.Send("{ENTER}");
         }
 
-        private void InitializePlaceholder(BunifuMaterialTextbox textBox, string placeholder)
-        {
-            textBox.Text = placeholder;
-            textBox.ForeColor = Color.Gray; // Define a cor do placeholder
-        }
-
         private void UpdatePlaceholder(BunifuMaterialTextbox textBox, string placeholder, bool isEntering)
         {
             if (isEntering)
@@ -218,84 +255,260 @@ namespace Technological_Future_AI.Telas
         {
             BunifuMaterialTextbox textBox = sender as BunifuMaterialTextbox;
             UpdatePlaceholder(textBox, textBox.Tag.ToString(), true);
-        }
-
-        private void TextBox_Leave(object sender, EventArgs e)
-        {
-            BunifuMaterialTextbox textBox = sender as BunifuMaterialTextbox;
-            UpdatePlaceholder(textBox, textBox.Tag.ToString(), false);
-        }
+        }       
 
         private void btn_signup_Click(object sender, EventArgs e)
         {
-            BMT_Full_Name.Tag = "FULL NAME";
-            BMT_Email.Tag = "E-MAIL";
-            BMT_Password.Tag = "PASSWORD";
-            BMT_Re_Enter_Password.Tag = "RE-ENTER PASSWORD";
-
-            string username = tb_username.Text.Trim();
-            string password = tb_password.Text.Trim();
+            // Tags para os campos de entrada
+            string fullname = BMT_Full_Name.Text.Trim();
+            string email = BMT_Email.Text.Trim();
+            string password = BMT_Password.Text.Trim();
+            string reEnterPassword = BMT_Re_Enter_Password.Text.Trim();
             panel3.Visible = false;
 
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            // Validação de campos obrigatórios
+            if (string.IsNullOrWhiteSpace(fullname) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(reEnterPassword))
             {
                 MessageBox.Show("Usuário e senha são obrigatórios!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            string hashedPassword = Classes.Crypto.cryto_login.HashPassword(password);
+            if (password != reEnterPassword)
+            {
+                MessageBox.Show("As senhas estão diferentes! Por favor, Tente novamente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            // Gerar o hash e o salt da senha
+            string salt;
+            string hashedPassword = Classes.Crypto.cryto_login.HashPasswordWithSalt(password, out salt);
+
+            // Caminho do banco de dados
             string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\banco\Banco.db");
             string connectionString = $"Data Source={dbPath};Version=3;";
 
             try
             {
+                // Conexão com o banco de dados
                 using (SQLiteConnection conn = new SQLiteConnection(connectionString))
                 {
                     conn.Open();
-                    string sql = "INSERT INTO TB_USUARIOS (T_USERNAME, T_SENHA_USUARIOS) VALUES (@username, @password)";
+
+                    // Comando SQL para inserir o usuário
+                    string sql = "INSERT INTO TB_USUARIOS (T_USERNAME, T_SENHA_USUARIOS, T_SALT) VALUES (@username, @password, @salt)";
                     using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@username", username);
+                        // Adicionar parâmetros
+                        cmd.Parameters.AddWithValue("@username", fullname);
                         cmd.Parameters.AddWithValue("@password", hashedPassword);
+                        cmd.Parameters.AddWithValue("@salt", salt);
+
+                        // Executar o comando
                         cmd.ExecuteNonQuery();
                     }
                 }
+
+                // Mensagem de sucesso
                 MessageBox.Show("Usuário cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
+                // Exibir erro em caso de falha
                 MessageBox.Show($"Erro ao cadastrar usuário: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }     
+
+        private void BMT_Full_Name_Click(object sender, EventArgs e)
+        {
+            // Alterar bordas do controle focado
+            BMT_Full_Name.BorderColorFocused = Color.DeepSkyBlue;
+            BMT_Full_Name.BorderColorMouseHover = Color.DeepSkyBlue;
+
+            // Restaurar bordas dos outros controles
+            BMT_Email.BorderColorFocused = Color.Empty;
+            BMT_Email.BorderColorMouseHover = Color.Empty;
+            BMT_Password.BorderColorFocused = Color.Empty;
+            BMT_Password.BorderColorMouseHover = Color.Empty;
+            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
+            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;            
         }
 
-        private void btn_login_KeyPress(object sender, KeyPressEventArgs e)
+        private void BMT_Full_Name_MouseEnter(object sender, EventArgs e)
         {
+            // Alterar bordas do controle focado
+            BMT_Full_Name.BorderColorFocused = Color.DeepSkyBlue;
+            BMT_Full_Name.BorderColorMouseHover = Color.DeepSkyBlue;
 
+            // Restaurar bordas dos outros controles
+            BMT_Email.BorderColorFocused = Color.Empty;
+            BMT_Email.BorderColorMouseHover = Color.Empty;
+            BMT_Password.BorderColorFocused = Color.Empty;
+            BMT_Password.BorderColorMouseHover = Color.Empty;
+            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
+            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void BMT_Full_Name_Enter(object sender, EventArgs e)
         {
-            if (isCollapsed)
+            HandleFocusEnter(BMT_Full_Name, "FULL NAME");
+        }        
+
+        private void BMT_Full_Name_Leave(object sender, EventArgs e)
+        {
+            HandleFocusLeave(BMT_Full_Name, "FULL NAME");
+        }
+
+        private void BMT_Email_Click(object sender, EventArgs e)
+        {
+            // Alterar bordas do controle focado
+            BMT_Email.BorderColorFocused = Color.DeepSkyBlue;
+            BMT_Email.BorderColorMouseHover = Color.DeepSkyBlue;
+
+            // Restaurar bordas dos outros controles
+            BMT_Full_Name.BorderColorFocused = Color.Empty;
+            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
+            BMT_Password.BorderColorFocused = Color.Empty;
+            BMT_Password.BorderColorMouseHover = Color.Empty;
+            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
+            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;
+        }
+
+        private void BMT_Email_MouseEnter(object sender, EventArgs e)
+        {
+            // Alterar bordas do controle focado
+            BMT_Email.BorderColorFocused = Color.DeepSkyBlue;
+            BMT_Email.BorderColorMouseHover = Color.DeepSkyBlue;
+
+            // Restaurar bordas dos outros controles
+            BMT_Full_Name.BorderColorFocused = Color.Empty;
+            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
+            BMT_Password.BorderColorFocused = Color.Empty;
+            BMT_Password.BorderColorMouseHover = Color.Empty;
+            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
+            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;
+        }
+
+        private void BMT_Email_Enter(object sender, EventArgs e)
+        {
+            HandleFocusEnter(BMT_Email, "EMAIL");
+        }     
+
+        private void BMT_Email_Leave(object sender, EventArgs e)
+        {
+            HandleFocusLeave(BMT_Email, "EMAIL");
+        }
+
+        private void BMT_Password_Click(object sender, EventArgs e)
+        {
+            // Alterar bordas do controle focado
+            BMT_Password.BorderColorFocused = Color.DeepSkyBlue;
+            BMT_Password.BorderColorMouseHover = Color.DeepSkyBlue;
+
+            // Restaurar bordas dos outros controles
+            BMT_Full_Name.BorderColorFocused = Color.Empty;
+            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
+            BMT_Email.BorderColorFocused = Color.Empty;
+            BMT_Email.BorderColorMouseHover = Color.Empty;
+            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
+            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;
+        }
+
+        private void BMT_Password_MouseEnter(object sender, EventArgs e)
+        {
+            // Alterar bordas do controle focado
+            BMT_Password.BorderColorFocused = Color.DeepSkyBlue;
+            BMT_Password.BorderColorMouseHover = Color.DeepSkyBlue;
+
+            // Restaurar bordas dos outros controles
+            BMT_Full_Name.BorderColorFocused = Color.Empty;
+            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
+            BMT_Email.BorderColorFocused = Color.Empty;
+            BMT_Email.BorderColorMouseHover = Color.Empty;
+            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
+            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;
+        }
+
+        private void BMT_Password_Enter(object sender, EventArgs e)
+        {
+            HandleFocusEnter(BMT_Password, "PASSWORD");
+        }       
+
+        private void BMT_Password_Leave(object sender, EventArgs e)
+        {
+            HandleFocusLeave(BMT_Password, "PASSWORD");
+        }
+
+        private void BMT_Re_Enter_Password_Click(object sender, EventArgs e)
+        {
+            // Alterar bordas do controle focado
+            BMT_Re_Enter_Password.BorderColorFocused = Color.DeepSkyBlue;
+            BMT_Re_Enter_Password.BorderColorMouseHover = Color.DeepSkyBlue;
+
+            // Restaurar bordas dos outros controles
+            BMT_Full_Name.BorderColorFocused = Color.Empty;
+            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
+            BMT_Email.BorderColorFocused = Color.Empty;
+            BMT_Email.BorderColorMouseHover = Color.Empty;
+            BMT_Password.BorderColorFocused = Color.Empty;
+            BMT_Password.BorderColorMouseHover = Color.Empty;            
+        }
+
+        private void BMT_Re_Enter_Password_MouseEnter(object sender, EventArgs e)
+        {
+            // Alterar bordas do controle focado
+            BMT_Re_Enter_Password.BorderColorFocused = Color.DeepSkyBlue;
+            BMT_Re_Enter_Password.BorderColorMouseHover = Color.DeepSkyBlue;
+
+            // Restaurar bordas dos outros controles
+            BMT_Full_Name.BorderColorFocused = Color.Empty;
+            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
+            BMT_Email.BorderColorFocused = Color.Empty;
+            BMT_Email.BorderColorMouseHover = Color.Empty;
+            BMT_Password.BorderColorFocused = Color.Empty;
+            BMT_Password.BorderColorMouseHover = Color.Empty;            
+        }    
+
+        private void BMT_Re_Enter_Password_Enter(object sender, EventArgs e)
+        {
+            HandleFocusEnter(BMT_Re_Enter_Password, "RE-ENTER PASSWORD");
+        }        
+
+        private void BMT_Re_Enter_Password_Leave(object sender, EventArgs e)
+        {
+            HandleFocusLeave(BMT_Re_Enter_Password, "RE-ENTER PASSWORD");
+        }
+
+        private void btn_position_Click(object sender, EventArgs e)
+        {
+            if (corpo.Visible)
             {
-                btn_position.Image = Resources.setas_para_cima;
-                corpo.Height += 8;
-                if (corpo.Size == corpo.MaximumSize)
-                {
-                    timer1.Stop();
-                    isCollapsed = false;
-                }
-                else
-                {
-                    btn_position.Image = Resources.seta_para_baixo;
-                    corpo.Height -= 8;
-                    if (corpo.Size == corpo.MinimumSize)
-                    {
-                        timer1.Stop();
-                        isCollapsed = true;
-                    }
-                }
+                // Se o corpo1 já estiver visível, ocultá-lo
+                corpo.Visible = false;
+                btn_position.Image = Resources.seta_para_baixo;
             }
+            else
+            {
+                // Se não estiver visível, mostrá-lo
+                corpo.Visible = true;
+
+                // Certifique-se de ocultar outros corpos
+                btn_position.Image = Resources.setas_para_cima;
+            }
+        }
+
+        private void lbl_SignUp_MouseEnter(object sender, EventArgs e)
+        {
+            lbl_SignUp.ForeColor = Color.Lime;
+        }
+
+        private void lbl_SignUp_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_SignUp.ForeColor = Color.White;
+        }
+
+        private void bunifuTileButton1_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
         }
     }
 }

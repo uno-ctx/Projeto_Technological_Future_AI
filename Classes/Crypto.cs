@@ -12,18 +12,27 @@ namespace Technological_Future_AI.Classes
         public class cryto_login
         {
             // Função para gerar o hash da senha com SHA256
-            public static string HashPassword(string password)
+            public static string HashPasswordWithSalt(string password, out string salt)
             {
-                using(SHA256 sha256Hash = SHA256.Create())
+                // Gera um salt aleatório
+                byte[] saltBytes = new byte[16];
+                using (var rng = new RNGCryptoServiceProvider())
                 {
-                    // Converte a senha para bytes
-                    byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                    rng.GetBytes(saltBytes);
+                }
+                salt = Convert.ToBase64String(saltBytes);
 
-                    // Converte os bytes para uma string hexadecimal
+                // Combina senha e salt
+                string saltedPassword = password + salt;
+
+                // Gera o hash com SHA256
+                using (SHA256 sha256Hash = SHA256.Create())
+                {
+                    byte[] hashBytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(saltedPassword));
                     StringBuilder builder = new StringBuilder();
-                    for(int i = 0; i < bytes.Length; i++)
+                    for (int i = 0; i < hashBytes.Length; i++)
                     {
-                        builder.Append(bytes[i].ToString("x2"));
+                        builder.Append(hashBytes[i].ToString("x2"));
                     }
                     return builder.ToString();
                 }
