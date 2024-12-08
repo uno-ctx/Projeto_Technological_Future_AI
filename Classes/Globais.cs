@@ -10,6 +10,9 @@ namespace Technological_Future_AI.Classes
     {
         public static string versao = "1.0";
         public static bool logado = false;
-        public static int nivel = 0;
+        public static int nivel = 0;      
+        public static string mensagem = "dentro do metodo";
+            
+        
     }
 }

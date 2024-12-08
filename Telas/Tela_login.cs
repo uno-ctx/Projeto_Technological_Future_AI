@@ -7,6 +7,7 @@ using Technological_Future_AI.Classes;
 using System.Data.SQLite;
 using Bunifu.Framework.UI;
 using Technological_Future_AI.Properties;
+using System.Collections.Generic;
 
 namespace Technological_Future_AI.Telas
 {
@@ -15,7 +16,7 @@ namespace Technological_Future_AI.Telas
         public Tela_login()
         {
             InitializeComponent();
-            panel3.Visible = false;
+            BMT_SignUp.Visible = false;
             tb_username.Focus();
             pnl_linha_username.BackColor = Color.White;
             pnl_linha_password.BackColor = Color.White;
@@ -27,8 +28,7 @@ namespace Technological_Future_AI.Telas
         }
 
         public const int WM_NCLBUTTONDOWN = 0XA1;
-        public const int HT_CAPTION = 0X2;
-        private bool isCollapsed;
+        public const int HT_CAPTION = 0X2;        
 
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
@@ -117,9 +117,8 @@ namespace Technological_Future_AI.Telas
         {
             if (e.KeyCode == Keys.Enter)
             {
-                e.Handled = true; // Impede processamento adicional
-                e.SuppressKeyPress = true; // Evita som do "beep"
-                btn_login_Click(btn_login, EventArgs.Empty); // Executa o evento de clique diretamente
+                btn_login_Click(sender, e); // Chama o método de clique do botão diretamente
+                e.Handled = true; // Evita comportamentos padrões adicionais
             }
         }
 
@@ -135,13 +134,13 @@ namespace Technological_Future_AI.Telas
 
         private void lbl_SignUp_Click(object sender, EventArgs e)
         {
-            panel3.Visible = true;
+            BMT_SignUp.Visible = true;
             corpo.Visible = false;
         }
 
         private void lbl_LogIn_Click(object sender, EventArgs e)
         {
-            panel3.Visible = false;
+            BMT_SignUp.Visible = false;
         }
 
         private void Tela_login_MouseDown(object sender, MouseEventArgs e)
@@ -173,52 +172,70 @@ namespace Technological_Future_AI.Telas
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            string username = tb_username.Text;
-            string password = tb_password.Text;
+            string username = tb_username.Text.Trim();
+            string password = tb_password.Text.Trim();
 
-            if (string.IsNullOrEmpty(username) && string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Campo username e password estão vazios, por favor tente novamente!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                tb_username.Focus();
+                MessageBox.Show("Os campos 'username' e 'password' são obrigatórios.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (string.IsNullOrEmpty(username))
+            try
             {
-                MessageBox.Show("Campo username está vazio, por favor tente novamente!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                tb_username.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(password))
-            {
-                MessageBox.Show("Campo password está vazio, por favor tente novamente!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                return;
-            }
+                string sql = "SELECT T_SENHA_USUARIOS, T_SALT, T_Desc_Nivel_Usuarios, T_Code_Name, N_Nivel_Usuarios FROM TB_USUARIOS WHERE T_USERNAME = @username";
+                DataTable dt = Classes.Banco.Consulta(sql, new Dictionary<string, object> { { "@username", username } });
 
-            DataTable dt = new DataTable();
-            string sql = "SELECT * FROM TB_USUARIOS WHERE T_USERNAME = '" + username + "' AND T_SENHA_USUARIOS='" + password + "'";
-            dt = Classes.Banco.Consulta(sql);
-            if (dt.Rows.Count == 1)
-            {
-                Telas.Tela_menu tm = new Telas.Tela_menu();
-                tm.lbl_acesso.Text = dt.Rows[0].ItemArray[6].ToString();
-                tm.lbl_usuarios.Text = dt.Rows[0].Field<string>("T_Code_Name");
-                tm.pct_On_Off.Image = Properties.Resources.Ligado;
-                tm.lbl_cargo.Text = dt.Rows[0].Field<string>("T_Desc_Nivel_Usuarios");
-                Globais.nivel = int.Parse(dt.Rows[0].Field<Int64>("N_Nivel_Usuarios").ToString());
-                Globais.logado = true;
+                if (dt.Rows.Count == 1)
+                {
+                    string storedHash = dt.Rows[0]["T_SENHA_USUARIOS"] as string ?? string.Empty;
+                    string salt = dt.Rows[0]["T_SALT"] as string ?? string.Empty;
 
-                this.Hide(); // Oculta a tela de login
-                tm.ShowDialog(); // Abre Tela_menu como um diálogo
-                                 // this.Show(); // Opcional: pode trazer a tela de login de volta se necessário
-            }
-            else
-            {
-                MessageBox.Show("Usuário ou senha inconsistentes ou usuário não encontrado!!");
+                    if (!string.IsNullOrEmpty(storedHash) && !string.IsNullOrEmpty(salt))
+                    {
+                        string inputHash = Classes.Crypto.CrytoLogin.HashPasswordWithExistingSalt(password, salt);
+
+                        if (storedHash == inputHash)
+                        {
+                            string descricaoNivel = dt.Rows[0]["T_Desc_Nivel_Usuarios"] as string ?? string.Empty;
+                            string codeName = dt.Rows[0]["T_Code_Name"] as string ?? string.Empty;
+                            int nivelUsuarios = 0;
+
+                            if (dt.Rows[0]["N_Nivel_Usuarios"] != DBNull.Value)
+                            {
+                                int.TryParse(dt.Rows[0]["N_Nivel_Usuarios"].ToString(), out nivelUsuarios);
+                            }
+
+                            // Login bem-sucedido
+                            Telas.Tela_menu tm = new Telas.Tela_menu
+                            {
+                                lbl_acesso = { Text = descricaoNivel },
+                                lbl_usuarios = { Text = codeName },
+                                pct_On_Off = { Image = Properties.Resources.Ligado },
+                                lbl_cargo = { Text = descricaoNivel }
+                            };
+
+                            Globais.nivel = nivelUsuarios;
+                            Globais.logado = true;
+
+                            this.Hide();
+                            tm.ShowDialog();
+                            this.Close();
+                            return;
+                        }
+                    }
+                }
+
+                MessageBox.Show("Usuário ou senha incorretos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tb_password.Clear();
                 tb_username.Clear();
+                tb_username.Focus();
+
             }
-            SendKeys.Send("{ENTER}");
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao realizar login: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void UpdatePlaceholder(BunifuMaterialTextbox textBox, string placeholder, bool isEntering)
@@ -255,35 +272,76 @@ namespace Technological_Future_AI.Telas
         {
             BunifuMaterialTextbox textBox = sender as BunifuMaterialTextbox;
             UpdatePlaceholder(textBox, textBox.Tag.ToString(), true);
-        }       
+        }
 
         private void btn_signup_Click(object sender, EventArgs e)
         {
-            // Tags para os campos de entrada
-            string fullname = BMT_Full_Name.Text.Trim();
-            string email = BMT_Email.Text.Trim();
-            string password = BMT_Password.Text.Trim();
-            string reEnterPassword = BMT_Re_Enter_Password.Text.Trim();
-            panel3.Visible = false;
+            // Captura os valores dos campos de entrada e remove espaços em branco extras
+            string fullname = BMT_Full_Name.Text.Trim(); // Nome completo do usuário
+            string email = BMT_Email.Text.Trim();       // E-mail do usuário
+            string password = BMT_Password.Text.Trim(); // Senha do usuário
+            string reEnterPassword = BMT_Re_Enter_Password.Text.Trim(); // Confirmação da senha
+            string cargoSelecionado = btn_position.Text.Trim(); // Cargo selecionado no sistema
+            BMT_SignUp.Visible = false; // Oculta o botão de cadastro após o clique (opcional)
 
-            // Validação de campos obrigatórios
-            if (string.IsNullOrWhiteSpace(fullname) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(reEnterPassword))
+            // Validação para garantir que nenhum campo obrigatório está vazio
+            if (string.IsNullOrWhiteSpace(fullname) || string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(reEnterPassword) ||
+                string.IsNullOrWhiteSpace(cargoSelecionado))
             {
-                MessageBox.Show("Usuário e senha são obrigatórios!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("Todos os campos são obrigatórios!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Interrompe o fluxo caso os campos estejam vazios
             }
 
+            // Verificação se as senhas informadas são iguais
             if (password != reEnterPassword)
             {
-                MessageBox.Show("As senhas estão diferentes! Por favor, Tente novamente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("As senhas estão diferentes! Por favor, tente novamente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Interrompe o fluxo caso as senhas não coincidam
             }
 
-            // Gerar o hash e o salt da senha
-            string salt;
-            string hashedPassword = Classes.Crypto.cryto_login.HashPasswordWithSalt(password, out salt);
+            // Gera o hash da senha com um salt existente (sem usar out)
+            string salt = "algum_valor_de_salt"; // Defina o valor do salt
+            string hashedPassword = Classes.Crypto.CrytoLogin.HashPasswordWithExistingSalt(password, salt);
 
-            // Caminho do banco de dados
+            // Divide o nome completo em primeiro e último nome
+            string[] nameParts = fullname.Split(' ');
+            string primeiroNome = nameParts[0];
+            string ultimoNome = nameParts.Length > 1 ? nameParts[nameParts.Length - 1] : string.Empty;
+            string username = $"{primeiroNome}.{ultimoNome}".ToLower(); // Gera o username no formato primeiro.ultimo
+            string codeName = $"{primeiroNome} {ultimoNome}"; // Combinação do primeiro e último nome
+
+            // Define os valores do status e nível de acordo com o cargo selecionado
+            int nivelUsuario = 0;
+            string descNivelUsuario = string.Empty;
+            switch (cargoSelecionado.ToLower())
+            {
+                case "analista":
+                    nivelUsuario = 1;
+                    descNivelUsuario = "Analista";
+                    break;
+                case "supervisor":
+                    nivelUsuario = 2;
+                    descNivelUsuario = "Supervisor";
+                    break;
+                case "coordenador(a)":
+                    nivelUsuario = 3;
+                    descNivelUsuario = "Coordenador";
+                    break;
+                case "diretor":
+                    nivelUsuario = 4;
+                    descNivelUsuario = "Diretor";
+                    break;
+                case "presidente":
+                    nivelUsuario = 5;
+                    descNivelUsuario = "Presidente";
+                    break;
+                default:
+                    MessageBox.Show("Cargo inválido! Por favor, selecione um cargo válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+            // Caminho do banco de dados SQLite
             string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\banco\Banco.db");
             string connectionString = $"Data Source={dbPath};Version=3;";
 
@@ -292,18 +350,30 @@ namespace Technological_Future_AI.Telas
                 // Conexão com o banco de dados
                 using (SQLiteConnection conn = new SQLiteConnection(connectionString))
                 {
-                    conn.Open();
+                    conn.Open(); // Abre a conexão
 
-                    // Comando SQL para inserir o usuário
-                    string sql = "INSERT INTO TB_USUARIOS (T_USERNAME, T_SENHA_USUARIOS, T_SALT) VALUES (@username, @password, @salt)";
+                    // Comando SQL para inserir um novo usuário
+                    string sql = @"
+                INSERT INTO TB_USUARIOS 
+                (T_Nome_Usuario, T_Username, T_Senha_Usuarios, T_Status_Usuarios, T_Desc_Status_Usuarios, 
+                 N_Nivel_Usuarios, T_Desc_Nivel_Usuarios, T_Code_Name, T_EMail, T_Salt) 
+                VALUES 
+                (@fullname, @username, @password, 'A', 'Ativo', 
+                 @nivelUsuario, @descNivelUsuario, @codeName, @Email, @salt)";
+
                     using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                     {
-                        // Adicionar parâmetros
-                        cmd.Parameters.AddWithValue("@username", fullname);
+                        // Adiciona os parâmetros
+                        cmd.Parameters.AddWithValue("@fullname", fullname);
+                        cmd.Parameters.AddWithValue("@username", username);
                         cmd.Parameters.AddWithValue("@password", hashedPassword);
+                        cmd.Parameters.AddWithValue("@nivelUsuario", nivelUsuario);
+                        cmd.Parameters.AddWithValue("@descNivelUsuario", descNivelUsuario);
+                        cmd.Parameters.AddWithValue("@codeName", codeName);
+                        cmd.Parameters.AddWithValue("@Email", email);
                         cmd.Parameters.AddWithValue("@salt", salt);
 
-                        // Executar o comando
+                        // Executa o comando
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -313,10 +383,12 @@ namespace Technological_Future_AI.Telas
             }
             catch (Exception ex)
             {
-                // Exibir erro em caso de falha
+                // Exibe mensagem de erro
                 MessageBox.Show($"Erro ao cadastrar usuário: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }     
+        }
+
+
 
         private void BMT_Full_Name_Click(object sender, EventArgs e)
         {
@@ -480,6 +552,8 @@ namespace Technological_Future_AI.Telas
 
         private void btn_position_Click(object sender, EventArgs e)
         {
+            btn_position.Text = "POSITION";
+
             if (corpo.Visible)
             {
                 // Se o corpo1 já estiver visível, ocultá-lo
@@ -508,7 +582,43 @@ namespace Technological_Future_AI.Telas
 
         private void bunifuTileButton1_Click(object sender, EventArgs e)
         {
-            panel3.Visible = false;
+            BMT_SignUp.Visible = false;
+        }
+
+        private void BMT_Termos_Click(object sender, EventArgs e)
+        {
+            Tela_Termos tt = new Tela_Termos();
+            tt.Show();
+        }
+
+        private void btn_presidente_Click(object sender, EventArgs e)
+        {
+            btn_position.Text = "PRESIDENTE";
+            corpo.Visible = false;
+        }
+
+        private void btn_diretor_Click(object sender, EventArgs e)
+        {
+            btn_position.Text = "DIRETOR(A)";
+            corpo.Visible = false;
+        }
+
+        private void btn_coordenador_Click(object sender, EventArgs e)
+        {
+            btn_position.Text = "COORDENADOR(A)";
+            corpo.Visible = false;
+        }
+
+        private void btn_supervisor_Click(object sender, EventArgs e)
+        {
+            btn_position.Text = "SUPERVISOR(A)";
+            corpo.Visible = false;
+        }
+
+        private void btn_analista_Click(object sender, EventArgs e)
+        {
+            btn_position.Text = "ANALISTA";
+            corpo.Visible = false;
         }
     }
 }

@@ -1,42 +1,59 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Technological_Future_AI.Classes
 {
-    internal class Crypto
+    internal static class Crypto // Classe para lógica de hash
     {
-        public class cryto_login
+        public static class CrytoLogin
         {
-            // Função para gerar o hash da senha com SHA256
-            public static string HashPasswordWithSalt(string password, out string salt)
+            // Método para gerar o hash com um salt existente
+            public static string HashPasswordWithExistingSalt(string password, string salt)
             {
-                // Gera um salt aleatório
-                byte[] saltBytes = new byte[16];
-                using (var rng = new RNGCryptoServiceProvider())
+                // Verificação de validação do password e salt
+                if (string.IsNullOrWhiteSpace(password))
                 {
-                    rng.GetBytes(saltBytes);
+                    throw new ArgumentException("A senha não pode ser nula ou vazia.");
                 }
-                salt = Convert.ToBase64String(saltBytes);
+                if (string.IsNullOrWhiteSpace(salt))
+                {
+                    throw new ArgumentException("Salt não pode ser nulo ou vazio.");
+                }
 
-                // Combina senha e salt
+                // Concatenando senha com salt
                 string saltedPassword = password + salt;
 
-                // Gera o hash com SHA256
+                // Usando o algoritmo SHA256 para gerar o hash
                 using (SHA256 sha256Hash = SHA256.Create())
                 {
                     byte[] hashBytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(saltedPassword));
                     StringBuilder builder = new StringBuilder();
-                    for (int i = 0; i < hashBytes.Length; i++)
+                    foreach (var b in hashBytes)
                     {
-                        builder.Append(hashBytes[i].ToString("x2"));
+                        builder.Append(b.ToString("x2"));
                     }
                     return builder.ToString();
                 }
             }
+        }
+    }
+
+    // Classe principal com ponto de entrada
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string password = "ctx2511"; // Senha de exemplo
+            string salt = Guid.NewGuid().ToString(); // Gera um salt único
+            string hash = Crypto.CrytoLogin.HashPasswordWithExistingSalt(password, salt);
+
+            // Exibindo o salt e o hash gerado no console
+            Console.WriteLine("Salt: " + salt);
+            Console.WriteLine("Hash: " + hash);
+
+            // Mantém a janela aberta
+            Console.ReadLine();
         }
     }
 }

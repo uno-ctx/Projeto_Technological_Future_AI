@@ -1,6 +1,6 @@
 ﻿namespace Technological_Future_AI.Telas
 {
-    partial class Tela_Termos
+    partial class FormInput
     {
         /// <summary>
         /// Required designer variable.
@@ -28,22 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Tela_Termos
+            // lblMessage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.Location = new System.Drawing.Point(280, 151);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(44, 16);
+            this.lblMessage.TabIndex = 0;
+            this.lblMessage.Text = "label1";
+            // 
+            // FormInput
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Tela_Termos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tela_Termos";
+            this.Controls.Add(this.lblMessage);
+            this.Name = "FormInput";
+            this.Text = "FormInput";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblMessage;
     }
 }

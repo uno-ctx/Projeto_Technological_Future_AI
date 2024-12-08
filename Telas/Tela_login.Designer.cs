@@ -40,35 +40,35 @@ namespace Technological_Future_AI.Telas
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.BMT_SignUp = new System.Windows.Forms.Panel();
+            this.bunifuTileButton1 = new Bunifu.Framework.UI.BunifuTileButton();
             this.corpo = new System.Windows.Forms.Panel();
             this.btn_analista = new System.Windows.Forms.Button();
             this.btn_supervisor = new System.Windows.Forms.Button();
             this.btn_coordenador = new System.Windows.Forms.Button();
             this.btn_diretor = new System.Windows.Forms.Button();
             this.btn_presidente = new System.Windows.Forms.Button();
-            this.btn_position = new System.Windows.Forms.Button();
-            this.btn_signup = new Bunifu.Framework.UI.BunifuThinButton2();
             this.BMT_Re_Enter_Password = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.BMT_Password = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.BMT_Email = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.btn_position = new System.Windows.Forms.Button();
             this.BMT_Full_Name = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.check_traducao = new System.Windows.Forms.CheckBox();
-            this.Check_Terms = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.check_traducao = new System.Windows.Forms.CheckBox();
+            this.btn_signup = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.BMT_Termos = new Bunifu.Framework.UI.BunifuThinButton2();
             this.lbl_LogIn = new System.Windows.Forms.Label();
             this.lbl_SignUp = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.tb_password = new System.Windows.Forms.TextBox();
             this.pnl_linha_password = new System.Windows.Forms.Panel();
             this.btn_login = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.bunifuTileButton1 = new Bunifu.Framework.UI.BunifuTileButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.BMT_SignUp.SuspendLayout();
             this.corpo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -166,25 +166,45 @@ namespace Technological_Future_AI.Telas
             this.label3.Text = "Technological Future AI";
             this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label3_MouseDown);
             // 
-            // panel3
+            // BMT_SignUp
             // 
-            this.panel3.Controls.Add(this.bunifuTileButton1);
-            this.panel3.Controls.Add(this.corpo);
-            this.panel3.Controls.Add(this.BMT_Re_Enter_Password);
-            this.panel3.Controls.Add(this.BMT_Password);
-            this.panel3.Controls.Add(this.BMT_Email);
-            this.panel3.Controls.Add(this.btn_position);
-            this.panel3.Controls.Add(this.BMT_Full_Name);
-            this.panel3.Controls.Add(this.Check_Terms);
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.check_traducao);
-            this.panel3.Controls.Add(this.btn_signup);
-            this.panel3.Location = new System.Drawing.Point(0, 28);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(300, 465);
-            this.panel3.TabIndex = 6;
+            this.BMT_SignUp.Controls.Add(this.bunifuTileButton1);
+            this.BMT_SignUp.Controls.Add(this.corpo);
+            this.BMT_SignUp.Controls.Add(this.BMT_Re_Enter_Password);
+            this.BMT_SignUp.Controls.Add(this.BMT_Password);
+            this.BMT_SignUp.Controls.Add(this.BMT_Email);
+            this.BMT_SignUp.Controls.Add(this.btn_position);
+            this.BMT_SignUp.Controls.Add(this.BMT_Full_Name);
+            this.BMT_SignUp.Controls.Add(this.panel4);
+            this.BMT_SignUp.Controls.Add(this.pictureBox2);
+            this.BMT_SignUp.Controls.Add(this.label4);
+            this.BMT_SignUp.Controls.Add(this.check_traducao);
+            this.BMT_SignUp.Controls.Add(this.btn_signup);
+            this.BMT_SignUp.Controls.Add(this.BMT_Termos);
+            this.BMT_SignUp.Location = new System.Drawing.Point(0, 28);
+            this.BMT_SignUp.Name = "BMT_SignUp";
+            this.BMT_SignUp.Size = new System.Drawing.Size(300, 465);
+            this.BMT_SignUp.TabIndex = 6;
+            // 
+            // bunifuTileButton1
+            // 
+            this.bunifuTileButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.bunifuTileButton1.color = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.bunifuTileButton1.colorActive = System.Drawing.Color.SeaGreen;
+            this.bunifuTileButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuTileButton1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuTileButton1.ForeColor = System.Drawing.Color.White;
+            this.bunifuTileButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuTileButton1.Image")));
+            this.bunifuTileButton1.ImagePosition = 13;
+            this.bunifuTileButton1.ImageZoom = 50;
+            this.bunifuTileButton1.LabelPosition = 27;
+            this.bunifuTileButton1.LabelText = "Voltar ao Login";
+            this.bunifuTileButton1.Location = new System.Drawing.Point(211, 391);
+            this.bunifuTileButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuTileButton1.Name = "bunifuTileButton1";
+            this.bunifuTileButton1.Size = new System.Drawing.Size(88, 83);
+            this.bunifuTileButton1.TabIndex = 12;
+            this.bunifuTileButton1.Click += new System.EventHandler(this.bunifuTileButton1_Click);
             // 
             // corpo
             // 
@@ -213,6 +233,7 @@ namespace Technological_Future_AI.Telas
             this.btn_analista.Text = "ANALISTA";
             this.btn_analista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_analista.UseVisualStyleBackColor = true;
+            this.btn_analista.Click += new System.EventHandler(this.btn_analista_Click);
             // 
             // btn_supervisor
             // 
@@ -229,6 +250,7 @@ namespace Technological_Future_AI.Telas
             this.btn_supervisor.Text = "SUPERVISOR(A)";
             this.btn_supervisor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_supervisor.UseVisualStyleBackColor = true;
+            this.btn_supervisor.Click += new System.EventHandler(this.btn_supervisor_Click);
             // 
             // btn_coordenador
             // 
@@ -245,6 +267,7 @@ namespace Technological_Future_AI.Telas
             this.btn_coordenador.Text = "COORDENADOR(A)";
             this.btn_coordenador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_coordenador.UseVisualStyleBackColor = true;
+            this.btn_coordenador.Click += new System.EventHandler(this.btn_coordenador_Click);
             // 
             // btn_diretor
             // 
@@ -261,6 +284,7 @@ namespace Technological_Future_AI.Telas
             this.btn_diretor.Text = "DIRETOR(A)";
             this.btn_diretor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_diretor.UseVisualStyleBackColor = true;
+            this.btn_diretor.Click += new System.EventHandler(this.btn_diretor_Click);
             // 
             // btn_presidente
             // 
@@ -277,50 +301,7 @@ namespace Technological_Future_AI.Telas
             this.btn_presidente.Text = "PRESIDENTE";
             this.btn_presidente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_presidente.UseVisualStyleBackColor = true;
-            // 
-            // btn_position
-            // 
-            this.btn_position.FlatAppearance.BorderSize = 0;
-            this.btn_position.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_position.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_position.ForeColor = System.Drawing.Color.White;
-            this.btn_position.Image = global::Technological_Future_AI.Properties.Resources.seta_para_baixo;
-            this.btn_position.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_position.Location = new System.Drawing.Point(25, 208);
-            this.btn_position.Name = "btn_position";
-            this.btn_position.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btn_position.Size = new System.Drawing.Size(250, 30);
-            this.btn_position.TabIndex = 0;
-            this.btn_position.Text = "POSITION";
-            this.btn_position.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_position.UseVisualStyleBackColor = true;
-            this.btn_position.Click += new System.EventHandler(this.btn_position_Click);
-            // 
-            // btn_signup
-            // 
-            this.btn_signup.ActiveBorderThickness = 1;
-            this.btn_signup.ActiveCornerRadius = 20;
-            this.btn_signup.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btn_signup.ActiveForecolor = System.Drawing.Color.White;
-            this.btn_signup.ActiveLineColor = System.Drawing.Color.MediumSeaGreen;
-            this.btn_signup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.btn_signup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_signup.BackgroundImage")));
-            this.btn_signup.ButtonText = "SignUP";
-            this.btn_signup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_signup.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_signup.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btn_signup.IdleBorderThickness = 1;
-            this.btn_signup.IdleCornerRadius = 20;
-            this.btn_signup.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.btn_signup.IdleForecolor = System.Drawing.Color.DeepSkyBlue;
-            this.btn_signup.IdleLineColor = System.Drawing.Color.DeepSkyBlue;
-            this.btn_signup.Location = new System.Drawing.Point(60, 318);
-            this.btn_signup.Margin = new System.Windows.Forms.Padding(5);
-            this.btn_signup.Name = "btn_signup";
-            this.btn_signup.Size = new System.Drawing.Size(181, 40);
-            this.btn_signup.TabIndex = 10;
-            this.btn_signup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
+            this.btn_presidente.Click += new System.EventHandler(this.btn_presidente_Click);
             // 
             // BMT_Re_Enter_Password
             // 
@@ -333,7 +314,7 @@ namespace Technological_Future_AI.Telas
             this.BMT_Re_Enter_Password.ForeColor = System.Drawing.Color.White;
             this.BMT_Re_Enter_Password.isPassword = false;
             this.BMT_Re_Enter_Password.Location = new System.Drawing.Point(25, 173);
-            this.BMT_Re_Enter_Password.Margin = new System.Windows.Forms.Padding(4);
+            this.BMT_Re_Enter_Password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BMT_Re_Enter_Password.Name = "BMT_Re_Enter_Password";
             this.BMT_Re_Enter_Password.Size = new System.Drawing.Size(250, 30);
             this.BMT_Re_Enter_Password.TabIndex = 9;
@@ -355,7 +336,7 @@ namespace Technological_Future_AI.Telas
             this.BMT_Password.ForeColor = System.Drawing.Color.White;
             this.BMT_Password.isPassword = false;
             this.BMT_Password.Location = new System.Drawing.Point(25, 138);
-            this.BMT_Password.Margin = new System.Windows.Forms.Padding(4);
+            this.BMT_Password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BMT_Password.Name = "BMT_Password";
             this.BMT_Password.Size = new System.Drawing.Size(250, 30);
             this.BMT_Password.TabIndex = 9;
@@ -377,7 +358,7 @@ namespace Technological_Future_AI.Telas
             this.BMT_Email.ForeColor = System.Drawing.Color.White;
             this.BMT_Email.isPassword = false;
             this.BMT_Email.Location = new System.Drawing.Point(25, 103);
-            this.BMT_Email.Margin = new System.Windows.Forms.Padding(4);
+            this.BMT_Email.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BMT_Email.Name = "BMT_Email";
             this.BMT_Email.Size = new System.Drawing.Size(250, 30);
             this.BMT_Email.TabIndex = 9;
@@ -387,6 +368,24 @@ namespace Technological_Future_AI.Telas
             this.BMT_Email.Enter += new System.EventHandler(this.BMT_Email_Enter);
             this.BMT_Email.Leave += new System.EventHandler(this.BMT_Email_Leave);
             this.BMT_Email.MouseEnter += new System.EventHandler(this.BMT_Email_MouseEnter);
+            // 
+            // btn_position
+            // 
+            this.btn_position.FlatAppearance.BorderSize = 0;
+            this.btn_position.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_position.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_position.ForeColor = System.Drawing.Color.White;
+            this.btn_position.Image = global::Technological_Future_AI.Properties.Resources.seta_para_baixo;
+            this.btn_position.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_position.Location = new System.Drawing.Point(25, 208);
+            this.btn_position.Name = "btn_position";
+            this.btn_position.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btn_position.Size = new System.Drawing.Size(250, 30);
+            this.btn_position.TabIndex = 0;
+            this.btn_position.Text = "POSITION";
+            this.btn_position.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_position.UseVisualStyleBackColor = true;
+            this.btn_position.Click += new System.EventHandler(this.btn_position_Click);
             // 
             // BMT_Full_Name
             // 
@@ -399,7 +398,7 @@ namespace Technological_Future_AI.Telas
             this.BMT_Full_Name.ForeColor = System.Drawing.Color.White;
             this.BMT_Full_Name.isPassword = false;
             this.BMT_Full_Name.Location = new System.Drawing.Point(25, 68);
-            this.BMT_Full_Name.Margin = new System.Windows.Forms.Padding(4);
+            this.BMT_Full_Name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BMT_Full_Name.Name = "BMT_Full_Name";
             this.BMT_Full_Name.Size = new System.Drawing.Size(250, 30);
             this.BMT_Full_Name.TabIndex = 9;
@@ -409,35 +408,6 @@ namespace Technological_Future_AI.Telas
             this.BMT_Full_Name.Enter += new System.EventHandler(this.BMT_Full_Name_Enter);
             this.BMT_Full_Name.Leave += new System.EventHandler(this.BMT_Full_Name_Leave);
             this.BMT_Full_Name.MouseEnter += new System.EventHandler(this.BMT_Full_Name_MouseEnter);
-            // 
-            // check_traducao
-            // 
-            this.check_traducao.AutoSize = true;
-            this.check_traducao.FlatAppearance.BorderSize = 0;
-            this.check_traducao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.check_traducao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.check_traducao.ForeColor = System.Drawing.Color.White;
-            this.check_traducao.Location = new System.Drawing.Point(30, 402);
-            this.check_traducao.Name = "check_traducao";
-            this.check_traducao.Size = new System.Drawing.Size(85, 21);
-            this.check_traducao.TabIndex = 8;
-            this.check_traducao.Text = "Tradução";
-            this.check_traducao.UseVisualStyleBackColor = true;
-            this.check_traducao.CheckedChanged += new System.EventHandler(this.check_traducao_CheckedChanged);
-            // 
-            // Check_Terms
-            // 
-            this.Check_Terms.AutoSize = true;
-            this.Check_Terms.FlatAppearance.BorderSize = 0;
-            this.Check_Terms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Check_Terms.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Check_Terms.ForeColor = System.Drawing.Color.White;
-            this.Check_Terms.Location = new System.Drawing.Point(30, 276);
-            this.Check_Terms.Name = "Check_Terms";
-            this.Check_Terms.Size = new System.Drawing.Size(241, 21);
-            this.Check_Terms.TabIndex = 5;
-            this.Check_Terms.Text = "I Accept the Terms and Condition";
-            this.Check_Terms.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -467,6 +437,73 @@ namespace Technological_Future_AI.Telas
             this.label4.Size = new System.Drawing.Size(193, 21);
             this.label4.TabIndex = 2;
             this.label4.Text = "Technological Future AI";
+            // 
+            // check_traducao
+            // 
+            this.check_traducao.AutoSize = true;
+            this.check_traducao.FlatAppearance.BorderSize = 0;
+            this.check_traducao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.check_traducao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.check_traducao.ForeColor = System.Drawing.Color.White;
+            this.check_traducao.Location = new System.Drawing.Point(30, 402);
+            this.check_traducao.Name = "check_traducao";
+            this.check_traducao.Size = new System.Drawing.Size(85, 21);
+            this.check_traducao.TabIndex = 8;
+            this.check_traducao.Text = "Tradução";
+            this.check_traducao.UseVisualStyleBackColor = true;
+            this.check_traducao.CheckedChanged += new System.EventHandler(this.check_traducao_CheckedChanged);
+            // 
+            // btn_signup
+            // 
+            this.btn_signup.ActiveBorderThickness = 1;
+            this.btn_signup.ActiveCornerRadius = 20;
+            this.btn_signup.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btn_signup.ActiveForecolor = System.Drawing.Color.White;
+            this.btn_signup.ActiveLineColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_signup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.btn_signup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_signup.BackgroundImage")));
+            this.btn_signup.ButtonText = "SignUP";
+            this.btn_signup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_signup.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_signup.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btn_signup.IdleBorderThickness = 1;
+            this.btn_signup.IdleCornerRadius = 20;
+            this.btn_signup.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.btn_signup.IdleForecolor = System.Drawing.Color.DeepSkyBlue;
+            this.btn_signup.IdleLineColor = System.Drawing.Color.DeepSkyBlue;
+            this.btn_signup.Location = new System.Drawing.Point(60, 318);
+            this.btn_signup.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_signup.Name = "btn_signup";
+            this.btn_signup.Size = new System.Drawing.Size(181, 40);
+            this.btn_signup.TabIndex = 10;
+            this.btn_signup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
+            // 
+            // BMT_Termos
+            // 
+            this.BMT_Termos.ActiveBorderThickness = 1;
+            this.BMT_Termos.ActiveCornerRadius = 20;
+            this.BMT_Termos.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.BMT_Termos.ActiveForecolor = System.Drawing.Color.White;
+            this.BMT_Termos.ActiveLineColor = System.Drawing.Color.MediumSeaGreen;
+            this.BMT_Termos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.BMT_Termos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BMT_Termos.BackgroundImage")));
+            this.BMT_Termos.ButtonText = "Validação dos Termos";
+            this.BMT_Termos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BMT_Termos.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BMT_Termos.ForeColor = System.Drawing.Color.SeaGreen;
+            this.BMT_Termos.IdleBorderThickness = 1;
+            this.BMT_Termos.IdleCornerRadius = 20;
+            this.BMT_Termos.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.BMT_Termos.IdleForecolor = System.Drawing.Color.DeepSkyBlue;
+            this.BMT_Termos.IdleLineColor = System.Drawing.Color.DeepSkyBlue;
+            this.BMT_Termos.Location = new System.Drawing.Point(66, 285);
+            this.BMT_Termos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BMT_Termos.Name = "BMT_Termos";
+            this.BMT_Termos.Size = new System.Drawing.Size(169, 30);
+            this.BMT_Termos.TabIndex = 13;
+            this.BMT_Termos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BMT_Termos.Click += new System.EventHandler(this.BMT_Termos_Click);
             // 
             // lbl_LogIn
             // 
@@ -545,32 +582,12 @@ namespace Technological_Future_AI.Telas
             this.btn_login.IdleForecolor = System.Drawing.Color.DeepSkyBlue;
             this.btn_login.IdleLineColor = System.Drawing.Color.DeepSkyBlue;
             this.btn_login.Location = new System.Drawing.Point(60, 310);
-            this.btn_login.Margin = new System.Windows.Forms.Padding(5);
+            this.btn_login.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(181, 41);
             this.btn_login.TabIndex = 7;
             this.btn_login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
-            // 
-            // bunifuTileButton1
-            // 
-            this.bunifuTileButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.bunifuTileButton1.color = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.bunifuTileButton1.colorActive = System.Drawing.Color.SeaGreen;
-            this.bunifuTileButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuTileButton1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuTileButton1.ForeColor = System.Drawing.Color.White;
-            this.bunifuTileButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuTileButton1.Image")));
-            this.bunifuTileButton1.ImagePosition = 13;
-            this.bunifuTileButton1.ImageZoom = 50;
-            this.bunifuTileButton1.LabelPosition = 27;
-            this.bunifuTileButton1.LabelText = "Voltar ao Login";
-            this.bunifuTileButton1.Location = new System.Drawing.Point(209, 378);
-            this.bunifuTileButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuTileButton1.Name = "bunifuTileButton1";
-            this.bunifuTileButton1.Size = new System.Drawing.Size(88, 83);
-            this.bunifuTileButton1.TabIndex = 12;
-            this.bunifuTileButton1.Click += new System.EventHandler(this.bunifuTileButton1_Click);
             // 
             // Tela_login
             // 
@@ -578,7 +595,7 @@ namespace Technological_Future_AI.Telas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(300, 500);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.BMT_SignUp);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.pnl_linha_password);
@@ -604,8 +621,8 @@ namespace Technological_Future_AI.Telas
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.BMT_SignUp.ResumeLayout(false);
+            this.BMT_SignUp.PerformLayout();
             this.corpo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -624,7 +641,7 @@ namespace Technological_Future_AI.Telas
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel BMT_SignUp;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
@@ -641,7 +658,6 @@ namespace Technological_Future_AI.Telas
         private Bunifu.Framework.UI.BunifuThinButton2 btn_login;
         private System.Windows.Forms.Panel corpo;
         private Bunifu.Framework.UI.BunifuThinButton2 btn_signup;
-        private System.Windows.Forms.CheckBox Check_Terms;
         private System.Windows.Forms.Button btn_supervisor;
         private System.Windows.Forms.Button btn_coordenador;
         private System.Windows.Forms.Button btn_diretor;
@@ -649,5 +665,6 @@ namespace Technological_Future_AI.Telas
         private System.Windows.Forms.Button btn_position;
         private System.Windows.Forms.Button btn_analista;
         private BunifuTileButton bunifuTileButton1;
+        private BunifuThinButton2 BMT_Termos;
     }
 }

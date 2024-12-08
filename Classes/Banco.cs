@@ -59,7 +59,8 @@ namespace Technological_Future_AI.Classes
         }
 
         // Método genérico para realizar consultas
-        public static DataTable Consulta(string sql)
+        // Método genérico para realizar consultas com parâmetros
+        public static DataTable Consulta(string sql, System.Collections.Generic.Dictionary<string, object> parametros)
         {
             DataTable dt = new DataTable();
             using (var conexao = ConexaoBanco())
@@ -70,6 +71,16 @@ namespace Technological_Future_AI.Classes
                     using (var cmd = conexao.CreateCommand())
                     {
                         cmd.CommandText = sql;
+
+                        // Adiciona os parâmetros ao comando
+                        if (parametros != null)
+                        {
+                            foreach (var param in parametros)
+                            {
+                                cmd.Parameters.AddWithValue(param.Key, param.Value);
+                            }
+                        }
+
                         using (var da = new SQLiteDataAdapter(cmd))
                         {
                             da.Fill(dt);
@@ -83,5 +94,6 @@ namespace Technological_Future_AI.Classes
             }
             return dt;
         }
+
     }
 }

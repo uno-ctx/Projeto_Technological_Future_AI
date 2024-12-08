@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Technological_Future_AI.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>C:\Users\Julio\Downloads\Bunifu\Bunifu_UI_v1.52.dll</HintPath>
@@ -52,7 +55,21 @@
   <ItemGroup>
     <Compile Include="Classes\Banco.cs" />
     <Compile Include="Classes\Crypto.cs" />
+    <Compile Include="Classes\Crypto_ADM.cs" />
     <Compile Include="Classes\Globais.cs" />
+    <Compile Include="Microsoft\VisualBasic\Interaction.cs" />
+    <Compile Include="Telas\FormInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\FormInput.Designer.cs">
+      <DependentUpon>FormInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Form_ADM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Form_ADM.Designer.cs">
+      <DependentUpon>Form_ADM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Telas\Tela_apresentacao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +90,12 @@
     <Compile Include="Telas\Tela_menu.Designer.cs">
       <DependentUpon>Tela_menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Telas\Tela_Termos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Tela_Termos.Designer.cs">
+      <DependentUpon>Tela_Termos.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -83,6 +106,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Telas\FormInput.resx">
+      <DependentUpon>FormInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Form_ADM.resx">
+      <DependentUpon>Form_ADM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Telas\Tela_apresentacao.resx">
       <DependentUpon>Tela_apresentacao.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\Tela_menu.resx">
       <DependentUpon>Tela_menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Tela_Termos.resx">
+      <DependentUpon>Tela_Termos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
