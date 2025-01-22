@@ -31,7 +31,6 @@
             this.btn_criar = new System.Windows.Forms.Button();
             this.texBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Button();
-            this.bmt_digitesenha = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.SuspendLayout();
             // 
             // btn_criar
@@ -69,17 +68,7 @@
             this.label1.Size = new System.Drawing.Size(152, 28);
             this.label1.TabIndex = 4;
             this.label1.Text = "CRIAR SENHA E SALT";
-            this.label1.UseVisualStyleBackColor = true;
-            // 
-            // bmt_digitesenha
-            // 
-            this.bmt_digitesenha.AutoSize = true;
-            this.bmt_digitesenha.ForeColor = System.Drawing.Color.White;
-            this.bmt_digitesenha.Location = new System.Drawing.Point(34, 117);
-            this.bmt_digitesenha.Name = "bmt_digitesenha";
-            this.bmt_digitesenha.Size = new System.Drawing.Size(96, 13);
-            this.bmt_digitesenha.TabIndex = 5;
-            this.bmt_digitesenha.Text = "DIGITE A SENHA:";
+            this.label1.UseVisualStyleBackColor = true;          
             // 
             // Form_ADM
             // 
@@ -87,7 +76,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(328, 230);
-            this.Controls.Add(this.bmt_digitesenha);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.texBox1);
             this.Controls.Add(this.btn_criar);
@@ -106,6 +94,5 @@
         private System.Windows.Forms.Button btn_criar;
         private System.Windows.Forms.TextBox texBox1;
         private System.Windows.Forms.Button label1;
-        private Bunifu.Framework.UI.BunifuCustomLabel bmt_digitesenha;
     }
 }

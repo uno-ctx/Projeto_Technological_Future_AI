@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Technological_Future_AI.Classes;
 using System.Data.SQLite;
-using Bunifu.Framework.UI;
 using Technological_Future_AI.Properties;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Technological_Future_AI.Telas
 {
@@ -21,10 +21,6 @@ namespace Technological_Future_AI.Telas
             pnl_linha_username.BackColor = Color.White;
             pnl_linha_password.BackColor = Color.White;
             this.KeyPreview = true;
-            BMT_Full_Name.Text = "FULL NAME";
-            BMT_Email.Text = "EMAIL";
-            BMT_Password.Text = "PASSWORD";
-            BMT_Re_Enter_Password.Text = "RE-ENTER PASSWORD";
         }
 
         public const int WM_NCLBUTTONDOWN = 0XA1;
@@ -34,90 +30,19 @@ namespace Technological_Future_AI.Telas
         public static extern bool ReleaseCapture();
 
         [DllImport("user32.dll")]
-        public static extern IntPtr SendMessage(IntPtr hwnd, int Msg, int wParam, int lParam);
+        public static extern IntPtr SendMessage(IntPtr hwnd, int Msg, int wParam, int lParam);  
 
-        private void ResetTextBoxStyles()
-        {
-            // Restaurar estilos de todos os controles
-            BMT_Full_Name.BorderColorFocused = Color.Empty;
-            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
-
-            BMT_Email.BorderColorFocused = Color.Empty;
-            BMT_Email.BorderColorMouseHover = Color.Empty;
-
-            BMT_Password.BorderColorFocused = Color.Empty;
-            BMT_Password.BorderColorMouseHover = Color.Empty;
-
-            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
-            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;
-        }
-
-        private void HandleFocusEnter(Bunifu.Framework.UI.BunifuMetroTextbox textBox, string defaultText)
-        {
-            // Limpar o texto apenas se for o padrão
-            if (textBox.Text == defaultText)
-            {
-                textBox.Text = string.Empty;
-                textBox.ForeColor = Color.White;
-            }
-
-            ResetTextBoxStyles();
-
-            // Alterar borda do controle focado
-            textBox.BorderColorFocused = Color.DeepSkyBlue;
-            textBox.BorderColorMouseHover = Color.DeepSkyBlue;
-        }
-
-        private void HandleFocusLeave(Bunifu.Framework.UI.BunifuMetroTextbox textBox, string defaultText)
-        {
-            // Restaurar texto padrão se estiver vazio
-            if (string.IsNullOrWhiteSpace(textBox.Text))
-            {
-                textBox.Text = defaultText;
-                textBox.ForeColor = Color.Silver;
-            }
-        }
-
-        private void Tela_login_Load(object sender, EventArgs e)
-        {
-            tb_username.Focus();
-            foreach (Control control in this.Controls)
-            {
-                if (control is Bunifu.Framework.UI.BunifuMetroTextbox textbox)
-                {
-                    textbox.Enter += TextBox_Enter;
-                }
-            }
-        }
-
+      
         private void Tela_login_Activated(object sender, EventArgs e)
         {
             tb_username.Focus();
-        }
-
-        private void check_traducao_CheckedChanged(object sender, EventArgs e)
-        {
-            if (check_traducao.Checked)
-            {
-                BMT_Full_Name.Text = "NOME COMPLETO";
-                BMT_Email.Text = "E-MAIL";
-                BMT_Password.Text = "SENHA";
-                BMT_Re_Enter_Password.Text = "DIGITE NOVAMENTE A SENHA";
-            }
-            else
-            {
-                BMT_Full_Name.Text = "Full Name";
-                BMT_Email.Text = "E-mail";
-                BMT_Password.Text = "Password";
-                BMT_Re_Enter_Password.Text = "Re-enter Password";
-            }
-        }
+        }     
 
         private void Tela_login_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btn_login_Click(sender, e); // Chama o método de clique do botão diretamente
+               // btn_login_Click(sender, e); // Chama o método de clique do botão diretamente
                 e.Handled = true; // Evita comportamentos padrões adicionais
             }
         }
@@ -136,6 +61,7 @@ namespace Technological_Future_AI.Telas
         {
             BMT_SignUp.Visible = true;
             corpo.Visible = false;
+            label3.Visible = false;
         }
 
         private void lbl_LogIn_Click(object sender, EventArgs e)
@@ -161,7 +87,7 @@ namespace Technological_Future_AI.Telas
             }
         }
 
-        private void label3_MouseDown(object sender, MouseEventArgs e)
+        private void BMT_SignUp_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -170,384 +96,40 @@ namespace Technological_Future_AI.Telas
             }
         }
 
-        private void btn_login_Click(object sender, EventArgs e)
+        private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
         {
-            string username = tb_username.Text.Trim();
-            string password = tb_password.Text.Trim();
-
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (e.Button == MouseButtons.Left)
             {
-                MessageBox.Show("Os campos 'username' e 'password' são obrigatórios.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            try
-            {
-                string sql = "SELECT T_SENHA_USUARIOS, T_SALT, T_Desc_Nivel_Usuarios, T_Code_Name, N_Nivel_Usuarios FROM TB_USUARIOS WHERE T_USERNAME = @username";
-                DataTable dt = Classes.Banco.Consulta(sql, new Dictionary<string, object> { { "@username", username } });
-
-                if (dt.Rows.Count == 1)
-                {
-                    string storedHash = dt.Rows[0]["T_SENHA_USUARIOS"] as string ?? string.Empty;
-                    string salt = dt.Rows[0]["T_SALT"] as string ?? string.Empty;
-
-                    if (!string.IsNullOrEmpty(storedHash) && !string.IsNullOrEmpty(salt))
-                    {
-                        string inputHash = Classes.Crypto.CrytoLogin.HashPasswordWithExistingSalt(password, salt);
-
-                        if (storedHash == inputHash)
-                        {
-                            string descricaoNivel = dt.Rows[0]["T_Desc_Nivel_Usuarios"] as string ?? string.Empty;
-                            string codeName = dt.Rows[0]["T_Code_Name"] as string ?? string.Empty;
-                            int nivelUsuarios = 0;
-
-                            if (dt.Rows[0]["N_Nivel_Usuarios"] != DBNull.Value)
-                            {
-                                int.TryParse(dt.Rows[0]["N_Nivel_Usuarios"].ToString(), out nivelUsuarios);
-                            }
-
-                            // Login bem-sucedido
-                            Telas.Tela_menu tm = new Telas.Tela_menu
-                            {
-                                lbl_acesso = { Text = descricaoNivel },
-                                lbl_usuarios = { Text = codeName },
-                                pct_On_Off = { Image = Properties.Resources.Ligado },
-                                lbl_cargo = { Text = descricaoNivel }
-                            };
-
-                            Globais.nivel = nivelUsuarios;
-                            Globais.logado = true;
-
-                            this.Hide();
-                            tm.ShowDialog();
-                            this.Close();
-                            return;
-                        }
-                    }
-                }
-
-                MessageBox.Show("Usuário ou senha incorretos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tb_password.Clear();
-                tb_username.Clear();
-                tb_username.Focus();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao realizar login: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
 
-        private void UpdatePlaceholder(BunifuMaterialTextbox textBox, string placeholder, bool isEntering)
+        private void label4_MouseDown(object sender, MouseEventArgs e)
         {
-            if (isEntering)
+            if (e.Button == MouseButtons.Left)
             {
-                if (textBox.Text == placeholder && textBox.ForeColor == Color.Gray)
-                {
-                    textBox.Text = "";
-                    textBox.ForeColor = Color.Black;
-
-                    if (textBox.Name == "BMT_Password" || textBox.Name == "BMT_Re_Enter_Password")
-                    {
-                        textBox.isPassword = true;
-                    }
-                }
-            }
-            else
-            {
-                if (string.IsNullOrWhiteSpace(textBox.Text))
-                {
-                    textBox.Text = placeholder;
-                    textBox.ForeColor = Color.Gray;
-
-                    if (textBox.Name == "BMT_Password" || textBox.Name == "BMT_Re_Enter_Password")
-                    {
-                        textBox.isPassword = false;
-                    }
-                }
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
 
-        private void TextBox_Enter(object sender, EventArgs e)
+        private void panel4_MouseDown(object sender, MouseEventArgs e)
         {
-            BunifuMaterialTextbox textBox = sender as BunifuMaterialTextbox;
-            UpdatePlaceholder(textBox, textBox.Tag.ToString(), true);
-        }
-
-        private void btn_signup_Click(object sender, EventArgs e)
-        {
-            // Captura os valores dos campos de entrada e remove espaços em branco extras
-            string fullname = BMT_Full_Name.Text.Trim(); // Nome completo do usuário
-            string email = BMT_Email.Text.Trim();       // E-mail do usuário
-            string password = BMT_Password.Text.Trim(); // Senha do usuário
-            string reEnterPassword = BMT_Re_Enter_Password.Text.Trim(); // Confirmação da senha
-            string cargoSelecionado = btn_position.Text.Trim(); // Cargo selecionado no sistema
-            BMT_SignUp.Visible = false; // Oculta o botão de cadastro após o clique (opcional)
-
-            // Validação para garantir que nenhum campo obrigatório está vazio
-            if (string.IsNullOrWhiteSpace(fullname) || string.IsNullOrWhiteSpace(email) ||
-                string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(reEnterPassword) ||
-                string.IsNullOrWhiteSpace(cargoSelecionado))
+            if (e.Button == MouseButtons.Left)
             {
-                MessageBox.Show("Todos os campos são obrigatórios!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Interrompe o fluxo caso os campos estejam vazios
-            }
-
-            // Verificação se as senhas informadas são iguais
-            if (password != reEnterPassword)
-            {
-                MessageBox.Show("As senhas estão diferentes! Por favor, tente novamente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Interrompe o fluxo caso as senhas não coincidam
-            }
-
-            // Gera o hash da senha com um salt existente (sem usar out)
-            string salt = "algum_valor_de_salt"; // Defina o valor do salt
-            string hashedPassword = Classes.Crypto.CrytoLogin.HashPasswordWithExistingSalt(password, salt);
-
-            // Divide o nome completo em primeiro e último nome
-            string[] nameParts = fullname.Split(' ');
-            string primeiroNome = nameParts[0];
-            string ultimoNome = nameParts.Length > 1 ? nameParts[nameParts.Length - 1] : string.Empty;
-            string username = $"{primeiroNome}.{ultimoNome}".ToLower(); // Gera o username no formato primeiro.ultimo
-            string codeName = $"{primeiroNome} {ultimoNome}"; // Combinação do primeiro e último nome
-
-            // Define os valores do status e nível de acordo com o cargo selecionado
-            int nivelUsuario = 0;
-            string descNivelUsuario = string.Empty;
-            switch (cargoSelecionado.ToLower())
-            {
-                case "analista":
-                    nivelUsuario = 1;
-                    descNivelUsuario = "Analista";
-                    break;
-                case "supervisor":
-                    nivelUsuario = 2;
-                    descNivelUsuario = "Supervisor";
-                    break;
-                case "coordenador(a)":
-                    nivelUsuario = 3;
-                    descNivelUsuario = "Coordenador";
-                    break;
-                case "diretor":
-                    nivelUsuario = 4;
-                    descNivelUsuario = "Diretor";
-                    break;
-                case "presidente":
-                    nivelUsuario = 5;
-                    descNivelUsuario = "Presidente";
-                    break;
-                default:
-                    MessageBox.Show("Cargo inválido! Por favor, selecione um cargo válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-            }
-
-            // Caminho do banco de dados SQLite
-            string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\banco\Banco.db");
-            string connectionString = $"Data Source={dbPath};Version=3;";
-
-            try
-            {
-                // Conexão com o banco de dados
-                using (SQLiteConnection conn = new SQLiteConnection(connectionString))
-                {
-                    conn.Open(); // Abre a conexão
-
-                    // Comando SQL para inserir um novo usuário
-                    string sql = @"
-                INSERT INTO TB_USUARIOS 
-                (T_Nome_Usuario, T_Username, T_Senha_Usuarios, T_Status_Usuarios, T_Desc_Status_Usuarios, 
-                 N_Nivel_Usuarios, T_Desc_Nivel_Usuarios, T_Code_Name, T_EMail, T_Salt) 
-                VALUES 
-                (@fullname, @username, @password, 'A', 'Ativo', 
-                 @nivelUsuario, @descNivelUsuario, @codeName, @Email, @salt)";
-
-                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
-                    {
-                        // Adiciona os parâmetros
-                        cmd.Parameters.AddWithValue("@fullname", fullname);
-                        cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("@password", hashedPassword);
-                        cmd.Parameters.AddWithValue("@nivelUsuario", nivelUsuario);
-                        cmd.Parameters.AddWithValue("@descNivelUsuario", descNivelUsuario);
-                        cmd.Parameters.AddWithValue("@codeName", codeName);
-                        cmd.Parameters.AddWithValue("@Email", email);
-                        cmd.Parameters.AddWithValue("@salt", salt);
-
-                        // Executa o comando
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
-                // Mensagem de sucesso
-                MessageBox.Show("Usuário cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                // Exibe mensagem de erro
-                MessageBox.Show($"Erro ao cadastrar usuário: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
 
-
-
-        private void BMT_Full_Name_Click(object sender, EventArgs e)
+        private void label3_MouseDown(object sender, MouseEventArgs e)
         {
-            // Alterar bordas do controle focado
-            BMT_Full_Name.BorderColorFocused = Color.DeepSkyBlue;
-            BMT_Full_Name.BorderColorMouseHover = Color.DeepSkyBlue;
-
-            // Restaurar bordas dos outros controles
-            BMT_Email.BorderColorFocused = Color.Empty;
-            BMT_Email.BorderColorMouseHover = Color.Empty;
-            BMT_Password.BorderColorFocused = Color.Empty;
-            BMT_Password.BorderColorMouseHover = Color.Empty;
-            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
-            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;            
-        }
-
-        private void BMT_Full_Name_MouseEnter(object sender, EventArgs e)
-        {
-            // Alterar bordas do controle focado
-            BMT_Full_Name.BorderColorFocused = Color.DeepSkyBlue;
-            BMT_Full_Name.BorderColorMouseHover = Color.DeepSkyBlue;
-
-            // Restaurar bordas dos outros controles
-            BMT_Email.BorderColorFocused = Color.Empty;
-            BMT_Email.BorderColorMouseHover = Color.Empty;
-            BMT_Password.BorderColorFocused = Color.Empty;
-            BMT_Password.BorderColorMouseHover = Color.Empty;
-            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
-            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;
-        }
-
-        private void BMT_Full_Name_Enter(object sender, EventArgs e)
-        {
-            HandleFocusEnter(BMT_Full_Name, "FULL NAME");
-        }        
-
-        private void BMT_Full_Name_Leave(object sender, EventArgs e)
-        {
-            HandleFocusLeave(BMT_Full_Name, "FULL NAME");
-        }
-
-        private void BMT_Email_Click(object sender, EventArgs e)
-        {
-            // Alterar bordas do controle focado
-            BMT_Email.BorderColorFocused = Color.DeepSkyBlue;
-            BMT_Email.BorderColorMouseHover = Color.DeepSkyBlue;
-
-            // Restaurar bordas dos outros controles
-            BMT_Full_Name.BorderColorFocused = Color.Empty;
-            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
-            BMT_Password.BorderColorFocused = Color.Empty;
-            BMT_Password.BorderColorMouseHover = Color.Empty;
-            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
-            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;
-        }
-
-        private void BMT_Email_MouseEnter(object sender, EventArgs e)
-        {
-            // Alterar bordas do controle focado
-            BMT_Email.BorderColorFocused = Color.DeepSkyBlue;
-            BMT_Email.BorderColorMouseHover = Color.DeepSkyBlue;
-
-            // Restaurar bordas dos outros controles
-            BMT_Full_Name.BorderColorFocused = Color.Empty;
-            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
-            BMT_Password.BorderColorFocused = Color.Empty;
-            BMT_Password.BorderColorMouseHover = Color.Empty;
-            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
-            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;
-        }
-
-        private void BMT_Email_Enter(object sender, EventArgs e)
-        {
-            HandleFocusEnter(BMT_Email, "EMAIL");
-        }     
-
-        private void BMT_Email_Leave(object sender, EventArgs e)
-        {
-            HandleFocusLeave(BMT_Email, "EMAIL");
-        }
-
-        private void BMT_Password_Click(object sender, EventArgs e)
-        {
-            // Alterar bordas do controle focado
-            BMT_Password.BorderColorFocused = Color.DeepSkyBlue;
-            BMT_Password.BorderColorMouseHover = Color.DeepSkyBlue;
-
-            // Restaurar bordas dos outros controles
-            BMT_Full_Name.BorderColorFocused = Color.Empty;
-            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
-            BMT_Email.BorderColorFocused = Color.Empty;
-            BMT_Email.BorderColorMouseHover = Color.Empty;
-            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
-            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;
-        }
-
-        private void BMT_Password_MouseEnter(object sender, EventArgs e)
-        {
-            // Alterar bordas do controle focado
-            BMT_Password.BorderColorFocused = Color.DeepSkyBlue;
-            BMT_Password.BorderColorMouseHover = Color.DeepSkyBlue;
-
-            // Restaurar bordas dos outros controles
-            BMT_Full_Name.BorderColorFocused = Color.Empty;
-            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
-            BMT_Email.BorderColorFocused = Color.Empty;
-            BMT_Email.BorderColorMouseHover = Color.Empty;
-            BMT_Re_Enter_Password.BorderColorFocused = Color.Empty;
-            BMT_Re_Enter_Password.BorderColorMouseHover = Color.Empty;
-        }
-
-        private void BMT_Password_Enter(object sender, EventArgs e)
-        {
-            HandleFocusEnter(BMT_Password, "PASSWORD");
-        }       
-
-        private void BMT_Password_Leave(object sender, EventArgs e)
-        {
-            HandleFocusLeave(BMT_Password, "PASSWORD");
-        }
-
-        private void BMT_Re_Enter_Password_Click(object sender, EventArgs e)
-        {
-            // Alterar bordas do controle focado
-            BMT_Re_Enter_Password.BorderColorFocused = Color.DeepSkyBlue;
-            BMT_Re_Enter_Password.BorderColorMouseHover = Color.DeepSkyBlue;
-
-            // Restaurar bordas dos outros controles
-            BMT_Full_Name.BorderColorFocused = Color.Empty;
-            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
-            BMT_Email.BorderColorFocused = Color.Empty;
-            BMT_Email.BorderColorMouseHover = Color.Empty;
-            BMT_Password.BorderColorFocused = Color.Empty;
-            BMT_Password.BorderColorMouseHover = Color.Empty;            
-        }
-
-        private void BMT_Re_Enter_Password_MouseEnter(object sender, EventArgs e)
-        {
-            // Alterar bordas do controle focado
-            BMT_Re_Enter_Password.BorderColorFocused = Color.DeepSkyBlue;
-            BMT_Re_Enter_Password.BorderColorMouseHover = Color.DeepSkyBlue;
-
-            // Restaurar bordas dos outros controles
-            BMT_Full_Name.BorderColorFocused = Color.Empty;
-            BMT_Full_Name.BorderColorMouseHover = Color.Empty;
-            BMT_Email.BorderColorFocused = Color.Empty;
-            BMT_Email.BorderColorMouseHover = Color.Empty;
-            BMT_Password.BorderColorFocused = Color.Empty;
-            BMT_Password.BorderColorMouseHover = Color.Empty;            
-        }    
-
-        private void BMT_Re_Enter_Password_Enter(object sender, EventArgs e)
-        {
-            HandleFocusEnter(BMT_Re_Enter_Password, "RE-ENTER PASSWORD");
-        }        
-
-        private void BMT_Re_Enter_Password_Leave(object sender, EventArgs e)
-        {
-            HandleFocusLeave(BMT_Re_Enter_Password, "RE-ENTER PASSWORD");
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
 
         private void btn_position_Click(object sender, EventArgs e)
@@ -620,6 +202,254 @@ namespace Technological_Future_AI.Telas
             btn_position.Text = "ANALISTA";
             corpo.Visible = false;
         }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            string username = tb_username.Text.Trim();
+            string password = tb_password.Text.Trim();
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Os campos 'username' e 'password' são obrigatórios.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                string sql = "SELECT T_SENHA_USUARIOS, T_SALT, T_Desc_Nivel_Usuarios, T_Code_Name, N_Nivel_Usuarios FROM TB_USUARIOS WHERE T_USERNAME = @username";
+                DataTable dt = Classes.Banco.Consulta(sql, new Dictionary<string, object> { { "@username", username } });
+
+                if (dt.Rows.Count == 1)
+                {
+                    string storedHash = dt.Rows[0]["T_SENHA_USUARIOS"] as string ?? string.Empty;
+                    string salt = dt.Rows[0]["T_SALT"] as string ?? string.Empty;
+
+                    if (!string.IsNullOrEmpty(storedHash) && !string.IsNullOrEmpty(salt))
+                    {
+                        string inputHash = Classes.Crypto.CrytoLogin.HashPasswordWithExistingSalt(password, salt);
+
+                        if (storedHash == inputHash)
+                        {
+                            // Dados do usuário
+                            string descricaoNivel = dt.Rows[0]["T_Desc_Nivel_Usuarios"] as string ?? string.Empty;
+                            int nivelUsuarios = dt.Rows[0]["N_Nivel_Usuarios"] != DBNull.Value
+                                ? Convert.ToInt32(dt.Rows[0]["N_Nivel_Usuarios"])
+                                : 0;
+                            string codeName = dt.Rows[0]["T_Code_Name"] as string ?? string.Empty;
+
+                            // Login bem-sucedido
+                            Telas.Tela_menu tm = new Telas.Tela_menu
+                            {
+                                lbl_acesso = { Text = nivelUsuarios.ToString() },
+                                lbl_usuarios = { Text = codeName },
+                                pct_On_Off = { Image = Properties.Resources.Ligado },
+                                lbl_cargo = { Text = descricaoNivel }
+                            };
+
+                            Globais.nivel = nivelUsuarios;
+                            Globais.logado = true;
+
+                            this.Hide();
+                            tm.ShowDialog();
+                            this.Close();
+                            return;
+                        }
+                    }
+                }
+
+                MessageBox.Show("Usuário ou senha incorretos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tb_password.Clear();
+                tb_username.Clear();
+                tb_username.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao realizar login: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_signup_Click(object sender, EventArgs e)
+        {
+            // Captura os valores dos campos de entrada e remove espaços em branco extras
+            string fullname = BMT_Full_Name.Text.Trim();
+            string email = BMT_Email.Text.Trim();
+            string password = BMT_Password.Text.Trim();
+            string reEnterPassword = BMT_Re_Enter_Password.Text.Trim();
+            string cargoSelecionado = btn_position.Text.Trim();
+            string celular = tb_celular.Text.Trim();
+            BMT_SignUp.Visible = false;
+
+            // Validação para garantir que nenhum campo obrigatório está vazio
+            if (string.IsNullOrWhiteSpace(fullname) || string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(reEnterPassword) ||
+                string.IsNullOrWhiteSpace(cargoSelecionado) || string.IsNullOrWhiteSpace(celular))
+            {
+                MessageBox.Show("Todos os campos são obrigatórios!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                BMT_SignUp.Visible = true;
+                // Limpa os campos de entrada
+                BMT_Full_Name.Text = string.Empty;
+                BMT_Email.Text = string.Empty;
+                BMT_Password.Text = string.Empty;
+                BMT_Re_Enter_Password.Text = string.Empty;
+                tb_celular.Text = string.Empty;
+                btn_position.Text = "POSITION"; // Exemplo: redefinir o texto do botão para o padrão
+                return;
+            }
+
+            // Verificação se as senhas informadas são iguais
+            if (password != reEnterPassword)
+            {
+                MessageBox.Show("As senhas estão diferentes! Por favor, tente novamente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Limpa os campos de entrada
+                BMT_Full_Name.Text = string.Empty;
+                BMT_Email.Text = string.Empty;
+                BMT_Password.Text = string.Empty;
+                BMT_Re_Enter_Password.Text = string.Empty;
+                tb_celular.Text = string.Empty;
+                btn_position.Text = "POSITION"; // Exemplo: redefinir o texto do botão para o padrão
+                return;
+            }
+
+            // Gera um salt único
+            string salt = Guid.NewGuid().ToString();
+
+            // Gera o hash da senha com o salt gerado
+            string hashedPassword = Crypto.CrytoLogin.HashPasswordWithExistingSalt(password, salt);
+
+            // Divide o nome completo em primeiro e último nome
+
+            string[] nameParts = fullname.Split(' ');
+            string primeiroNome = nameParts[0];
+            string ultimoNome = nameParts.Length > 1 ? nameParts[nameParts.Length - 1] : string.Empty;
+            string username = $"{primeiroNome}.{ultimoNome}".ToLower();
+            string codeName = $"{primeiroNome} {ultimoNome}";
+
+            // Define os valores do status e nível de acordo com o cargo selecionado
+            int nivelUsuario = 0;
+            string descNivelUsuario = string.Empty;
+            cargoSelecionado = cargoSelecionado.ToLower().Trim();
+            switch (cargoSelecionado)
+            {
+                case "analista":
+                    nivelUsuario = 1;
+                    descNivelUsuario = "Analista";
+                    break;
+                case "supervisor":
+                case "supervisor(a)":
+                    nivelUsuario = 2;
+                    descNivelUsuario = "Supervisor";
+                    break;
+                case "coordenador":
+                case "coordenador(a)": // Permite variações como "Coordenador(a)"
+                    nivelUsuario = 3;
+                    descNivelUsuario = "Coordenador";
+                    break;
+                case "diretor":
+                case "diretor(a)":
+                    nivelUsuario = 4;
+                    descNivelUsuario = "Diretor";
+                    break;
+                case "presidente":
+                    nivelUsuario = 5;
+                    descNivelUsuario = "Presidente";
+                    break;
+                default:
+                    MessageBox.Show("Cargo inválido! Por favor, selecione um cargo válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+            // Caminho do banco de dados SQLite
+            string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\banco\Banco.db");
+            string connectionString = $"Data Source={dbPath};Version=3;";
+
+            try
+            {
+                // Conexão com o banco de dados
+                using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Verifica se o e-mail ou username já existe
+                    string checkSql = "SELECT COUNT(1) FROM TB_USUARIOS WHERE T_EMail = @Email OR T_Username = @Username";
+                    using (SQLiteCommand checkCmd = new SQLiteCommand(checkSql, conn))
+                    {
+                        checkCmd.Parameters.AddWithValue("@Email", email);
+                        checkCmd.Parameters.AddWithValue("@Username", username);
+
+                        int userCount = Convert.ToInt32(checkCmd.ExecuteScalar());
+                        if (userCount > 0)
+                        {
+                            MessageBox.Show("Usuário ou e-mail já cadastrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    // Comando SQL para inserir um novo usuário
+                    string sql = @"
+                    INSERT INTO TB_USUARIOS 
+                    (T_Nome_Usuario, T_Username, T_Senha_Usuarios, T_Status_Usuarios, T_Desc_Status_Usuarios, 
+                    N_Nivel_Usuarios, T_Desc_Nivel_Usuarios, T_Code_Name, T_EMail, T_Salt, N_Telefone_Usuario) 
+                    VALUES 
+                    (@fullname, @username, @password, 'A', 'Ativo', 
+                    @nivelUsuario, @descNivelUsuario, @codeName, @Email, @salt, @celular)";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@fullname", fullname);
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", hashedPassword);
+                        cmd.Parameters.AddWithValue("@nivelUsuario", nivelUsuario);
+                        cmd.Parameters.AddWithValue("@descNivelUsuario", descNivelUsuario);
+                        cmd.Parameters.AddWithValue("@codeName", codeName);
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Parameters.AddWithValue("@salt", salt);
+                        cmd.Parameters.AddWithValue("@celular", celular);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Usuário cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Limpa os campos de entrada
+                BMT_Full_Name.Text = string.Empty;
+                BMT_Email.Text = string.Empty;
+                BMT_Password.Text = string.Empty;
+                BMT_Re_Enter_Password.Text = string.Empty;
+                tb_celular.Text = string.Empty;
+                btn_position.Text = "POSITION"; // Exemplo: redefinir o texto do botão para o padrão
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao cadastrar usuário: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void voltarLogin_Click(object sender, EventArgs e)
+        {
+            BMT_SignUp.Visible = false;
+        }
+
+        private void lbl_AlterarSenha_Click(object sender, EventArgs e)
+        {
+            Telas.AlterarSenha AS = new Telas.AlterarSenha();
+            AS.Show();
+            this.Hide();
+            AS.tb_password.PasswordChar = '*';
+            AS.tb_ReEnterPassword.PasswordChar = '*';
+        }
+
+        private void lbl_fechar_MouseEnter(object sender, EventArgs e)
+        {
+            lbl_fechar.ForeColor = Color.Red;
+        }
+
+        private void lbl_fechar_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_fechar.ForeColor = Color.White;
+        }
     }
 }
+
+
 

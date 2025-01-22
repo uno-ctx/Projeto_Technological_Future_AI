@@ -1,14 +1,35 @@
-Google Glass
-A revolução do Google está chegando
+<!DOCTYPE html> <!-- Declaração do tipo de documento HTML, indicando que é uma página HTML5 -->
+<html lang="pt-br"> <!-- Define a linguagem do documento como português brasileiro -->
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8, que é uma codificação ampla e compatível com a maioria dos idiomas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a visualização responsiva, ajustando o layout à largura da tela do dispositivo -->
+    <title>Technological Future AI</title> <!-- Define o título da página que aparecerá na aba do navegador -->
+    <link rel="stylesheet" href="_css/estilo.css"> <!-- Referência ao arquivo CSS externo para estilização da página -->
+</head>
+<script lang="javascript" src = "_javascript/funcoes.js"></script>
+<body>
+<div id="interface"> <!-- Div principal que envolve todo o conteúdo da página -->
 
-[AQUI ENTRA UMA FOTO]
-
-Menu Principal
-- Home
-- Especificações
-- Fotos
-- Multimídia
-- Fale conosco
+    <!-- Cabeçalho da página com informações principais -->
+    <header id="cabecalho">
+        <hgroup> <!-- Agrupa títulos -->
+            <h1>Technological Future-AI</h1> <!-- Título principal da página -->
+            <h2>Revolução da Tecnologia já chegou!</h2> <!-- Subtítulo que aparece logo abaixo do título principal -->
+        </hgroup>
+        <img id="icone" src="_imagens/glass-oculos-preto-peq.png" alt=""> <!-- Imagem inicial do ícone -->
+        
+        <!-- Menu de navegação -->
+        <nav id="menu">
+            <h1>Menu Principal</h1>
+            <ul type="disc"> <!-- Lista não ordenada com itens de menu -->
+                <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="index.html">Home</a></li> <!-- Item de menu que muda a imagem quando o mouse passa por cima -->
+                <li onmouseover="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+                <li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fotos.html">Fotos</a></li>
+                <li onmouseover="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="multimidia.html">Multimídia</a></li>
+                <li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a></li>
+            </ul> <!-- Fim da lista de itens do menu -->
+        </nav>   
+    </header>
 
 Fale Conosco > Contato
 Formulário de Contato
@@ -43,5 +64,12 @@ Quero um Google Glass
 
 [BOTÃO ENVIAR]
 
-Copyright 2013 - by Gustavo Guanabara
-Facebook | Twitter
+    <!-- Rodapé da página -->
+    <footer id="rodape">
+        <p>Copyright 2024 - by Julio Cesar</br> <!-- Informações de copyright -->
+        <a href="https://facebook.com" target="_blank">Facebook</a> <!-- Link para o Facebook -->
+        | <a href="https://twitter.com" target="_blank">Twitter</a></p> <!-- Link para o Twitter -->
+    </footer>
+</div> <!-- Fim da div principal -->
+</body>
+</html>

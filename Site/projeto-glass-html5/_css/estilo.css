@@ -24,10 +24,10 @@ body{background-color: #dddddd;
         text-decoration: underline;
         color: green;
     }
-
+   
     header#cabecalho img#icone{
         position:absolute;
-        left: 1700px;
+        left: 1250px;
         top: 70px;
     }
 
@@ -35,8 +35,8 @@ body{background-color: #dddddd;
         border-bottom: 1px #606060 solid;
         height: 150px;
         background: url("../_imagens/glass-logo-peq.jpg")no-repeat 0px 80px;
-    }
-
+    } 
+  
     header#cabecalho h1{
         font-family: 'FonteLogo', sans-serif;
         font-size: 30pt;
@@ -94,44 +94,48 @@ body{background-color: #dddddd;
 
     /* Formatação do Menu */
 
-    nav#menu{
-        display: block;
+    nav#menu {
+        display: flex;
+        justify-content: flex-end; /* Move o menu para o lado direito */        
+        align-items: flex-start; /* Alinha no topo */       
+        padding: 10px 0px;
+        margin-top: -120px;
     }
 
-    nav#menu ul{
-            list-style: none;
-            text-transform: uppercase;
-            position: absolute;
-            top: -20px;
-            left: 750px;
+    nav#menu ul {
+        list-style: none; /* Remove os marcadores */
+        margin: 0;
+        padding: 0;
+        display: flex; /* Alinha os itens horizontalmente */       
+        text-transform: uppercase; /* Textos em maiúsculas */        
     }
 
-    nav#menu li{
+    nav#menu li {
         display: inline-block;
-        background-color: #dddddd;
+        background-color: #dddddd; /* Cor de fundo padrão */
         padding: 10px;
         margin: 2px;
-        transition: background-color 1s;
+        transition: background-color 1s; /* Transição suave no hover */
     }
 
-    nav#menu li:hover{
-        background-color: #606060;
-        
+    nav#menu li:hover {
+        background-color: #606060; /* Cor de fundo ao passar o mouse */
     }
 
-    nav#menu h1{
-        display: none;
+    nav#menu h1 {
+        display: none; /* Esconde o título */
     }
 
-    nav#menu a{
-        color: black;
-        text-decoration: none;
+    nav#menu a {
+        color: black; /* Cor padrão do link */
+        text-decoration: none; /* Remove sublinhado */
     }
 
-    nav#menu a:hover{
-        color: #ffffff;
-        text-decoration: underline;
+    nav#menu a:hover {
+        color: #ffffff; /* Cor ao passar o mouse */
+        text-decoration: underline; /* Adiciona sublinhado no hover */
     }
+
 
     section#corpo{
         display: block;
@@ -171,9 +175,9 @@ body{background-color: #dddddd;
 
     }
 
-    header#cabecalho-artigo h3{
+    /*header#cabecalho-artigo h3{
         
-    }
+    }*/
 
     table#tabelaspec{
         border: 1px solid #606060;

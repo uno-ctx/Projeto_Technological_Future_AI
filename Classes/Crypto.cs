@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace Technological_Future_AI.Classes
 {
@@ -36,24 +38,6 @@ namespace Technological_Future_AI.Classes
                     return builder.ToString();
                 }
             }
-        }
-    }
-
-    // Classe principal com ponto de entrada
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            string password = "ctx2511"; // Senha de exemplo
-            string salt = Guid.NewGuid().ToString(); // Gera um salt único
-            string hash = Crypto.CrytoLogin.HashPasswordWithExistingSalt(password, salt);
-
-            // Exibindo o salt e o hash gerado no console
-            Console.WriteLine("Salt: " + salt);
-            Console.WriteLine("Hash: " + hash);
-
-            // Mantém a janela aberta
-            Console.ReadLine();
         }
     }
 }

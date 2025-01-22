@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+section#conteudo{
+    width: 1000px;
+    margin: auto;
+}
+
+iframe#frame-spec{
+    width: 402px;
+    height: 275px;    
+    margin-left: 90px;
+    border: none;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+iframe#frame-spec::-webkit-scrollbar{
+    display: none;
+}
