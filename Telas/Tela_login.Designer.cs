@@ -38,6 +38,12 @@ namespace Technological_Future_AI.Telas
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.BMT_SignUp = new System.Windows.Forms.Panel();
+            this.ValidacaoSenha = new System.Windows.Forms.PictureBox();
+            this.ValidacaoSenha2 = new System.Windows.Forms.PictureBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tb_celular = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -48,50 +54,50 @@ namespace Technological_Future_AI.Telas
             this.BMT_Re_Enter_Password = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.BMT_Full_Name = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.corpo = new System.Windows.Forms.Panel();
             this.btn_analista = new System.Windows.Forms.Button();
             this.btn_supervisor = new System.Windows.Forms.Button();
             this.btn_coordenador = new System.Windows.Forms.Button();
             this.btn_diretor = new System.Windows.Forms.Button();
             this.btn_presidente = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.check_traducao = new System.Windows.Forms.CheckBox();
-            this.voltarLogin = new System.Windows.Forms.Label();
-            this.btn_signup = new System.Windows.Forms.Label();
-            this.lbl_LogIn = new System.Windows.Forms.Label();
-            this.lbl_SignUp = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.tb_password = new System.Windows.Forms.TextBox();
-            this.pnl_linha_password = new System.Windows.Forms.Panel();
-            this.btn_login = new System.Windows.Forms.Label();
-            this.lbl_AlterarSenha = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BMT_Full_Name = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btn_position = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.check_traducao = new System.Windows.Forms.CheckBox();
+            this.btn_signup = new System.Windows.Forms.Button();
+            this.voltarLogin = new System.Windows.Forms.Button();
+            this.lbl_LogIn = new System.Windows.Forms.Label();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.tb_password = new System.Windows.Forms.TextBox();
+            this.pnl_linha_password = new System.Windows.Forms.Panel();
+            this.btn_login = new System.Windows.Forms.Button();
+            this.lbl_AlterarSenha = new System.Windows.Forms.Button();
+            this.lbl_SignUp = new System.Windows.Forms.Button();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tb_celular = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.BMT_SignUp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ValidacaoSenha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ValidacaoSenha2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.corpo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_fechar
@@ -99,7 +105,7 @@ namespace Technological_Future_AI.Telas
             this.lbl_fechar.AutoSize = true;
             this.lbl_fechar.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_fechar.ForeColor = System.Drawing.Color.White;
-            this.lbl_fechar.Location = new System.Drawing.Point(329, 1);
+            this.lbl_fechar.Location = new System.Drawing.Point(347, 1);
             this.lbl_fechar.Name = "lbl_fechar";
             this.lbl_fechar.Size = new System.Drawing.Size(22, 21);
             this.lbl_fechar.TabIndex = 1;
@@ -112,7 +118,7 @@ namespace Technological_Future_AI.Telas
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(72, 244);
+            this.label2.Location = new System.Drawing.Point(57, 267);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 2;
@@ -122,25 +128,25 @@ namespace Technological_Future_AI.Telas
             // 
             this.tb_username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.tb_username.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_username.ForeColor = System.Drawing.Color.LightGray;
-            this.tb_username.Location = new System.Drawing.Point(142, 242);
+            this.tb_username.ForeColor = System.Drawing.Color.White;
+            this.tb_username.Location = new System.Drawing.Point(127, 264);
             this.tb_username.Name = "tb_username";
-            this.tb_username.Size = new System.Drawing.Size(165, 13);
+            this.tb_username.Size = new System.Drawing.Size(195, 13);
             this.tb_username.TabIndex = 0;
             // 
             // pnl_linha_username
             // 
-            this.pnl_linha_username.BackColor = System.Drawing.Color.LightGray;
-            this.pnl_linha_username.Location = new System.Drawing.Point(142, 256);
+            this.pnl_linha_username.BackColor = System.Drawing.Color.White;
+            this.pnl_linha_username.Location = new System.Drawing.Point(127, 279);
             this.pnl_linha_username.Name = "pnl_linha_username";
-            this.pnl_linha_username.Size = new System.Drawing.Size(165, 1);
+            this.pnl_linha_username.Size = new System.Drawing.Size(195, 1);
             this.pnl_linha_username.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(72, 294);
+            this.label1.Location = new System.Drawing.Point(57, 317);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 2;
@@ -151,7 +157,7 @@ namespace Technological_Future_AI.Telas
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(70, 176);
+            this.label3.Location = new System.Drawing.Point(63, 204);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(225, 22);
             this.label3.TabIndex = 2;
@@ -160,6 +166,8 @@ namespace Technological_Future_AI.Telas
             // 
             // BMT_SignUp
             // 
+            this.BMT_SignUp.Controls.Add(this.ValidacaoSenha);
+            this.BMT_SignUp.Controls.Add(this.ValidacaoSenha2);
             this.BMT_SignUp.Controls.Add(this.panel6);
             this.BMT_SignUp.Controls.Add(this.tb_celular);
             this.BMT_SignUp.Controls.Add(this.label9);
@@ -174,30 +182,92 @@ namespace Technological_Future_AI.Telas
             this.BMT_SignUp.Controls.Add(this.BMT_Re_Enter_Password);
             this.BMT_SignUp.Controls.Add(this.label7);
             this.BMT_SignUp.Controls.Add(this.label8);
+            this.BMT_SignUp.Controls.Add(this.corpo);
             this.BMT_SignUp.Controls.Add(this.pictureBox7);
             this.BMT_SignUp.Controls.Add(this.pictureBox8);
             this.BMT_SignUp.Controls.Add(this.panel2);
             this.BMT_SignUp.Controls.Add(this.BMT_Full_Name);
             this.BMT_SignUp.Controls.Add(this.label5);
-            this.BMT_SignUp.Controls.Add(this.corpo);
             this.BMT_SignUp.Controls.Add(this.label6);
             this.BMT_SignUp.Controls.Add(this.pictureBox5);
             this.BMT_SignUp.Controls.Add(this.pictureBox6);
             this.BMT_SignUp.Controls.Add(this.btn_position);
             this.BMT_SignUp.Controls.Add(this.pictureBox2);
             this.BMT_SignUp.Controls.Add(this.check_traducao);
-            this.BMT_SignUp.Controls.Add(this.voltarLogin);
             this.BMT_SignUp.Controls.Add(this.btn_signup);
-            this.BMT_SignUp.Location = new System.Drawing.Point(0, 25);
+            this.BMT_SignUp.Controls.Add(this.voltarLogin);
+            this.BMT_SignUp.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BMT_SignUp.Location = new System.Drawing.Point(0, 22);
             this.BMT_SignUp.Name = "BMT_SignUp";
-            this.BMT_SignUp.Size = new System.Drawing.Size(350, 485);
+            this.BMT_SignUp.Size = new System.Drawing.Size(370, 515);
             this.BMT_SignUp.TabIndex = 6;
             this.BMT_SignUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BMT_SignUp_MouseDown);
+            // 
+            // ValidacaoSenha
+            // 
+            this.ValidacaoSenha.Image = global::Technological_Future_AI.Properties.Resources.fechar_o_olho;
+            this.ValidacaoSenha.Location = new System.Drawing.Point(322, 169);
+            this.ValidacaoSenha.Name = "ValidacaoSenha";
+            this.ValidacaoSenha.Size = new System.Drawing.Size(26, 26);
+            this.ValidacaoSenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ValidacaoSenha.TabIndex = 41;
+            this.ValidacaoSenha.TabStop = false;
+            this.ValidacaoSenha.Click += new System.EventHandler(this.ValidacaoSenha_Click);
+            // 
+            // ValidacaoSenha2
+            // 
+            this.ValidacaoSenha2.Image = global::Technological_Future_AI.Properties.Resources.fechar_o_olho;
+            this.ValidacaoSenha2.Location = new System.Drawing.Point(323, 207);
+            this.ValidacaoSenha2.Name = "ValidacaoSenha2";
+            this.ValidacaoSenha2.Size = new System.Drawing.Size(26, 26);
+            this.ValidacaoSenha2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ValidacaoSenha2.TabIndex = 40;
+            this.ValidacaoSenha2.TabStop = false;
+            this.ValidacaoSenha2.Click += new System.EventHandler(this.ValidacaoSenha2_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.LightGray;
+            this.panel6.Location = new System.Drawing.Point(126, 271);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(222, 1);
+            this.panel6.TabIndex = 37;
+            // 
+            // tb_celular
+            // 
+            this.tb_celular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.tb_celular.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_celular.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_celular.ForeColor = System.Drawing.Color.LightGray;
+            this.tb_celular.Location = new System.Drawing.Point(125, 252);
+            this.tb_celular.Name = "tb_celular";
+            this.tb_celular.Size = new System.Drawing.Size(222, 20);
+            this.tb_celular.TabIndex = 34;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(47, 259);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 15);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "CELL PHONE:";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(19, 250);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 35;
+            this.pictureBox9.TabStop = false;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Location = new System.Drawing.Point(78, 64);
+            this.panel4.Location = new System.Drawing.Point(78, 69);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(270, 1);
             this.panel4.TabIndex = 6;
@@ -207,8 +277,8 @@ namespace Technological_Future_AI.Telas
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.LightGray;
-            this.label4.Location = new System.Drawing.Point(77, 46);
+            this.label4.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.label4.Location = new System.Drawing.Point(76, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(193, 21);
             this.label4.TabIndex = 2;
@@ -218,64 +288,69 @@ namespace Technological_Future_AI.Telas
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.LightGray;
-            this.panel5.Location = new System.Drawing.Point(118, 184);
+            this.panel5.Location = new System.Drawing.Point(112, 197);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(210, 1);
+            this.panel5.Size = new System.Drawing.Size(235, 1);
             this.panel5.TabIndex = 30;
             // 
             // BMT_Password
             // 
             this.BMT_Password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.BMT_Password.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BMT_Password.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BMT_Password.ForeColor = System.Drawing.Color.LightGray;
-            this.BMT_Password.Location = new System.Drawing.Point(118, 170);
+            this.BMT_Password.Location = new System.Drawing.Point(114, 178);
             this.BMT_Password.Name = "BMT_Password";
-            this.BMT_Password.Size = new System.Drawing.Size(210, 13);
+            this.BMT_Password.PasswordChar = '*';
+            this.BMT_Password.Size = new System.Drawing.Size(200, 20);
             this.BMT_Password.TabIndex = 2;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
-            this.panel1.Location = new System.Drawing.Point(118, 153);
+            this.panel1.Location = new System.Drawing.Point(90, 158);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(210, 1);
+            this.panel1.Size = new System.Drawing.Size(260, 1);
             this.panel1.TabIndex = 28;
             // 
             // BMT_Email
             // 
             this.BMT_Email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.BMT_Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BMT_Email.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BMT_Email.ForeColor = System.Drawing.Color.LightGray;
-            this.BMT_Email.Location = new System.Drawing.Point(118, 139);
+            this.BMT_Email.Location = new System.Drawing.Point(92, 139);
             this.BMT_Email.Name = "BMT_Email";
-            this.BMT_Email.Size = new System.Drawing.Size(210, 13);
+            this.BMT_Email.Size = new System.Drawing.Size(260, 20);
             this.BMT_Email.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.LightGray;
-            this.panel3.Location = new System.Drawing.Point(177, 216);
+            this.panel3.Location = new System.Drawing.Point(167, 235);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(150, 1);
+            this.panel3.Size = new System.Drawing.Size(180, 1);
             this.panel3.TabIndex = 26;
             // 
             // BMT_Re_Enter_Password
             // 
             this.BMT_Re_Enter_Password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.BMT_Re_Enter_Password.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BMT_Re_Enter_Password.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BMT_Re_Enter_Password.ForeColor = System.Drawing.Color.LightGray;
-            this.BMT_Re_Enter_Password.Location = new System.Drawing.Point(177, 202);
+            this.BMT_Re_Enter_Password.Location = new System.Drawing.Point(169, 216);
             this.BMT_Re_Enter_Password.Name = "BMT_Re_Enter_Password";
-            this.BMT_Re_Enter_Password.Size = new System.Drawing.Size(150, 13);
+            this.BMT_Re_Enter_Password.PasswordChar = '*';
+            this.BMT_Re_Enter_Password.Size = new System.Drawing.Size(150, 20);
             this.BMT_Re_Enter_Password.TabIndex = 3;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(48, 204);
+            this.label7.Location = new System.Drawing.Point(46, 223);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(131, 13);
+            this.label7.Size = new System.Drawing.Size(123, 15);
             this.label7.TabIndex = 24;
             this.label7.Text = "RE ENTER PASSWORD:";
             // 
@@ -283,39 +358,11 @@ namespace Technological_Future_AI.Telas
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(45, 171);
+            this.label8.Location = new System.Drawing.Point(43, 184);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 13);
+            this.label8.Size = new System.Drawing.Size(71, 15);
             this.label8.TabIndex = 25;
             this.label8.Text = "PASSWORD:";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.LightGray;
-            this.panel2.Location = new System.Drawing.Point(119, 116);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(210, 1);
-            this.panel2.TabIndex = 19;
-            // 
-            // BMT_Full_Name
-            // 
-            this.BMT_Full_Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.BMT_Full_Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.BMT_Full_Name.ForeColor = System.Drawing.Color.LightGray;
-            this.BMT_Full_Name.Location = new System.Drawing.Point(119, 102);
-            this.BMT_Full_Name.Name = "BMT_Full_Name";
-            this.BMT_Full_Name.Size = new System.Drawing.Size(210, 13);
-            this.BMT_Full_Name.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(73, 140);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "E-MAIL:";
             // 
             // corpo
             // 
@@ -324,9 +371,9 @@ namespace Technological_Future_AI.Telas
             this.corpo.Controls.Add(this.btn_coordenador);
             this.corpo.Controls.Add(this.btn_diretor);
             this.corpo.Controls.Add(this.btn_presidente);
-            this.corpo.Location = new System.Drawing.Point(20, 297);
+            this.corpo.Location = new System.Drawing.Point(20, 315);
             this.corpo.Name = "corpo";
-            this.corpo.Size = new System.Drawing.Size(310, 155);
+            this.corpo.Size = new System.Drawing.Size(330, 155);
             this.corpo.TabIndex = 11;
             // 
             // btn_analista
@@ -339,7 +386,7 @@ namespace Technological_Future_AI.Telas
             this.btn_analista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_analista.Location = new System.Drawing.Point(0, 120);
             this.btn_analista.Name = "btn_analista";
-            this.btn_analista.Size = new System.Drawing.Size(310, 30);
+            this.btn_analista.Size = new System.Drawing.Size(330, 30);
             this.btn_analista.TabIndex = 5;
             this.btn_analista.Text = "ANALISTA";
             this.btn_analista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -356,7 +403,7 @@ namespace Technological_Future_AI.Telas
             this.btn_supervisor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_supervisor.Location = new System.Drawing.Point(0, 90);
             this.btn_supervisor.Name = "btn_supervisor";
-            this.btn_supervisor.Size = new System.Drawing.Size(310, 30);
+            this.btn_supervisor.Size = new System.Drawing.Size(330, 30);
             this.btn_supervisor.TabIndex = 4;
             this.btn_supervisor.Text = "SUPERVISOR(A)";
             this.btn_supervisor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -373,7 +420,7 @@ namespace Technological_Future_AI.Telas
             this.btn_coordenador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_coordenador.Location = new System.Drawing.Point(0, 60);
             this.btn_coordenador.Name = "btn_coordenador";
-            this.btn_coordenador.Size = new System.Drawing.Size(310, 30);
+            this.btn_coordenador.Size = new System.Drawing.Size(330, 30);
             this.btn_coordenador.TabIndex = 3;
             this.btn_coordenador.Text = "COORDENADOR(A)";
             this.btn_coordenador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -390,7 +437,7 @@ namespace Technological_Future_AI.Telas
             this.btn_diretor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_diretor.Location = new System.Drawing.Point(0, 30);
             this.btn_diretor.Name = "btn_diretor";
-            this.btn_diretor.Size = new System.Drawing.Size(310, 30);
+            this.btn_diretor.Size = new System.Drawing.Size(330, 30);
             this.btn_diretor.TabIndex = 2;
             this.btn_diretor.Text = "DIRETOR(A)";
             this.btn_diretor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -407,146 +454,17 @@ namespace Technological_Future_AI.Telas
             this.btn_presidente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_presidente.Location = new System.Drawing.Point(0, 0);
             this.btn_presidente.Name = "btn_presidente";
-            this.btn_presidente.Size = new System.Drawing.Size(310, 30);
+            this.btn_presidente.Size = new System.Drawing.Size(330, 30);
             this.btn_presidente.TabIndex = 1;
             this.btn_presidente.Text = "PRESIDENTE";
             this.btn_presidente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_presidente.UseVisualStyleBackColor = true;
             this.btn_presidente.Click += new System.EventHandler(this.btn_presidente_Click);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(48, 104);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 13);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "FULL NAME:";
-            // 
-            // check_traducao
-            // 
-            this.check_traducao.AutoSize = true;
-            this.check_traducao.FlatAppearance.BorderSize = 0;
-            this.check_traducao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.check_traducao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.check_traducao.ForeColor = System.Drawing.Color.White;
-            this.check_traducao.Location = new System.Drawing.Point(10, 457);
-            this.check_traducao.Name = "check_traducao";
-            this.check_traducao.Size = new System.Drawing.Size(85, 21);
-            this.check_traducao.TabIndex = 8;
-            this.check_traducao.Text = "Tradução";
-            this.check_traducao.UseVisualStyleBackColor = true;
-            // 
-            // voltarLogin
-            // 
-            this.voltarLogin.AutoSize = true;
-            this.voltarLogin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.voltarLogin.ForeColor = System.Drawing.Color.White;
-            this.voltarLogin.Location = new System.Drawing.Point(112, 402);
-            this.voltarLogin.Name = "voltarLogin";
-            this.voltarLogin.Size = new System.Drawing.Size(127, 21);
-            this.voltarLogin.TabIndex = 32;
-            this.voltarLogin.Text = "Voltar ao Login";
-            this.voltarLogin.Click += new System.EventHandler(this.voltarLogin_Click);
-            // 
-            // btn_signup
-            // 
-            this.btn_signup.AutoSize = true;
-            this.btn_signup.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_signup.ForeColor = System.Drawing.Color.White;
-            this.btn_signup.Location = new System.Drawing.Point(141, 352);
-            this.btn_signup.Name = "btn_signup";
-            this.btn_signup.Size = new System.Drawing.Size(69, 21);
-            this.btn_signup.TabIndex = 33;
-            this.btn_signup.Text = "SIGNUP";
-            this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
-            // 
-            // lbl_LogIn
-            // 
-            this.lbl_LogIn.AutoSize = true;
-            this.lbl_LogIn.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_LogIn.ForeColor = System.Drawing.Color.LightGray;
-            this.lbl_LogIn.Location = new System.Drawing.Point(118, 317);
-            this.lbl_LogIn.Name = "lbl_LogIn";
-            this.lbl_LogIn.Size = new System.Drawing.Size(52, 21);
-            this.lbl_LogIn.TabIndex = 7;
-            this.lbl_LogIn.Text = "LogIn";
-            this.lbl_LogIn.Click += new System.EventHandler(this.lbl_LogIn_Click);
-            // 
-            // lbl_SignUp
-            // 
-            this.lbl_SignUp.AutoSize = true;
-            this.lbl_SignUp.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_SignUp.ForeColor = System.Drawing.Color.White;
-            this.lbl_SignUp.Location = new System.Drawing.Point(145, 385);
-            this.lbl_SignUp.Name = "lbl_SignUp";
-            this.lbl_SignUp.Size = new System.Drawing.Size(64, 21);
-            this.lbl_SignUp.TabIndex = 3;
-            this.lbl_SignUp.Text = "SignUp";
-            this.lbl_SignUp.Click += new System.EventHandler(this.lbl_SignUp_Click);
-            this.lbl_SignUp.MouseEnter += new System.EventHandler(this.lbl_SignUp_MouseEnter);
-            this.lbl_SignUp.MouseLeave += new System.EventHandler(this.lbl_SignUp_MouseLeave);
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.ForeColor = System.Drawing.Color.White;
-            this.checkBox3.Location = new System.Drawing.Point(19, 459);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(94, 24);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "Tradução";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // tb_password
-            // 
-            this.tb_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.tb_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_password.ForeColor = System.Drawing.Color.LightGray;
-            this.tb_password.Location = new System.Drawing.Point(142, 292);
-            this.tb_password.Name = "tb_password";
-            this.tb_password.Size = new System.Drawing.Size(165, 13);
-            this.tb_password.TabIndex = 1;
-            // 
-            // pnl_linha_password
-            // 
-            this.pnl_linha_password.BackColor = System.Drawing.Color.LightGray;
-            this.pnl_linha_password.Location = new System.Drawing.Point(142, 306);
-            this.pnl_linha_password.Name = "pnl_linha_password";
-            this.pnl_linha_password.Size = new System.Drawing.Size(165, 1);
-            this.pnl_linha_password.TabIndex = 4;
-            // 
-            // btn_login
-            // 
-            this.btn_login.AutoSize = true;
-            this.btn_login.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_login.ForeColor = System.Drawing.Color.White;
-            this.btn_login.Location = new System.Drawing.Point(145, 340);
-            this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(65, 21);
-            this.btn_login.TabIndex = 8;
-            this.btn_login.Text = "Acesso";
-            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
-            // 
-            // lbl_AlterarSenha
-            // 
-            this.lbl_AlterarSenha.AutoSize = true;
-            this.lbl_AlterarSenha.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_AlterarSenha.ForeColor = System.Drawing.Color.White;
-            this.lbl_AlterarSenha.Location = new System.Drawing.Point(119, 430);
-            this.lbl_AlterarSenha.Name = "lbl_AlterarSenha";
-            this.lbl_AlterarSenha.Size = new System.Drawing.Size(117, 21);
-            this.lbl_AlterarSenha.TabIndex = 9;
-            this.lbl_AlterarSenha.Text = "Alterar Senha";
-            this.lbl_AlterarSenha.Click += new System.EventHandler(this.lbl_AlterarSenha_Click);
-            // 
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(20, 195);
+            this.pictureBox7.Location = new System.Drawing.Point(18, 214);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(25, 25);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -556,17 +474,56 @@ namespace Technological_Future_AI.Telas
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(20, 160);
+            this.pictureBox8.Location = new System.Drawing.Point(18, 173);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(25, 25);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 22;
             this.pictureBox8.TabStop = false;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.LightGray;
+            this.panel2.Location = new System.Drawing.Point(116, 116);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(235, 1);
+            this.panel2.TabIndex = 19;
+            // 
+            // BMT_Full_Name
+            // 
+            this.BMT_Full_Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.BMT_Full_Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BMT_Full_Name.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BMT_Full_Name.ForeColor = System.Drawing.Color.LightGray;
+            this.BMT_Full_Name.Location = new System.Drawing.Point(118, 97);
+            this.BMT_Full_Name.Name = "BMT_Full_Name";
+            this.BMT_Full_Name.Size = new System.Drawing.Size(235, 20);
+            this.BMT_Full_Name.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(45, 145);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 15);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "E-MAIL:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(46, 104);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(69, 15);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "FULL NAME:";
+            // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(20, 129);
+            this.pictureBox5.Location = new System.Drawing.Point(18, 134);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(25, 25);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -576,7 +533,7 @@ namespace Technological_Future_AI.Telas
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(20, 94);
+            this.pictureBox6.Location = new System.Drawing.Point(18, 94);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(25, 25);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -591,10 +548,10 @@ namespace Technological_Future_AI.Telas
             this.btn_position.ForeColor = System.Drawing.Color.White;
             this.btn_position.Image = global::Technological_Future_AI.Properties.Resources.seta_para_baixo;
             this.btn_position.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_position.Location = new System.Drawing.Point(20, 265);
+            this.btn_position.Location = new System.Drawing.Point(20, 283);
             this.btn_position.Name = "btn_position";
             this.btn_position.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btn_position.Size = new System.Drawing.Size(310, 30);
+            this.btn_position.Size = new System.Drawing.Size(330, 30);
             this.btn_position.TabIndex = 0;
             this.btn_position.Text = "POSITION";
             this.btn_position.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -604,18 +561,171 @@ namespace Technological_Future_AI.Telas
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-1, -11);
+            this.pictureBox2.Location = new System.Drawing.Point(1, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(90, 98);
+            this.pictureBox2.Size = new System.Drawing.Size(75, 70);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseDown);
             // 
+            // check_traducao
+            // 
+            this.check_traducao.AutoSize = true;
+            this.check_traducao.FlatAppearance.BorderSize = 0;
+            this.check_traducao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.check_traducao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.check_traducao.ForeColor = System.Drawing.Color.White;
+            this.check_traducao.Location = new System.Drawing.Point(7, 486);
+            this.check_traducao.Name = "check_traducao";
+            this.check_traducao.Size = new System.Drawing.Size(85, 21);
+            this.check_traducao.TabIndex = 8;
+            this.check_traducao.Text = "Tradução";
+            this.check_traducao.UseVisualStyleBackColor = true;
+            this.check_traducao.MouseEnter += new System.EventHandler(this.check_traducao_MouseEnter);
+            this.check_traducao.MouseLeave += new System.EventHandler(this.check_traducao_MouseLeave);
+            // 
+            // btn_signup
+            // 
+            this.btn_signup.FlatAppearance.BorderSize = 0;
+            this.btn_signup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_signup.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_signup.ForeColor = System.Drawing.Color.White;
+            this.btn_signup.Location = new System.Drawing.Point(115, 344);
+            this.btn_signup.Name = "btn_signup";
+            this.btn_signup.Size = new System.Drawing.Size(140, 35);
+            this.btn_signup.TabIndex = 39;
+            this.btn_signup.Text = "SIGNUP";
+            this.btn_signup.UseVisualStyleBackColor = true;
+            this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
+            this.btn_signup.MouseEnter += new System.EventHandler(this.btn_signup_MouseEnter);
+            this.btn_signup.MouseLeave += new System.EventHandler(this.btn_signup_MouseLeave);
+            // 
+            // voltarLogin
+            // 
+            this.voltarLogin.FlatAppearance.BorderSize = 0;
+            this.voltarLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.voltarLogin.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.voltarLogin.ForeColor = System.Drawing.Color.White;
+            this.voltarLogin.Location = new System.Drawing.Point(115, 393);
+            this.voltarLogin.Name = "voltarLogin";
+            this.voltarLogin.Size = new System.Drawing.Size(140, 35);
+            this.voltarLogin.TabIndex = 38;
+            this.voltarLogin.Text = "RETURN TO LOGIN";
+            this.voltarLogin.UseVisualStyleBackColor = true;
+            this.voltarLogin.Click += new System.EventHandler(this.voltarLogin_Click);
+            this.voltarLogin.MouseEnter += new System.EventHandler(this.voltarLogin_MouseEnter);
+            this.voltarLogin.MouseLeave += new System.EventHandler(this.voltarLogin_MouseLeave);
+            // 
+            // lbl_LogIn
+            // 
+            this.lbl_LogIn.AutoSize = true;
+            this.lbl_LogIn.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_LogIn.ForeColor = System.Drawing.Color.LightGray;
+            this.lbl_LogIn.Location = new System.Drawing.Point(118, 317);
+            this.lbl_LogIn.Name = "lbl_LogIn";
+            this.lbl_LogIn.Size = new System.Drawing.Size(52, 21);
+            this.lbl_LogIn.TabIndex = 7;
+            this.lbl_LogIn.Text = "LogIn";
+            this.lbl_LogIn.Click += new System.EventHandler(this.lbl_LogIn_Click);
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox3.ForeColor = System.Drawing.Color.White;
+            this.checkBox3.Location = new System.Drawing.Point(11, 506);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(94, 24);
+            this.checkBox3.TabIndex = 4;
+            this.checkBox3.Text = "Tradução";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.MouseEnter += new System.EventHandler(this.checkBox3_MouseEnter);
+            this.checkBox3.MouseLeave += new System.EventHandler(this.checkBox3_MouseLeave);
+            // 
+            // tb_password
+            // 
+            this.tb_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.tb_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_password.ForeColor = System.Drawing.Color.White;
+            this.tb_password.Location = new System.Drawing.Point(127, 314);
+            this.tb_password.Name = "tb_password";
+            this.tb_password.PasswordChar = '*';
+            this.tb_password.Size = new System.Drawing.Size(160, 13);
+            this.tb_password.TabIndex = 1;
+            // 
+            // pnl_linha_password
+            // 
+            this.pnl_linha_password.BackColor = System.Drawing.Color.White;
+            this.pnl_linha_password.Location = new System.Drawing.Point(127, 329);
+            this.pnl_linha_password.Name = "pnl_linha_password";
+            this.pnl_linha_password.Size = new System.Drawing.Size(195, 1);
+            this.pnl_linha_password.TabIndex = 4;
+            // 
+            // btn_login
+            // 
+            this.btn_login.FlatAppearance.BorderSize = 0;
+            this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_login.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_login.ForeColor = System.Drawing.Color.White;
+            this.btn_login.Location = new System.Drawing.Point(105, 361);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(140, 35);
+            this.btn_login.TabIndex = 20;
+            this.btn_login.Text = "ACESSO";
+            this.btn_login.UseVisualStyleBackColor = true;
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
+            this.btn_login.MouseEnter += new System.EventHandler(this.btn_login_MouseEnter);
+            this.btn_login.MouseLeave += new System.EventHandler(this.btn_login_MouseLeave);
+            // 
+            // lbl_AlterarSenha
+            // 
+            this.lbl_AlterarSenha.FlatAppearance.BorderSize = 0;
+            this.lbl_AlterarSenha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_AlterarSenha.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_AlterarSenha.ForeColor = System.Drawing.Color.White;
+            this.lbl_AlterarSenha.Location = new System.Drawing.Point(105, 455);
+            this.lbl_AlterarSenha.Name = "lbl_AlterarSenha";
+            this.lbl_AlterarSenha.Size = new System.Drawing.Size(140, 35);
+            this.lbl_AlterarSenha.TabIndex = 21;
+            this.lbl_AlterarSenha.Text = "ALTERAR SENHA";
+            this.lbl_AlterarSenha.UseVisualStyleBackColor = true;
+            this.lbl_AlterarSenha.Click += new System.EventHandler(this.lbl_AlterarSenha_Click);
+            this.lbl_AlterarSenha.MouseEnter += new System.EventHandler(this.lbl_AlterarSenha_MouseEnter);
+            this.lbl_AlterarSenha.MouseLeave += new System.EventHandler(this.lbl_AlterarSenha_MouseLeave);
+            // 
+            // lbl_SignUp
+            // 
+            this.lbl_SignUp.FlatAppearance.BorderSize = 0;
+            this.lbl_SignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_SignUp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_SignUp.ForeColor = System.Drawing.Color.White;
+            this.lbl_SignUp.Location = new System.Drawing.Point(105, 408);
+            this.lbl_SignUp.Name = "lbl_SignUp";
+            this.lbl_SignUp.Size = new System.Drawing.Size(140, 35);
+            this.lbl_SignUp.TabIndex = 22;
+            this.lbl_SignUp.Text = "SIGNUP";
+            this.lbl_SignUp.UseVisualStyleBackColor = true;
+            this.lbl_SignUp.Click += new System.EventHandler(this.lbl_SignUp_Click);
+            this.lbl_SignUp.MouseEnter += new System.EventHandler(this.lbl_SignUp_MouseEnter_1);
+            this.lbl_SignUp.MouseLeave += new System.EventHandler(this.lbl_SignUp_MouseLeave_1);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::Technological_Future_AI.Properties.Resources.fechar_o_olho;
+            this.pictureBox10.Location = new System.Drawing.Point(293, 299);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 23;
+            this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(44, 285);
+            this.pictureBox4.Location = new System.Drawing.Point(29, 308);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(25, 25);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -625,7 +735,7 @@ namespace Technological_Future_AI.Telas
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(44, 234);
+            this.pictureBox3.Location = new System.Drawing.Point(29, 257);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(25, 25);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -635,59 +745,20 @@ namespace Technological_Future_AI.Telas
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(66, -19);
+            this.pictureBox1.Location = new System.Drawing.Point(90, 36);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(218, 206);
+            this.pictureBox1.Size = new System.Drawing.Size(170, 160);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.LightGray;
-            this.panel6.Location = new System.Drawing.Point(136, 251);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(190, 1);
-            this.panel6.TabIndex = 37;
-            // 
-            // tb_celular
-            // 
-            this.tb_celular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.tb_celular.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_celular.ForeColor = System.Drawing.Color.LightGray;
-            this.tb_celular.Location = new System.Drawing.Point(137, 237);
-            this.tb_celular.Name = "tb_celular";
-            this.tb_celular.Size = new System.Drawing.Size(190, 13);
-            this.tb_celular.TabIndex = 34;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(49, 239);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 13);
-            this.label9.TabIndex = 36;
-            this.label9.Text = "SEU CELULAR";
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(21, 230);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 35;
-            this.pictureBox9.TabStop = false;
             // 
             // Tela_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(350, 520);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(370, 550);
             this.Controls.Add(this.BMT_SignUp);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.pnl_linha_password);
@@ -695,33 +766,39 @@ namespace Technological_Future_AI.Telas
             this.Controls.Add(this.tb_password);
             this.Controls.Add(this.tb_username);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbl_SignUp);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbl_fechar);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_login);
+            this.Controls.Add(this.lbl_SignUp);
             this.Controls.Add(this.lbl_AlterarSenha);
+            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Tela_login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela_login";
             this.Activated += new System.EventHandler(this.Tela_login_Activated);
+            this.Load += new System.EventHandler(this.Tela_login_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tela_login_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_login_MouseDown);
             this.BMT_SignUp.ResumeLayout(false);
             this.BMT_SignUp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ValidacaoSenha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ValidacaoSenha2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.corpo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -742,7 +819,6 @@ namespace Technological_Future_AI.Telas
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lbl_SignUp;
         private System.Windows.Forms.CheckBox check_traducao;
         private System.Windows.Forms.Label lbl_LogIn;
         private System.Windows.Forms.CheckBox checkBox3;
@@ -771,13 +847,17 @@ namespace Technological_Future_AI.Telas
         private System.Windows.Forms.TextBox BMT_Email;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox BMT_Password;
-        private System.Windows.Forms.Label btn_login;
-        private System.Windows.Forms.Label voltarLogin;
-        private System.Windows.Forms.Label btn_signup;
-        private System.Windows.Forms.Label lbl_AlterarSenha;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox tb_celular;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Button btn_login;
+        private System.Windows.Forms.Button lbl_AlterarSenha;
+        private System.Windows.Forms.Button lbl_SignUp;
+        private System.Windows.Forms.Button btn_signup;
+        private System.Windows.Forms.Button voltarLogin;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox ValidacaoSenha2;
+        private System.Windows.Forms.PictureBox ValidacaoSenha;
     }
 }

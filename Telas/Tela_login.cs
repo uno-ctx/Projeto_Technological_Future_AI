@@ -31,7 +31,6 @@ namespace Technological_Future_AI.Telas
 
         [DllImport("user32.dll")]
         public static extern IntPtr SendMessage(IntPtr hwnd, int Msg, int wParam, int lParam);  
-
       
         private void Tela_login_Activated(object sender, EventArgs e)
         {
@@ -201,6 +200,16 @@ namespace Technological_Future_AI.Telas
         {
             btn_position.Text = "ANALISTA";
             corpo.Visible = false;
+        }    
+
+        private void lbl_fechar_MouseEnter(object sender, EventArgs e)
+        {
+            lbl_fechar.ForeColor = Color.Red;
+        }
+
+        private void lbl_fechar_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_fechar.ForeColor = Color.White;
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -249,7 +258,7 @@ namespace Technological_Future_AI.Telas
                             Globais.nivel = nivelUsuarios;
                             Globais.logado = true;
 
-                            this.Hide();
+
                             tm.ShowDialog();
                             this.Close();
                             return;
@@ -266,6 +275,72 @@ namespace Technological_Future_AI.Telas
             {
                 MessageBox.Show($"Erro ao realizar login: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void lbl_AlterarSenha_Click(object sender, EventArgs e)
+        {
+            Telas.AlterarSenha AS = new Telas.AlterarSenha();
+            AS.Show();
+            this.Hide();
+            AS.tb_password.PasswordChar = '*';
+        }
+
+   
+
+        private void btn_login_MouseEnter(object sender, EventArgs e)
+        {
+            btn_login.FlatAppearance.BorderSize = 1;
+            btn_login.FlatAppearance.BorderColor = Color.Lime;
+            btn_login.ForeColor = Color.Lime;
+        }
+
+        private void btn_login_MouseLeave(object sender, EventArgs e)
+        {
+            btn_login.FlatAppearance.BorderSize = 0;
+            btn_login.FlatAppearance.BorderColor = Color.Empty;
+            btn_login.ForeColor = Color.White;
+        }
+
+        private void lbl_SignUp_MouseEnter_1(object sender, EventArgs e)
+        {
+            lbl_SignUp.FlatAppearance.BorderSize = 1;
+            lbl_SignUp.FlatAppearance.BorderColor = Color.Lime;
+            lbl_SignUp.ForeColor = Color.Lime;
+        }
+
+        private void lbl_SignUp_MouseLeave_1(object sender, EventArgs e)
+        {
+            lbl_SignUp.FlatAppearance.BorderSize = 0;
+            lbl_SignUp.FlatAppearance.BorderColor = Color.Empty;
+            lbl_SignUp.ForeColor = Color.White;
+        }
+
+        private void lbl_AlterarSenha_MouseEnter(object sender, EventArgs e)
+        {
+            lbl_AlterarSenha.FlatAppearance.BorderSize = 1;
+            lbl_AlterarSenha.FlatAppearance.BorderColor = Color.Lime;
+            lbl_AlterarSenha.ForeColor = Color.Lime;
+        }
+
+        private void lbl_AlterarSenha_MouseLeave(object sender, EventArgs e)
+        {
+            lbl_AlterarSenha.FlatAppearance.BorderSize = 0;
+            lbl_AlterarSenha.FlatAppearance.BorderColor = Color.Empty;
+            lbl_AlterarSenha.ForeColor = Color.White;
+        }
+
+        private void checkBox3_MouseEnter(object sender, EventArgs e)
+        {
+            checkBox3.FlatAppearance.BorderSize = 1;
+            checkBox3.FlatAppearance.BorderColor = Color.Lime;
+            checkBox3.ForeColor = Color.Lime;
+        }
+
+        private void checkBox3_MouseLeave(object sender, EventArgs e)
+        {
+            checkBox3.FlatAppearance.BorderSize = 0;
+            checkBox3.FlatAppearance.BorderColor = Color.Empty;
+            checkBox3.ForeColor = Color.White;
         }
 
         private void btn_signup_Click(object sender, EventArgs e)
@@ -430,23 +505,93 @@ namespace Technological_Future_AI.Telas
             BMT_SignUp.Visible = false;
         }
 
-        private void lbl_AlterarSenha_Click(object sender, EventArgs e)
+        private void btn_signup_MouseEnter(object sender, EventArgs e)
         {
-            Telas.AlterarSenha AS = new Telas.AlterarSenha();
-            AS.Show();
-            this.Hide();
-            AS.tb_password.PasswordChar = '*';
-            AS.tb_ReEnterPassword.PasswordChar = '*';
+            btn_signup.FlatAppearance.BorderSize = 1;
+            btn_signup.FlatAppearance.BorderColor = Color.Lime;
+            btn_signup.ForeColor = Color.Lime;
         }
 
-        private void lbl_fechar_MouseEnter(object sender, EventArgs e)
+        private void btn_signup_MouseLeave(object sender, EventArgs e)
         {
-            lbl_fechar.ForeColor = Color.Red;
+            btn_signup.FlatAppearance.BorderSize = 0;
+            btn_signup.FlatAppearance.BorderColor = Color.Empty;
+            btn_signup.ForeColor = Color.White;
         }
 
-        private void lbl_fechar_MouseLeave(object sender, EventArgs e)
+        private void voltarLogin_MouseEnter(object sender, EventArgs e)
         {
-            lbl_fechar.ForeColor = Color.White;
+            voltarLogin.FlatAppearance.BorderSize = 1;
+            voltarLogin.FlatAppearance.BorderColor = Color.Lime;
+            voltarLogin.ForeColor = Color.Lime;
+        }
+
+        private void voltarLogin_MouseLeave(object sender, EventArgs e)
+        {
+            voltarLogin.FlatAppearance.BorderSize = 0;
+            voltarLogin.FlatAppearance.BorderColor = Color.Empty;
+            voltarLogin.ForeColor = Color.White;
+        }
+
+        private void check_traducao_MouseEnter(object sender, EventArgs e)
+        {
+            check_traducao.FlatAppearance.BorderSize = 1;
+            check_traducao.FlatAppearance.BorderColor = Color.Lime;
+            check_traducao.ForeColor = Color.Lime;
+        }
+
+        private void check_traducao_MouseLeave(object sender, EventArgs e)
+        {
+            check_traducao.FlatAppearance.BorderSize = 0;
+            check_traducao.FlatAppearance.BorderColor = Color.Empty;
+            check_traducao.ForeColor = Color.White;
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            if (tb_password.PasswordChar == '*')
+            {
+                pictureBox10.Image = Properties.Resources.olho; // Troca para "fechar olho"
+                tb_password.PasswordChar = '\0'; // Exibe o texto da senha
+            }
+            else
+            {
+                pictureBox10.Image = Properties.Resources.fechar_o_olho; // Troca para "abrir olho"
+                tb_password.PasswordChar = '*'; // Oculta o texto da senha
+            }
+        }
+
+        private void Tela_login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ValidacaoSenha_Click(object sender, EventArgs e)
+        {
+            if (BMT_Password.PasswordChar == '*')
+            {
+                pictureBox10.Image = Properties.Resources.olho; // Troca para "fechar olho"
+                BMT_Password.PasswordChar = '\0'; // Exibe o texto da senha
+            }
+            else
+            {
+                pictureBox10.Image = Properties.Resources.fechar_o_olho; // Troca para "abrir olho"
+                BMT_Password.PasswordChar = '*'; // Oculta o texto da senha
+            }
+        }
+
+        private void ValidacaoSenha2_Click(object sender, EventArgs e)
+        {
+            if (BMT_Re_Enter_Password.PasswordChar == '*')
+            {
+                pictureBox10.Image = Properties.Resources.olho; // Troca para "fechar olho"
+                BMT_Re_Enter_Password.PasswordChar = '\0'; // Exibe o texto da senha
+            }
+            else
+            {
+                pictureBox10.Image = Properties.Resources.fechar_o_olho; // Troca para "abrir olho"
+                BMT_Re_Enter_Password.PasswordChar = '*'; // Oculta o texto da senha
+            }
         }
     }
 }

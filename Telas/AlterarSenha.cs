@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Mail;
+using System.Linq.Expressions;
+using System.Collections.Generic;
+using System.Data;
+using Technological_Future_AI.Classes;
 
 namespace Technological_Future_AI.Telas
 {
@@ -39,6 +39,15 @@ namespace Technological_Future_AI.Telas
             }
         }
 
+       /* public void SendValidationEmail(string email, string validationCode)
+        {
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("")
+            }
+        }*/
+
         private void lbl_fechar_MouseEnter(object sender, EventArgs e)
         {
             lbl_fechar.ForeColor = Color.Red;
@@ -55,6 +64,89 @@ namespace Technological_Future_AI.Telas
             {
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void btn_acesso_Click(object sender, EventArgs e)
+        {
+            string username = tb_username.Text.Trim();
+            string password = tb_password.Text.Trim();
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Os campos 'username' e 'password' são obrigatórios.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                string sql = "SELECT T_SENHA_USUARIOS, T_SALT, T_Desc_Nivel_Usuarios, T_Code_Name, N_Nivel_Usuarios FROM TB_USUARIOS WHERE T_USERNAME = @username";
+                DataTable dt = Classes.Banco.Consulta(sql, new Dictionary<string, object> { { "@username", username } });
+
+                if (dt.Rows.Count == 1)
+                {
+                    string storedHash = dt.Rows[0]["T_SENHA_USUARIOS"] as string ?? string.Empty;
+                    string salt = dt.Rows[0]["T_SALT"] as string ?? string.Empty;
+
+                    if (!string.IsNullOrEmpty(storedHash) && !string.IsNullOrEmpty(salt))
+                    {
+                        string inputHash = Classes.Crypto.CrytoLogin.HashPasswordWithExistingSalt(password, salt);
+
+                        if (storedHash == inputHash)
+                        {
+                            // Dados do usuário
+                            string descricaoNivel = dt.Rows[0]["T_Desc_Nivel_Usuarios"] as string ?? string.Empty;
+                            int nivelUsuarios = dt.Rows[0]["N_Nivel_Usuarios"] != DBNull.Value
+                                ? Convert.ToInt32(dt.Rows[0]["N_Nivel_Usuarios"])
+                                : 0;
+                            string codeName = dt.Rows[0]["T_Code_Name"] as string ?? string.Empty;
+
+                            // Login bem-sucedido
+                            Telas.AlterarSenhaValidacao tm = new Telas.AlterarSenhaValidacao();
+                            tm.Show();
+                            this.Close();
+                            return;
+                        }
+                    }
+                }
+
+                MessageBox.Show("Usuário ou senha incorretos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tb_password.Clear();
+                tb_username.Clear();
+                tb_username.Focus();
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao realizar login: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_acesso_MouseEnter(object sender, EventArgs e)
+        {
+            btn_acesso.FlatAppearance.BorderSize = 1;
+            btn_acesso.FlatAppearance.BorderColor = Color.Lime;
+            btn_acesso.ForeColor = Color.Lime;
+        }
+
+        private void btn_acesso_MouseLeave(object sender, EventArgs e)
+        {
+            btn_acesso.FlatAppearance.BorderSize = 0;
+            btn_acesso.FlatAppearance.BorderColor = Color.Empty;
+            btn_acesso.ForeColor = Color.DeepSkyBlue;
+        }
+
+        private void ValidacaoSenha2_Click(object sender, EventArgs e)
+        {
+            if (tb_password.PasswordChar == '*')
+            {
+                ValidacaoSenha2.Image = Properties.Resources.olho; // Troca para "fechar olho"
+                tb_password.PasswordChar = '\0'; // Exibe o texto da senha
+            }
+            else
+            {
+                ValidacaoSenha2.Image = Properties.Resources.fechar_o_olho; // Troca para "abrir olho"
+                tb_password.PasswordChar = '*'; // Oculta o texto da senha
             }
         }
     }
