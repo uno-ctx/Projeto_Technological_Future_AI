@@ -16,6 +16,8 @@ namespace Technological_Future_AI.Telas
         public AlterarSenha()
         {
             InitializeComponent();
+            tb_password.UseSystemPasswordChar = true;
+            tb_password.PasswordChar = '\0'; // Evita conflito          
         }
 
         public const int WM_NCLBUTTONDOWN = 0XA1;
@@ -37,16 +39,7 @@ namespace Technological_Future_AI.Telas
                 Telas.Tela_login tl = new Telas.Tela_login();
                 tl.Visible = true;
             }
-        }
-
-       /* public void SendValidationEmail(string email, string validationCode)
-        {
-            var smtpClient = new SmtpClient("smtp.gmail.com")
-            {
-                Port = 587,
-                Credentials = new NetworkCredential("")
-            }
-        }*/
+        }     
 
         private void lbl_fechar_MouseEnter(object sender, EventArgs e)
         {
@@ -138,15 +131,14 @@ namespace Technological_Future_AI.Telas
 
         private void ValidacaoSenha2_Click(object sender, EventArgs e)
         {
-            if (tb_password.PasswordChar == '*')
+            if (!string.IsNullOrWhiteSpace(tb_password.Text))
             {
-                ValidacaoSenha2.Image = Properties.Resources.olho; // Troca para "fechar olho"
-                tb_password.PasswordChar = '\0'; // Exibe o texto da senha
-            }
-            else
-            {
-                ValidacaoSenha2.Image = Properties.Resources.fechar_o_olho; // Troca para "abrir olho"
-                tb_password.PasswordChar = '*'; // Oculta o texto da senha
+                tb_password.PasswordChar = '\0';
+                tb_password.UseSystemPasswordChar = !tb_password.UseSystemPasswordChar;
+
+                ValidacaoSenha2.Image = tb_password.UseSystemPasswordChar
+                    ? Properties.Resources.fechar_o_olho2
+                    : Properties.Resources.olho2;
             }
         }
     }

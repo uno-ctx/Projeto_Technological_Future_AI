@@ -21,6 +21,13 @@ namespace Technological_Future_AI.Telas
             pnl_linha_username.BackColor = Color.White;
             pnl_linha_password.BackColor = Color.White;
             this.KeyPreview = true;
+            // Inicializa a senha oculta com '*'
+            BMT_Password.UseSystemPasswordChar = true;
+            BMT_Password.PasswordChar = '\0'; // Evita conflito
+            BMT_Re_Enter_Password.UseSystemPasswordChar = true;
+            BMT_Re_Enter_Password.PasswordChar = '\0';
+            tb_password.UseSystemPasswordChar = true;
+            tb_password.PasswordChar = '\0';
         }
 
         public const int WM_NCLBUTTONDOWN = 0XA1;
@@ -149,27 +156,6 @@ namespace Technological_Future_AI.Telas
                 // Certifique-se de ocultar outros corpos
                 btn_position.Image = Resources.setas_para_cima;
             }
-        }
-
-        private void lbl_SignUp_MouseEnter(object sender, EventArgs e)
-        {
-            lbl_SignUp.ForeColor = Color.Lime;
-        }
-
-        private void lbl_SignUp_MouseLeave(object sender, EventArgs e)
-        {
-            lbl_SignUp.ForeColor = Color.White;
-        }
-
-        private void bunifuTileButton1_Click(object sender, EventArgs e)
-        {
-            BMT_SignUp.Visible = false;
-        }
-
-        private void BMT_Termos_Click(object sender, EventArgs e)
-        {
-            Tela_Termos tt = new Tela_Termos();
-            tt.Show();
         }
 
         private void btn_presidente_Click(object sender, EventArgs e)
@@ -549,50 +535,47 @@ namespace Technological_Future_AI.Telas
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-            if (tb_password.PasswordChar == '*')
+            if (!string.IsNullOrWhiteSpace(tb_password.Text))
             {
-                pictureBox10.Image = Properties.Resources.olho; // Troca para "fechar olho"
-                tb_password.PasswordChar = '\0'; // Exibe o texto da senha
-            }
-            else
-            {
-                pictureBox10.Image = Properties.Resources.fechar_o_olho; // Troca para "abrir olho"
-                tb_password.PasswordChar = '*'; // Oculta o texto da senha
-            }
-        }
+                tb_password.PasswordChar = '\0';
+                tb_password.UseSystemPasswordChar = !tb_password.UseSystemPasswordChar;
 
-        private void Tela_login_Load(object sender, EventArgs e)
-        {
-
-        }
+                ValidacaoSenha2.Image = tb_password.UseSystemPasswordChar
+                    ? Properties.Resources.fechar_o_olho2
+                    : Properties.Resources.olho2;
+            }
+        }     
 
         private void ValidacaoSenha_Click(object sender, EventArgs e)
         {
-            if (BMT_Password.PasswordChar == '*')
+            if (!string.IsNullOrWhiteSpace(BMT_Password.Text))
             {
-                pictureBox10.Image = Properties.Resources.olho; // Troca para "fechar olho"
-                BMT_Password.PasswordChar = '\0'; // Exibe o texto da senha
-            }
-            else
-            {
-                pictureBox10.Image = Properties.Resources.fechar_o_olho; // Troca para "abrir olho"
-                BMT_Password.PasswordChar = '*'; // Oculta o texto da senha
+                // Remove conflito com PasswordChar
+                BMT_Password.PasswordChar = '\0';
+
+                // Alterna a visibilidade da senha
+                BMT_Password.UseSystemPasswordChar = !BMT_Password.UseSystemPasswordChar;
+
+                // Atualiza o ícone
+                ValidacaoSenha.Image = BMT_Password.UseSystemPasswordChar
+                    ? Properties.Resources.fechar_o_olho
+                    : Properties.Resources.olho;
             }
         }
 
         private void ValidacaoSenha2_Click(object sender, EventArgs e)
         {
-            if (BMT_Re_Enter_Password.PasswordChar == '*')
+            if (!string.IsNullOrWhiteSpace(BMT_Re_Enter_Password.Text))
             {
-                pictureBox10.Image = Properties.Resources.olho; // Troca para "fechar olho"
-                BMT_Re_Enter_Password.PasswordChar = '\0'; // Exibe o texto da senha
-            }
-            else
-            {
-                pictureBox10.Image = Properties.Resources.fechar_o_olho; // Troca para "abrir olho"
-                BMT_Re_Enter_Password.PasswordChar = '*'; // Oculta o texto da senha
+                BMT_Re_Enter_Password.PasswordChar = '\0';
+                BMT_Re_Enter_Password.UseSystemPasswordChar = !BMT_Re_Enter_Password.UseSystemPasswordChar;
+
+                ValidacaoSenha2.Image = BMT_Re_Enter_Password.UseSystemPasswordChar
+                    ? Properties.Resources.fechar_o_olho2
+                    : Properties.Resources.olho2;
             }
         }
+
     }
 }
 

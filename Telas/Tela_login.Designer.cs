@@ -80,10 +80,10 @@ namespace Technological_Future_AI.Telas
             this.btn_login = new System.Windows.Forms.Button();
             this.lbl_AlterarSenha = new System.Windows.Forms.Button();
             this.lbl_SignUp = new System.Windows.Forms.Button();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.BMT_SignUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ValidacaoSenha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ValidacaoSenha2)).BeginInit();
@@ -94,10 +94,10 @@ namespace Technological_Future_AI.Telas
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_fechar
@@ -197,7 +197,7 @@ namespace Technological_Future_AI.Telas
             this.BMT_SignUp.Controls.Add(this.btn_signup);
             this.BMT_SignUp.Controls.Add(this.voltarLogin);
             this.BMT_SignUp.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BMT_SignUp.Location = new System.Drawing.Point(0, 22);
+            this.BMT_SignUp.Location = new System.Drawing.Point(0, 23);
             this.BMT_SignUp.Name = "BMT_SignUp";
             this.BMT_SignUp.Size = new System.Drawing.Size(370, 515);
             this.BMT_SignUp.TabIndex = 6;
@@ -205,7 +205,7 @@ namespace Technological_Future_AI.Telas
             // 
             // ValidacaoSenha
             // 
-            this.ValidacaoSenha.Image = global::Technological_Future_AI.Properties.Resources.fechar_o_olho;
+            this.ValidacaoSenha.Image = global::Technological_Future_AI.Properties.Resources.fechar_o_olho2;
             this.ValidacaoSenha.Location = new System.Drawing.Point(322, 169);
             this.ValidacaoSenha.Name = "ValidacaoSenha";
             this.ValidacaoSenha.Size = new System.Drawing.Size(26, 26);
@@ -711,17 +711,6 @@ namespace Technological_Future_AI.Telas
             this.lbl_SignUp.MouseEnter += new System.EventHandler(this.lbl_SignUp_MouseEnter_1);
             this.lbl_SignUp.MouseLeave += new System.EventHandler(this.lbl_SignUp_MouseLeave_1);
             // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = global::Technological_Future_AI.Properties.Resources.fechar_o_olho;
-            this.pictureBox10.Location = new System.Drawing.Point(293, 299);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(28, 28);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 23;
-            this.pictureBox10.TabStop = false;
-            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
-            // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
@@ -753,6 +742,17 @@ namespace Technological_Future_AI.Telas
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::Technological_Future_AI.Properties.Resources.fechar_o_olho;
+            this.pictureBox10.Location = new System.Drawing.Point(293, 299);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 23;
+            this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
+            // 
             // Tela_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -781,7 +781,6 @@ namespace Technological_Future_AI.Telas
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela_login";
             this.Activated += new System.EventHandler(this.Tela_login_Activated);
-            this.Load += new System.EventHandler(this.Tela_login_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tela_login_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tela_login_MouseDown);
             this.BMT_SignUp.ResumeLayout(false);
@@ -795,10 +794,10 @@ namespace Technological_Future_AI.Telas
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

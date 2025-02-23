@@ -83,6 +83,16 @@ namespace Technological_Future_AI.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fechar_o_olho2 {
+            get {
+                object obj = ResourceManager.GetObject("fechar-o-olho2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ligado {
             get {
                 object obj = ResourceManager.GetObject("Ligado", resourceCulture);
@@ -106,6 +116,16 @@ namespace Technological_Future_AI.Properties {
         internal static System.Drawing.Bitmap olho_fechado {
             get {
                 object obj = ResourceManager.GetObject("olho-fechado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap olho2 {
+            get {
+                object obj = ResourceManager.GetObject("olho2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
